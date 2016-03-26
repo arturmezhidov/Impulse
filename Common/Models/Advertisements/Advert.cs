@@ -15,9 +15,9 @@ namespace Impulse.Common.Models.Advertisements
 		public string Image { get; set; }
 
 		public int MaterialId { get; set; }
-		public virtual Material Material { get; set; }
+		public virtual AdvertMaterial Material { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual Category Category { get; set; }
+		public virtual AdvertsCategory Category { get; set; }
 	}
 }

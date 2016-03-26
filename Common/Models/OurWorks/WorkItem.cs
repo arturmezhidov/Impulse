@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.OurWorks
 {
-	public class Item
+	public class WorkItem
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
@@ -14,6 +14,6 @@ namespace Impulse.Common.Models.OurWorks
 		public string Image { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual Category Category { get; set; }
+		public virtual WorkItemsCategory Category { get; set; }
 	}
 }

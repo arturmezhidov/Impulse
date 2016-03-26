@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.Stends
+namespace Impulse.Common.Models.Advertisements
 {
-	public class Material
+	public class AdvertMaterial
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
 
-		public ICollection<Stend> Stends { get; set; }
+		public ICollection<Advert> Adverts { get; set; }
 
-		public Material()
+		public AdvertMaterial()
 		{
-			Stends = new HashSet<Stend>();
+			Adverts = new HashSet<Advert>();
 		}
 	}
 }

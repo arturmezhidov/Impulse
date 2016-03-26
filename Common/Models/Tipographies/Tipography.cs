@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.PrintShops
+namespace Impulse.Common.Models.Tipographies
 {
 	public class Tipography
 	{
@@ -15,6 +15,6 @@ namespace Impulse.Common.Models.PrintShops
 		public string Image { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual Category Category { get; set; }
+		public virtual TipographiesCategory Category { get; set; }
 	}
 }

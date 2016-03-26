@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Advertisements
 {
-	public class Category
+	public class AdvertsCategory
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace Impulse.Common.Models.Advertisements
 
 		public virtual ICollection<Advert> Adverts { get; set; }
 
-		public Category()
+		public AdvertsCategory()
 		{
 			Adverts = new HashSet<Advert>();
 		}

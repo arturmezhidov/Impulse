@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.Services
+namespace Impulse.Common.Models.Stends
 {
-	public class Category
+	public class StendsCategory
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public string Icon { get; set; }
 
-		public virtual ICollection<Service> Services { get; set; }
+		public virtual ICollection<Stend> Stends { get; set; }
 
-		public Category()
+		public StendsCategory()
 		{
-			Services = new HashSet<Service>();
+			Stends = new HashSet<Stend>();
 		}
 	}
 }

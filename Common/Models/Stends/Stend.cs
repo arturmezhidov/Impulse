@@ -18,9 +18,9 @@ namespace Impulse.Common.Models.Stends
 		public bool? IsBorder { get; set; }
 
 		public int MaterialId { get; set; }
-		public virtual Material Material { get; set; }
+		public virtual StendsMaterial Material { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual Category Category { get; set; }
+		public virtual StendsCategory Category { get; set; }
 	}
 }

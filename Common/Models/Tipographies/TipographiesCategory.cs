@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.PrintShops
+namespace Impulse.Common.Models.Tipographies
 {
-	public class Category
+	public class TipographiesCategory
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace Impulse.Common.Models.PrintShops
 
 		public virtual ICollection<Tipography> Tipographies { get; set; }
 
-		public Category()
+		public TipographiesCategory()
 		{
 			Tipographies = new HashSet<Tipography>();
 		}

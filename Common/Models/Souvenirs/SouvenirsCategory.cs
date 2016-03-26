@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Souvenirs
 {
-	public class Category
+	public class SouvenirsCategory
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace Impulse.Common.Models.Souvenirs
 
 		public virtual ICollection<Souvenir> Souvenirs { get; set; }
 
-		public Category()
+		public SouvenirsCategory()
 		{
 			Souvenirs = new HashSet<Souvenir>();
 		}
