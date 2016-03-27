@@ -5,6 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Impulse.DataAccess.Sql.DataContexts;
 using Impulse.Common.Models.Advertisements;
 using System.Collections.Generic;
+using Impulse.DataAccess.Contracts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace SqlTest
 {
@@ -18,7 +20,7 @@ namespace SqlTest
 		public const string UpdateKey = " - updated";
 
 		[TestMethod]
-		public void AddCategories()
+		public void AddCategories1()
 		{
 			using (var db = new EntityDataContext(ConnectionString))
 			{
@@ -266,6 +268,26 @@ namespace SqlTest
 					Assert.IsNull(removedItem, "removedItem != null");
 					Assert.IsFalse(startItemsCount == db.AdvertsCategories.Count());
 				}
+			}
+		}
+
+
+
+		[TestMethod]
+		public void AddCategories()
+		{
+			using (var db = new EntityDataContext(ConnectionString))
+			{
+				IRepository<Advert> r = new BaseRepository<Advert>(db);
+
+				var items = r.Find(i => i.Id > 100);
+
+				var u = items.Where((i) => i.Id > 200);
+
+				IEnumerable<Advert> o = u.Where(i => i.Id > 300);
+
+				var y = o.Count();
+				var b = o.ToList();
 			}
 		}
 	}

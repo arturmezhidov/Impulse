@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Advertisements
 {
-	public class AdvertMaterial
+	[Table("Advertisements_Materials")]
+	public class Material
 	{
+		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
+
+		[Required]
+		[MaxLength(1024)]
 		public string Name { get; set; }
 
 		public ICollection<Advert> Adverts { get; set; }
 
-		public AdvertMaterial()
+		public Material()
 		{
 			Adverts = new HashSet<Advert>();
 		}

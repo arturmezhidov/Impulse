@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,14 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Advertisements\Advert.cs" />
-    <Compile Include="Advertisements\AdvertsCategory.cs" />
-    <Compile Include="Advertisements\AdvertMaterial.cs" />
+    <Compile Include="Advertisements\Category.cs" />
+    <Compile Include="Advertisements\Material.cs" />
     <Compile Include="Contacts\Email.cs" />
     <Compile Include="Contacts\Address.cs" />
     <Compile Include="Contacts\Phone.cs" />
     <Compile Include="Contacts\Social.cs" />
     <Compile Include="OurWorks\WorkItemsCategory.cs" />
     <Compile Include="OurWorks\WorkItem.cs" />
+    <Compile Include="Page.cs" />
     <Compile Include="Photography\PhotoService.cs" />
     <Compile Include="Stends\StendsMaterial.cs" />
     <Compile Include="Tipographies\TipographiesCategory.cs" />
