@@ -6,7 +6,7 @@ namespace Impulse.DataAccess.Contracts
 	public partial interface IUnitOfWork
 	{
 		IRepository<Advert> Adverts { get; }
-		IRepository<AdvertsCategory> AdvertCategories { get; set; }
-		IRepository<AdvertMaterial> AdvertMaterials { get; set; }
+		IRepository<Category> AdvertCategories { get; }
+		IRepository<Material> AdvertMaterials { get; }
 	}
 }
