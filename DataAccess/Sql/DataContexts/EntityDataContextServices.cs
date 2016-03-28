@@ -11,6 +11,6 @@ namespace Impulse.DataAccess.Sql.DataContexts
 	public partial class EntityDataContext
 	{
 		public DbSet<Service> Services { get; set; }
-		public DbSet<Category> ServiceCategories { get; set; }
+		public DbSet<ServicesCategory> ServicesCategories { get; set; }
 	}
 }

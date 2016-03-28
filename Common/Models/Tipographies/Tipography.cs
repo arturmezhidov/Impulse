@@ -32,6 +32,6 @@ namespace Impulse.Common.Models.Tipographies
 		public int CategoryId { get; set; }
 
 		[Required]
-		public virtual Category Category { get; set; }
+		public virtual TipographiesCategory Category { get; set; }
 	}
 }

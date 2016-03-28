@@ -32,6 +32,6 @@ namespace Impulse.Common.Models.Souvenirs
 		public int CategoryId { get; set; }
 
 		[Required]
-		public virtual Category Category { get; set; }
+		public virtual SouvenirsCategory Category { get; set; }
 	}
 }

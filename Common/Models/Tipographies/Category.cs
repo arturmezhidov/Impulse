@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Impulse.Common.Models.Tipographies
 {
 	[Table("Tipographies_Categories")]
-	public class Category
+	public class TipographiesCategory
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace Impulse.Common.Models.Tipographies
 
 		public virtual ICollection<Tipography> Tipographies { get; set; }
 
-		public Category()
+		public TipographiesCategory()
 		{
 			Tipographies = new HashSet<Tipography>();
 		}

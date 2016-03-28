@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Impulse.Common.Models.Services
 {
 	[Table("Services_Categories")]
-	public class Category
+	public class ServicesCategory
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace Impulse.Common.Models.Services
 
 		public virtual ICollection<Service> Services { get; set; }
 
-		public Category()
+		public ServicesCategory()
 		{
 			Services = new HashSet<Service>();
 		}

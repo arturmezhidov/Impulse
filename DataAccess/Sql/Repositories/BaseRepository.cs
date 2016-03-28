@@ -49,7 +49,7 @@ namespace Impulse.DataAccess.Sql.Repositories
 		{
 			IQueryable<T> queryable = tracking
 				? (IQueryable<T>)Items
-				: Items.AsNoTracking();
+				: (IQueryable<T>)Items.AsNoTracking();
 			return queryable;
 		}
 		public IQueryable<T> Find(Expression<Func<T, bool>> predicate, bool tracking = false)

@@ -28,6 +28,6 @@ namespace Impulse.Common.Models.Services
 		public int CategoryId { get; set; }
 
 		[Required]
-		public virtual Category Category { get; set; }
+		public virtual ServicesCategory Category { get; set; }
 	}
 }

@@ -11,6 +11,6 @@ namespace Impulse.DataAccess.Sql.DataContexts
 	public partial class EntityDataContext
 	{
 		public DbSet<Tipography> Tipographies { get; set; }
-		public DbSet<Category> TipographiesCategories { get; set; }
+		public DbSet<TipographiesCategory> TipographiesCategories { get; set; }
 	}
 }

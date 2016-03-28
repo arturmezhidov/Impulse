@@ -11,6 +11,6 @@ namespace Impulse.DataAccess.Sql.DataContexts
 	public partial class EntityDataContext
 	{
 		public DbSet<Item> WorkItems { get; set; }
-		public DbSet<Category> WorkItemCategories { get; set; }
+		public DbSet<ItemsCategory> WorkItemsCategories { get; set; }
 	}
 }
