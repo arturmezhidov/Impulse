@@ -10,7 +10,7 @@ namespace Impulse.DataAccess.Sql.DataContexts
 {
 	public partial class EntityDataContext
 	{
-		public DbSet<WorkItem> WorkItems { get; set; }
-		public DbSet<WorkItemsCategory> WorkItemCategories { get; set; }
+		public DbSet<Item> WorkItems { get; set; }
+		public DbSet<Category> WorkItemCategories { get; set; }
 	}
 }

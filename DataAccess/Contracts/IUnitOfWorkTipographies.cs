@@ -6,6 +6,6 @@ namespace Impulse.DataAccess.Contracts
 	public partial interface IUnitOfWork
 	{
 		IRepository<Tipography> Tipographies { get; }
-		IRepository<TipographiesCategory> TipographiesCategories { get; }
+		IRepository<Category> TipographiesCategories { get; }
 	}
 }

@@ -6,7 +6,7 @@ namespace Impulse.DataAccess.Contracts
 	public partial interface IUnitOfWork
 	{
 		IRepository<Stend> Stends { get; }
-		IRepository<StendsCategory> StendsCategories { get; }
-		IRepository<StendsMaterial> StendsMaterials { get; }
+		IRepository<Category> StendsCategories { get; }
+		IRepository<Material> StendsMaterials { get; }
 	}
 }

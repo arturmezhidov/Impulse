@@ -11,7 +11,7 @@ namespace Impulse.DataAccess.Sql.DataContexts
 	public partial class EntityDataContext
 	{
 		public DbSet<Stend> Stends { get; set; }
-		public DbSet<StendsCategory> StendsCategories { get; set; }
-		public DbSet<StendsMaterial> StendsMaterials { get; set; }
+		public DbSet<Category> StendsCategories { get; set; }
+		public DbSet<Material> StendsMaterials { get; set; }
 	}
 }

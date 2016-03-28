@@ -22,7 +22,7 @@ namespace Impulse.Common.Models.Advertisements
 		[MaxLength(1024)]
 		public string Number { get; set; }
 
-		[MaxLength(1024)]
+		[MaxLength(2048)]
 		public string Description { get; set; }
 
 		[Required]
@@ -30,10 +30,12 @@ namespace Impulse.Common.Models.Advertisements
 		public string Image { get; set; }
 
 		public int MaterialId { get; set; }
+
 		public int CategoryId { get; set; }
 
 		[Required]
 		public virtual Material Material { get; set; }
+
 		[Required]
 		public virtual Category Category { get; set; }
 	}

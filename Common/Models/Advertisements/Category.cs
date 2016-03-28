@@ -18,7 +18,7 @@ namespace Impulse.Common.Models.Advertisements
 		[MaxLength(1024)]
 		public string Name { get; set; }
 
-		[MaxLength(1024)]
+		[MaxLength(2048)]
 		public string Description { get; set; }
 
 		[Required]

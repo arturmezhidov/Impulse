@@ -5,7 +5,7 @@ namespace Impulse.DataAccess.Contracts
 {
 	public partial interface IUnitOfWork
 	{
-		IRepository<WorkItem> WorkItems { get; }
-		IRepository<WorkItemsCategory> WorkItemCategories { get; }
+		IRepository<Item> WorkItems { get; }
+		IRepository<Category> WorkItemCategories { get; }
 	}
 }

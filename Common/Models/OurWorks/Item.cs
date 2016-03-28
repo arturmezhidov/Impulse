@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.Photography
+namespace Impulse.Common.Models.OurWorks
 {
-	[Table("Photography_PhotoServices")]
-	public class PhotoService
+	[Table("OurWorks_Items")]
+	public class Item
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -24,5 +24,10 @@ namespace Impulse.Common.Models.Photography
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int CategoryId { get; set; }
+
+		[Required]
+		public virtual Category Category { get; set; }
 	}
 }

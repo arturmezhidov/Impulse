@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Impulse.Common.Models.Photography
+namespace Impulse.Common.Models.OurWorks
 {
-	[Table("Photography_PhotoServices")]
-	public class PhotoService
+	[Table("OurWorks_Categories")]
+	public class Category
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -23,6 +23,13 @@ namespace Impulse.Common.Models.Photography
 
 		[Required]
 		[MaxLength(1024)]
-		public string Image { get; set; }
+		public string Icon { get; set; }
+
+		public virtual ICollection<Item> Items { get; set; }
+
+		public Category()
+		{
+			Items = new HashSet<Item>();
+		}
 	}
 }
