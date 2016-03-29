@@ -21,14 +21,17 @@ namespace Impulse.DataAccess.Sql.Repositories
 			Items = context.Set<T>();
 		}
 
-		public virtual T Create(T item)
+		public virtual T Add(T item)
 		{
 			Items.Add(item);
+			Context.SaveChanges();
 			return item;
 		}
 		public virtual T Update(T item)
 		{
 			Context.Entry(item).State = EntityState.Modified;
+			Context.Configuration.AutoDetectChangesEnabled = true;
+			Context.SaveChanges();
 			return item;
 		}
 		public virtual T Delete(int id)
@@ -37,6 +40,7 @@ namespace Impulse.DataAccess.Sql.Repositories
 			if (item != null)
 			{
 				Items.Remove(item);
+				Context.SaveChanges();
 			}
 			return item;
 		}
@@ -45,14 +49,42 @@ namespace Impulse.DataAccess.Sql.Repositories
 			T result = Items.Find(id);
 			return result;
 		}
-		public IQueryable<T> GetAll(bool tracking = false)
+		public virtual IEnumerable<T> AddRange(IEnumerable<T> items)
+		{
+			Context.Configuration.AutoDetectChangesEnabled = false;
+
+			foreach (var item in items)
+			{
+				Items.Add(item);
+			}
+
+			Context.Configuration.AutoDetectChangesEnabled = true;
+			Context.SaveChanges();
+
+			return items;
+		}
+		public virtual IEnumerable<T> UpdateRange(IEnumerable<T> items)
+		{
+			Context.Configuration.AutoDetectChangesEnabled = false;
+
+			foreach (var item in items)
+			{
+				Context.Entry(item).State = EntityState.Modified;
+			}
+
+			Context.Configuration.AutoDetectChangesEnabled = true;
+			Context.SaveChanges();
+
+			return items;
+		}
+		public virtual IQueryable<T> GetAll(bool tracking = false)
 		{
 			IQueryable<T> queryable = tracking
 				? (IQueryable<T>)Items
 				: (IQueryable<T>)Items.AsNoTracking();
 			return queryable;
 		}
-		public IQueryable<T> Find(Expression<Func<T, bool>> predicate, bool tracking = false)
+		public virtual IQueryable<T> Find(Expression<Func<T, bool>> predicate, bool tracking = false)
 		{
 			IQueryable<T> result = tracking
 				? Items.Where(predicate)
