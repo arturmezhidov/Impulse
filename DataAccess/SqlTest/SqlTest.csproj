@@ -57,6 +57,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DbContextStendsTest.cs" />
+    <Compile Include="DbContextTipographiesTest.cs" />
+    <Compile Include="DbContextSouvenirsTest.cs" />
+    <Compile Include="DbContextServicesTest.cs" />
+    <Compile Include="DbContextPhotographyTest.cs" />
+    <Compile Include="DbContextOurWorksTest.cs" />
+    <Compile Include="DbContextContactsTest.cs" />
     <Compile Include="DbContextAdvertTest.cs" />
     <Compile Include="UnitOfWorkTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
