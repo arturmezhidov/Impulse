@@ -1,9 +1,9 @@
 ﻿using System;
 using Impulse.Common.Models.Contacts;
 
-namespace Impulse.DataAccess.Contracts
+namespace Impulse.DataAccess.DataContracts
 {
-	public partial interface IUnitOfWork
+	public interface IUnitOfWorkContacts : IUnitOfWork
 	{
 		IRepository<Address> Addresses { get; }
 		IRepository<Email> Emails { get; }

@@ -7,8 +7,8 @@
     <ProjectGuid>{3CADC255-E69B-4B44-B717-D97BA416BDDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Impulse.DataAccess.Contracts</RootNamespace>
-    <AssemblyName>Impulse.DataAccess.Contracts</AssemblyName>
+    <RootNamespace>Impulse.DataAccess.DataContracts</RootNamespace>
+    <AssemblyName>Impulse.DataAccess.DataContracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

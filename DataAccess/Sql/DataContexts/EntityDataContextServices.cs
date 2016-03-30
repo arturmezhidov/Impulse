@@ -8,9 +8,9 @@ using Impulse.Common.Models.Services;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public partial class ApplicationDataContext
 	{
 		public DbSet<Service> Services { get; set; }
-		public DbSet<ServicesCategory> ServicesCategories { get; set; }
+		public DbSet<Category> ServicesCategories { get; set; }
 	}
 }

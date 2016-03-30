@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Impulse.DataAccess.Contracts
+namespace Impulse.DataAccess.DataContracts
 {
 	public interface IRepository<T> where T : class, new()
 	{

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Impulse.Common.Models.Stends
 {
 	[Table("Stends_Materials")]
-	public class StendsMaterial
+	public class Material
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -20,7 +20,7 @@ namespace Impulse.Common.Models.Stends
 
 		public ICollection<Stend> Stends { get; set; }
 
-		public StendsMaterial()
+		public Material()
 		{
 			Stends = new HashSet<Stend>();
 		}
