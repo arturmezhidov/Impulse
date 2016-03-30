@@ -8,9 +8,11 @@ using Impulse.Common.Models.Souvenirs;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class SouvenirsDataContext : DbContext
 	{
 		public DbSet<Souvenir> Souvenirs { get; set; }
-		public DbSet<SouvenirsCategory> SouvenirsCategories { get; set; }
+		public DbSet<Category> Categories { get; set; }
+
+		public SouvenirsDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

@@ -8,11 +8,13 @@ using Impulse.Common.Models.Contacts;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class ContactsDataContext : DbContext
 	{
 		public DbSet<Address> Addresses { get; set; }
 		public DbSet<Email> Emails { get; set; }
 		public DbSet<Phone> Phones { get; set; }
 		public DbSet<Social> Socials { get; set; }
+
+		public ContactsDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

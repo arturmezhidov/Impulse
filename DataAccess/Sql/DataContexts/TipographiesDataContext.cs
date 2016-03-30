@@ -8,9 +8,11 @@ using Impulse.Common.Models.Tipographies;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class TipographiesDataContext : DbContext
 	{
 		public DbSet<Tipography> Tipographies { get; set; }
-		public DbSet<TipographiesCategory> TipographiesCategories { get; set; }
+		public DbSet<Kind> Kinds { get; set; }
+
+		public TipographiesDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

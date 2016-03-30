@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class ShopDataContext : DbContext
 	{
+		public ShopDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

@@ -8,10 +8,12 @@ using Impulse.Common.Models.Stends;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class StendsDataContext : DbContext
 	{
 		public DbSet<Stend> Stends { get; set; }
-		public DbSet<StendsCategory> StendsCategories { get; set; }
-		public DbSet<StendsMaterial> StendsMaterials { get; set; }
+		public DbSet<Category> Categories { get; set; }
+		public DbSet<Material> Materials { get; set; }
+
+		public StendsDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

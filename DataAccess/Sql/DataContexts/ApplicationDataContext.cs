@@ -4,12 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Impulse.Common.Models.Photography;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class ApplicationDataContext : DbContext
 	{
-		public DbSet<PhotoService> PhotoServices { get; set; }
+		public ApplicationDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

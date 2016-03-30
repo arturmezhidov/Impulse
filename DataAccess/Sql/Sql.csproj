@@ -46,18 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContexts\EntityDataContextTipographies.cs" />
-    <Compile Include="DataContexts\EntityDataContextContacts.cs" />
-    <Compile Include="DataContexts\EntityDataContextOurWorks.cs" />
-    <Compile Include="DataContexts\EntityDataContextPhotography.cs" />
-    <Compile Include="DataContexts\EntityDataContextServices.cs" />
-    <Compile Include="DataContexts\EntityDataContextShop.cs" />
-    <Compile Include="DataContexts\EntityDataContextSouvenirs.cs" />
-    <Compile Include="DataContexts\EntityDataContextStends.cs" />
-    <Compile Include="DataContexts\EntityDataContextAdvertisements.cs" />
-    <Compile Include="DataContexts\EntityDataContext.cs" />
+    <Compile Include="DataContexts\TipographiesDataContext.cs" />
+    <Compile Include="DataContexts\ContactsDataContext.cs" />
+    <Compile Include="DataContexts\OurWorksDataContext.cs" />
+    <Compile Include="DataContexts\PhotographyDataContext.cs" />
+    <Compile Include="DataContexts\ServicesDataContext.cs" />
+    <Compile Include="DataContexts\ShopDataContext.cs" />
+    <Compile Include="DataContexts\SouvenirsDataContext.cs" />
+    <Compile Include="DataContexts\StendsDataContext.cs" />
+    <Compile Include="DataContexts\AdvertisementsDataContext.cs" />
+    <Compile Include="DataContexts\ApplicationDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="UnitOfWorks\ContactsUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\OurWorksUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\PhotographyUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\ServicesUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\ShopUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\SouvenirsUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\StendsUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\TipographiesUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\AdvertisementsUnitOfWork.cs" />
     <Compile Include="UnitOfWorks\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,9 +74,9 @@
       <Project>{2476d61c-f690-4c60-99d4-8bbd78cd615e}</Project>
       <Name>Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Contracts\Contracts.csproj">
+    <ProjectReference Include="..\DataContracts\DataContracts.csproj">
       <Project>{3cadc255-e69b-4b44-b717-d97ba416bdde}</Project>
-      <Name>Contracts</Name>
+      <Name>DataContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

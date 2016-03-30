@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
-using Impulse.DataAccess.Contracts;
+using Impulse.DataAccess.DataContracts;
 
 namespace Impulse.DataAccess.Sql.Repositories
 {
@@ -30,7 +30,6 @@ namespace Impulse.DataAccess.Sql.Repositories
 		public virtual T Update(T item)
 		{
 			Context.Entry(item).State = EntityState.Modified;
-			Context.Configuration.AutoDetectChangesEnabled = true;
 			Context.SaveChanges();
 			return item;
 		}

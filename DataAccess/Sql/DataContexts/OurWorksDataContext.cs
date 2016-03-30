@@ -8,9 +8,11 @@ using Impulse.Common.Models.OurWorks;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public partial class EntityDataContext
+	public class OurWorksDataContext : DbContext
 	{
-		public DbSet<Item> WorkItems { get; set; }
-		public DbSet<ItemsCategory> WorkItemsCategories { get; set; }
+		public DbSet<Item> Items { get; set; }
+		public DbSet<Folder> Folders { get; set; }
+
+		public OurWorksDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }
