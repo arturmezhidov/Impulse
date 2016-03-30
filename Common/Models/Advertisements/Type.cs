@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Advertisements
 {
-	[Table("Advertisements_Categories")]
-	public class Category
+	[Table("Advertisements_Types")]
+	public class Type
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace Impulse.Common.Models.Advertisements
 
 		public virtual ICollection<Advert> Adverts { get; set; }
 
-		public Category()
+		public Type()
 		{
 			Adverts = new HashSet<Advert>();
 		}

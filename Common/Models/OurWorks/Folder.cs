@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.OurWorks
 {
-	[Table("OurWorks_Categories")]
-	public class ItemsCategory
+	[Table("OurWorks_Folders")]
+	public class Folder
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace Impulse.Common.Models.OurWorks
 
 		public virtual ICollection<Item> Items { get; set; }
 
-		public ItemsCategory()
+		public Folder()
 		{
 			Items = new HashSet<Item>();
 		}

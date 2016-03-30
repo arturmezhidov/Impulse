@@ -29,7 +29,7 @@ namespace Impulse.Common.Models.Tipographies
 		[MaxLength(1024)]
 		public string Image { get; set; }
 
-		public int CategoryId { get; set; }
-		public virtual TipographiesCategory Category { get; set; }
+		public int KindId { get; set; }
+		public virtual Kind Kind { get; set; }
 	}
 }

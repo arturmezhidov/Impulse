@@ -26,6 +26,6 @@ namespace Impulse.Common.Models.Services
 		public string Icon { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual ServicesCategory Category { get; set; }
+		public virtual Category Category { get; set; }
 	}
 }

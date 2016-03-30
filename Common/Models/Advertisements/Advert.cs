@@ -32,7 +32,7 @@ namespace Impulse.Common.Models.Advertisements
 		public int MaterialId { get; set; }
 		public virtual Material Material { get; set; }
 
-		public int CategoryId { get; set; }
-		public virtual Category Category { get; set; }
+		public int TypeId { get; set; }
+		public virtual Type Type { get; set; }
 	}
 }

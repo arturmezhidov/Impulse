@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Impulse.Common.Models.Stends
 {
 	[Table("Stends_Categories")]
-	public class StendsCategory
+	public class Category
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace Impulse.Common.Models.Stends
 
 		public virtual ICollection<Stend> Stends { get; set; }
 
-		public StendsCategory()
+		public Category()
 		{
 			Stends = new HashSet<Stend>();
 		}

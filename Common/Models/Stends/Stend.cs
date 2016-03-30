@@ -39,6 +39,6 @@ namespace Impulse.Common.Models.Stends
 		public virtual StendsMaterial Material { get; set; }
 
 		public int CategoryId { get; set; }
-		public virtual StendsCategory Category { get; set; }
+		public virtual Category Category { get; set; }
 	}
 }
