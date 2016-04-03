@@ -2,34 +2,32 @@
 using System.Linq;
 using System.Data.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using Impulse.DataAccess.Sql.DataContexts;
-using Impulse.Common.Models.Advertisements;
+using Impulse.Common.Models.Stends;
+using System.Collections.Generic;
 using Impulse.DataAccess.Sql.Repositories;
-using Type = Impulse.Common.Models.Advertisements.Type;
-
 
 namespace SqlTest
 {
 	[TestClass]
-	public class DbContextAdvertTest
+	public class UnitOfWorkStendsTest
 	{
 		public const string ConnectionString = "DbContextTestConnectionString";
 		public const int CategoriesCount = 100;
 		public const int MaterialsCount = 100;
-		public const int AdvertsCount = 500;
+		public const int StendsCount = 500;
 		public const string UpdateKey = " - updated";
 
 		[TestMethod]
 		public void AddCategories()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Types.Count();
+				int startItemsCount = db.Categories.Count();
 
 				for (int i = 1; i <= CategoriesCount; i++)
 				{
-					db.Types.Add(new Type
+					db.Categories.Add(new Category
 					{
 						Name = "name" + i,
 						Description = "description" + i,
@@ -39,13 +37,13 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				Assert.AreEqual(CategoriesCount, db.Types.Count() - startItemsCount);
+				Assert.AreEqual(CategoriesCount, db.Categories.Count() - startItemsCount);
 			}
 		}
 		[TestMethod]
 		public void AddMaterials()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Materials.Count();
 
@@ -63,53 +61,56 @@ namespace SqlTest
 			}
 		}
 		[TestMethod]
-		public void AddAdverts()
+		public void AddStends()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Adverts.Count();
-				var categories = db.Types.ToArray();
+				int startItemsCount = db.Stends.Count();
+				var categories = db.Categories.ToArray();
 				var materials = db.Materials.ToArray();
-				var addedCategories = new List<Type>();
+				var addedCategories = new List<Category>();
 				var addedMaterials = new List<Material>();
-				var addedAdverts = new List<Advert>();
+				var addedItems = new List<Stend>();
 
-				for (int i = 1; i <= AdvertsCount; i++)
+				for (int i = 1; i <= StendsCount; i++)
 				{
-					var Type = categories[i % (categories.Length - 1)];
+					var category = categories[i % (categories.Length - 1)];
 					var material = materials[i % (materials.Length - 1)];
-					var advert = new Advert
+					var advert = new Stend
 					{
 						Name = "name" + i,
 						Description = "description" + i,
 						Image = "image" + i,
 						Number = "number" + i,
-						Type = Type,
-						Material = material
+						Category = category,
+						Material = material,
+						Eyelets = i,
+						IsBorder = (i % 2) == 0,
+						Pockets = i
 					};
 
-					db.Adverts.Add(advert);
+					db.Stends.Add(advert);
 					db.SaveChanges();
 
-					addedCategories.Add(Type);
+					addedCategories.Add(category);
 					addedMaterials.Add(material);
-					addedAdverts.Add(advert);
+					addedItems.Add(advert);
 				}
 
-				Assert.AreEqual(AdvertsCount, db.Adverts.Count() - startItemsCount);
+				Assert.AreEqual(StendsCount, db.Stends.Count() - startItemsCount);
 
-				for (int i = 0; i < AdvertsCount; i++)
+				for (int i = 0; i < StendsCount; i++)
 				{
-					var addedAdvert = addedAdverts[i];
-					var advert = db.Adverts.FirstOrDefault(a => a.Id == addedAdvert.Id);
-					Assert.IsNotNull(advert, "advert = null");
-					Assert.IsNotNull(advert.Type, "advert.Type = null");
-					Assert.IsNotNull(advert.Material, "advert.Material = null");
+					var addedItem = addedItems[i];
+					var item = db.Stends.FirstOrDefault(a => a.Id == addedItem.Id);
+					Assert.IsNotNull(item, "item = null");
+					Assert.IsNotNull(item.Category, "item.Category = null");
+					Assert.IsNotNull(item.Material, "item.Material = null");
 
-					var Type = db.Types.FirstOrDefault(c => c.Id == addedAdvert.Type.Id);
-					Assert.IsNotNull(Type, "Type = null");
+					var category = db.Categories.FirstOrDefault(c => c.Id == addedItem.Category.Id);
+					Assert.IsNotNull(category, "category = null");
 
-					var material = db.Materials.FirstOrDefault(m => m.Id == addedAdvert.Material.Id);
+					var material = db.Materials.FirstOrDefault(m => m.Id == addedItem.Material.Id);
 					Assert.IsNotNull(material, "material = null");
 				}
 			}
@@ -118,9 +119,9 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateCategories()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
-				foreach (var item in db.Types)
+				foreach (var item in db.Categories)
 				{
 					item.Name = item.Name + UpdateKey;
 					item.Description = item.Description + UpdateKey;
@@ -131,7 +132,7 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				foreach (var item in db.Types)
+				foreach (var item in db.Categories)
 				{
 					Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 					Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
@@ -142,7 +143,7 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateMaterials()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
 				foreach (var item in db.Materials)
 				{
@@ -160,11 +161,11 @@ namespace SqlTest
 			}
 		}
 		[TestMethod]
-		public void UpdateAdverts()
+		public void UpdateStends()
 		{
-				using (var db = new AdvertisementsDataContext(ConnectionString))
+				using (var db = new StendsDataContext(ConnectionString))
 				{
-					foreach (var item in db.Adverts)
+					foreach (var item in db.Stends)
 					{
 						item.Name = item.Name + UpdateKey;
 						item.Description = item.Description + UpdateKey;
@@ -176,7 +177,7 @@ namespace SqlTest
 
 					db.SaveChanges();
 
-					foreach (var item in db.Adverts)
+					foreach (var item in db.Stends)
 					{
 						Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 						Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
@@ -185,31 +186,31 @@ namespace SqlTest
 					}
 
 					var random = new Random();
-					var categories = db.Types.ToArray();
+					var categories = db.Categories.ToArray();
 					var materials = db.Materials.ToArray();
-					var adverts = db.Adverts.ToArray();
+					var Stends = db.Stends.ToArray();
 
-					for (int i = 0; i < adverts.Length; i++)
+					for (int i = 0; i < Stends.Length; i++)
 					{
-						var TypeIndex = random.Next(0, categories.Length - 1);
+						var categoryIndex = random.Next(0, categories.Length - 1);
 						var materialIndex = random.Next(0, materials.Length - 1);
 
-						var Type = categories[TypeIndex];
+						var category = categories[categoryIndex];
 						var material = materials[materialIndex];
-						var advert = adverts[i];
+						var item = Stends[i];
 
-						advert.Type = Type;
-						advert.Material = material;
+						item.Category = category;
+						item.Material = material;
 
-						db.Entry(advert).State = EntityState.Modified;
+						db.Entry(item).State = EntityState.Modified;
 						db.SaveChanges();
 
-						var advertModify = db.Adverts.FirstOrDefault(a => a.Id == advert.Id);
-						Assert.IsNotNull(advertModify, "advertModify = null");
-						Assert.IsNotNull(advertModify.Type, "advertModify.Type = null");
-						Assert.IsNotNull(advertModify.Material, "advertModify.Material = null");
-						Assert.AreEqual(advert.Type.Id, advertModify.Type.Id, "advert.Type.Id, advertModify.Type.Id");
-						Assert.AreEqual(advert.Material.Id, advertModify.Material.Id, "advert.Material.Id, advertModify.Material.Id");
+						var itemModify = db.Stends.FirstOrDefault(a => a.Id == item.Id);
+						Assert.IsNotNull(itemModify, "itemModify = null");
+						Assert.IsNotNull(itemModify.Category, "itemModify.Category = null");
+						Assert.IsNotNull(itemModify.Material, "itemModify.Material = null");
+						Assert.AreEqual(item.Category.Id, itemModify.Category.Id, "item.Category.Id, itemModify.Category.Id");
+						Assert.AreEqual(item.Material.Id, itemModify.Material.Id, "item.Material.Id, itemModify.Material.Id");
 					}
 				}
 		}
@@ -217,26 +218,26 @@ namespace SqlTest
 		[TestMethod]
 		public void RemoveCategories()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Types.Count();
-				var item = db.Types.FirstOrDefault();
+				int startItemsCount = db.Categories.Count();
+				var item = db.Categories.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.Types.Remove(item);
+					db.Categories.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.Types.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Categories.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.Types.Count());
+					Assert.IsFalse(startItemsCount == db.Categories.Count());
 				}
 			}
 		}
 		[TestMethod]
 		public void RemoveMaterials()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Materials.Count();
 				var item = db.Materials.FirstOrDefault();
@@ -253,21 +254,21 @@ namespace SqlTest
 			}
 		}
 		[TestMethod]
-		public void RemoveAdverts()
+		public void RemoveStends()
 		{
-			using (var db = new AdvertisementsDataContext(ConnectionString))
+			using (var db = new StendsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Adverts.Count();
-				var item = db.Adverts.FirstOrDefault();
+				int startItemsCount = db.Stends.Count();
+				var item = db.Stends.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.Adverts.Remove(item);
+					db.Stends.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.Adverts.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Stends.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.Adverts.Count());
+					Assert.IsFalse(startItemsCount == db.Stends.Count());
 				}
 			}
 		}

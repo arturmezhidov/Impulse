@@ -8,6 +8,7 @@ namespace Impulse.DataAccess.DataContracts
 {
 	public interface IRepository<T> where T : class, new()
 	{
+		int Count { get; }
 		T Add(T item);
 		T Update(T item);
 		T Delete(int id);

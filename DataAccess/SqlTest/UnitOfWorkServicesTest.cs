@@ -3,14 +3,14 @@ using System.Linq;
 using System.Data.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Impulse.DataAccess.Sql.DataContexts;
-using Impulse.Common.Models.OurWorks;
+using Impulse.Common.Models.Services;
 using System.Collections.Generic;
 using Impulse.DataAccess.Sql.Repositories;
 
 namespace SqlTest
 {
 	[TestClass]
-	public class DbContextOurWorksTest
+	public class UnitOfWorkServicesTest
 	{
 		public const string ConnectionString = "DbContextTestConnectionString";
 		public const int CategoriesCount = 100;
@@ -20,13 +20,13 @@ namespace SqlTest
 		[TestMethod]
 		public void AddCategories()
 		{
-			using (var db = new OurWorksDataContext(ConnectionString))
+			using (var db = new ServicesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Folders.Count();
+				int startItemsCount = db.Categories.Count();
 
 				for (int i = 1; i <= CategoriesCount; i++)
 				{
-					db.Folders.Add(new Folder
+					db.Categories.Add(new Category
 					{
 						Name = "name" + i,
 						Description = "description" + i,
@@ -36,48 +36,48 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				Assert.AreEqual(CategoriesCount, db.Folders.Count() - startItemsCount);
+				Assert.AreEqual(CategoriesCount, db.Categories.Count() - startItemsCount);
 			}
 		}
 		[TestMethod]
 		public void AddItems()
 		{
-			using (var db = new OurWorksDataContext(ConnectionString))
+			using (var db = new ServicesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Items.Count();
-				var categories = db.Folders.ToArray();
-				var addedCategories = new List<Folder>();
-				var addedItems = new List<Item>();
+				int startItemsCount = db.Services.Count();
+				var categories = db.Categories.ToArray();
+				var addedCategories = new List<Category>();
+				var addedItems = new List<Service>();
 
 				for (int i = 1; i <= ItemsCount; i++)
 				{
-					var folder = categories[i % (categories.Length - 1)];
-					var item = new Item
+					var category = categories[i % (categories.Length - 1)];
+					var item = new Service
 					{
 						Name = "name" + i,
 						Description = "description" + i,
-						Image = "image" + i,
-						Folder = folder
+						Icon = "Icon" + i,
+						Category = category
 					};
 
-					db.Items.Add(item);
+					db.Services.Add(item);
 					db.SaveChanges();
 
-					addedCategories.Add(folder);
+					addedCategories.Add(category);
 					addedItems.Add(item);
 				}
 
-				Assert.AreEqual(ItemsCount, db.Items.Count() - startItemsCount);
+				Assert.AreEqual(ItemsCount, db.Services.Count() - startItemsCount);
 
 				for (int i = 0; i < ItemsCount; i++)
 				{
 					var addedItem = addedItems[i];
-					var item = db.Items.FirstOrDefault(a => a.Id == addedItem.Id);
+					var item = db.Services.FirstOrDefault(a => a.Id == addedItem.Id);
 					Assert.IsNotNull(item, "item = null");
-					Assert.IsNotNull(item.Folder, "item.Folder = null");
+					Assert.IsNotNull(item.Category, "item.Category = null");
 
-					var folder = db.Folders.FirstOrDefault(c => c.Id == addedItem.Folder.Id);
-					Assert.IsNotNull(folder, "folder = null");
+					var category = db.Categories.FirstOrDefault(c => c.Id == addedItem.Category.Id);
+					Assert.IsNotNull(category, "category = null");
 				}
 			}
 		}
@@ -85,9 +85,9 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateCategories()
 		{
-			using (var db = new OurWorksDataContext(ConnectionString))
+			using (var db = new ServicesDataContext(ConnectionString))
 			{
-				foreach (var item in db.Folders)
+				foreach (var item in db.Categories)
 				{
 					item.Name = item.Name + UpdateKey;
 					item.Description = item.Description + UpdateKey;
@@ -98,7 +98,7 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				foreach (var item in db.Folders)
+				foreach (var item in db.Categories)
 				{
 					Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 					Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
@@ -109,45 +109,45 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateItems()
 		{
-				using (var db = new OurWorksDataContext(ConnectionString))
+				using (var db = new ServicesDataContext(ConnectionString))
 				{
-					foreach (var item in db.Items)
+					foreach (var item in db.Services)
 					{
 						item.Name = item.Name + UpdateKey;
 						item.Description = item.Description + UpdateKey;
-						item.Image = item.Image + UpdateKey;
+						item.Icon = item.Icon + UpdateKey;
 
 						db.Entry(item).State = EntityState.Modified;
 					}
 
 					db.SaveChanges();
 
-					foreach (var item in db.Items)
+					foreach (var item in db.Services)
 					{
 						Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 						Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
-						Assert.IsTrue(item.Image.EndsWith(UpdateKey), "item.Image.EndsWith(UpdateKey)");
+						Assert.IsTrue(item.Icon.EndsWith(UpdateKey), "item.Icon.EndsWith(UpdateKey)");
 					}
 
 					var random = new Random();
-					var categories = db.Folders.ToArray();
-					var items = db.Items.ToArray();
+					var categories = db.Categories.ToArray();
+					var items = db.Services.ToArray();
 
 					for (int i = 0; i < items.Length; i++)
 					{
-						var folderIndex = random.Next(0, categories.Length - 1);
-						var folder = categories[folderIndex];
+						var categoryIndex = random.Next(0, categories.Length - 1);
+						var category = categories[categoryIndex];
 						var item = items[i];
 
-						item.Folder = folder;
+						item.Category = category;
 
 						db.Entry(item).State = EntityState.Modified;
 						db.SaveChanges();
 
-						var itemModify = db.Items.FirstOrDefault(a => a.Id == item.Id);
+						var itemModify = db.Services.FirstOrDefault(a => a.Id == item.Id);
 						Assert.IsNotNull(itemModify, "itemModify = null");
-						Assert.IsNotNull(itemModify.Folder, "itemModify.Folder = null");
-						Assert.AreEqual(item.Folder.Id, itemModify.Folder.Id, "item.Folder.Id, itemModify.Folder.Id");
+						Assert.IsNotNull(itemModify.Category, "itemModify.Category = null");
+						Assert.AreEqual(item.Category.Id, itemModify.Category.Id, "item.Category.Id, itemModify.Category.Id");
 					}
 				}
 		}
@@ -155,38 +155,38 @@ namespace SqlTest
 		[TestMethod]
 		public void RemoveCategories()
 		{
-			using (var db = new OurWorksDataContext(ConnectionString))
+			using (var db = new ServicesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Folders.Count();
-				var item = db.Folders.FirstOrDefault();
+				int startItemsCount = db.Categories.Count();
+				var item = db.Categories.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.Folders.Remove(item);
+					db.Categories.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.Folders.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Categories.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.Folders.Count());
+					Assert.IsFalse(startItemsCount == db.Categories.Count());
 				}
 			}
 		}
 		[TestMethod]
 		public void RemoveItems()
 		{
-			using (var db = new OurWorksDataContext(ConnectionString))
+			using (var db = new ServicesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.Items.Count();
-				var item = db.Items.FirstOrDefault();
+				int startItemsCount = db.Services.Count();
+				var item = db.Services.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.Items.Remove(item);
+					db.Services.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.Items.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Services.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.Items.Count());
+					Assert.IsFalse(startItemsCount == db.Services.Count());
 				}
 			}
 		}

@@ -30,7 +30,7 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			GC.SuppressFinalize(this);
 		}
 
-		public virtual void Dispose(bool disposing)
+		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposed)
 			{

@@ -10,7 +10,7 @@ using Impulse.DataAccess.Sql.Repositories;
 namespace SqlTest
 {
 	[TestClass]
-	public class DbContextPhotographyTest
+	public class UnitOfWorkPhotographyTest
 	{
 		public const string ConnectionString = "DbContextTestConnectionString";
 		public const int PhotographyCount = 100;

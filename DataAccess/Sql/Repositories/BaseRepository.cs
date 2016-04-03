@@ -21,6 +21,8 @@ namespace Impulse.DataAccess.Sql.Repositories
 			Items = context.Set<T>();
 		}
 
+		public int Count { get { return Items.Count(); } }
+
 		public virtual T Add(T item)
 		{
 			Items.Add(item);

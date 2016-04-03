@@ -10,7 +10,7 @@ using Impulse.DataAccess.Sql.Repositories;
 namespace SqlTest
 {
 	[TestClass]
-	public class DbContextOurWorksTest
+	public class UnitOfWorkOurWorksTest
 	{
 		public const string ConnectionString = "DbContextTestConnectionString";
 		public const int CategoriesCount = 100;

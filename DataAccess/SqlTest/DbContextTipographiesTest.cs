@@ -5,7 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Impulse.DataAccess.Sql.DataContexts;
 using Impulse.Common.Models.Tipographies;
 using System.Collections.Generic;
-using Impulse.DataAccess.Contracts;
 using Impulse.DataAccess.Sql.Repositories;
 
 namespace SqlTest
@@ -21,13 +20,13 @@ namespace SqlTest
 		[TestMethod]
 		public void AddCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new TipographiesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.TipographiesCategories.Count();
+				int startItemsCount = db.Kinds.Count();
 
 				for (int i = 1; i <= CategoriesCount; i++)
 				{
-					db.TipographiesCategories.Add(new TipographiesCategory
+					db.Kinds.Add(new Kind
 					{
 						Name = "name" + i,
 						Description = "description" + i,
@@ -37,35 +36,35 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				Assert.AreEqual(CategoriesCount, db.TipographiesCategories.Count() - startItemsCount);
+				Assert.AreEqual(CategoriesCount, db.Kinds.Count() - startItemsCount);
 			}
 		}
 		[TestMethod]
 		public void AddItems()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new TipographiesDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Tipographies.Count();
-				var categories = db.TipographiesCategories.ToArray();
-				var addedCategories = new List<TipographiesCategory>();
+				var categories = db.Kinds.ToArray();
+				var addedCategories = new List<Kind>();
 				var addedItems = new List<Tipography>();
 
 				for (int i = 1; i <= ItemsCount; i++)
 				{
-					var category = categories[i % (categories.Length - 1)];
+					var kind = categories[i % (categories.Length - 1)];
 					var item = new Tipography
 					{
 						Name = "name" + i,
 						Description = "description" + i,
 						Image = "image" + i,
 						Number = "number" + i,
-						Category = category
+						Kind = kind
 					};
 
 					db.Tipographies.Add(item);
 					db.SaveChanges();
 
-					addedCategories.Add(category);
+					addedCategories.Add(kind);
 					addedItems.Add(item);
 				}
 
@@ -76,10 +75,10 @@ namespace SqlTest
 					var addedItem = addedItems[i];
 					var item = db.Tipographies.FirstOrDefault(a => a.Id == addedItem.Id);
 					Assert.IsNotNull(item, "item = null");
-					Assert.IsNotNull(item.Category, "item.Category = null");
+					Assert.IsNotNull(item.Kind, "item.Kind = null");
 
-					var category = db.TipographiesCategories.FirstOrDefault(c => c.Id == addedItem.Category.Id);
-					Assert.IsNotNull(category, "category = null");
+					var kind = db.Kinds.FirstOrDefault(c => c.Id == addedItem.Kind.Id);
+					Assert.IsNotNull(kind, "kind = null");
 				}
 			}
 		}
@@ -87,9 +86,9 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new TipographiesDataContext(ConnectionString))
 			{
-				foreach (var item in db.TipographiesCategories)
+				foreach (var item in db.Kinds)
 				{
 					item.Name = item.Name + UpdateKey;
 					item.Description = item.Description + UpdateKey;
@@ -100,7 +99,7 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				foreach (var item in db.TipographiesCategories)
+				foreach (var item in db.Kinds)
 				{
 					Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 					Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
@@ -111,7 +110,7 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateItems()
 		{
-				using (var db = new EntityDataContext(ConnectionString))
+				using (var db = new TipographiesDataContext(ConnectionString))
 				{
 					foreach (var item in db.Tipographies)
 					{
@@ -134,24 +133,24 @@ namespace SqlTest
 					}
 
 					var random = new Random();
-					var categories = db.TipographiesCategories.ToArray();
+					var categories = db.Kinds.ToArray();
 					var items = db.Tipographies.ToArray();
 
 					for (int i = 0; i < items.Length; i++)
 					{
-						var categoryIndex = random.Next(0, categories.Length - 1);
-						var category = categories[categoryIndex];
+						var kindIndex = random.Next(0, categories.Length - 1);
+						var kind = categories[kindIndex];
 						var item = items[i];
 
-						item.Category = category;
+						item.Kind = kind;
 
 						db.Entry(item).State = EntityState.Modified;
 						db.SaveChanges();
 
 						var itemModify = db.Tipographies.FirstOrDefault(a => a.Id == item.Id);
 						Assert.IsNotNull(itemModify, "itemModify = null");
-						Assert.IsNotNull(itemModify.Category, "itemModify.Category = null");
-						Assert.AreEqual(item.Category.Id, itemModify.Category.Id, "item.Category.Id, itemModify.Category.Id");
+						Assert.IsNotNull(itemModify.Kind, "itemModify.Kind = null");
+						Assert.AreEqual(item.Kind.Id, itemModify.Kind.Id, "item.Kind.Id, itemModify.Kind.Id");
 					}
 				}
 		}
@@ -159,26 +158,26 @@ namespace SqlTest
 		[TestMethod]
 		public void RemoveCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new TipographiesDataContext(ConnectionString))
 			{
-				int startItemsCount = db.TipographiesCategories.Count();
-				var item = db.TipographiesCategories.FirstOrDefault();
+				int startItemsCount = db.Kinds.Count();
+				var item = db.Kinds.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.TipographiesCategories.Remove(item);
+					db.Kinds.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.TipographiesCategories.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Kinds.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.TipographiesCategories.Count());
+					Assert.IsFalse(startItemsCount == db.Kinds.Count());
 				}
 			}
 		}
 		[TestMethod]
 		public void RemoveItems()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new TipographiesDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Tipographies.Count();
 				var item = db.Tipographies.FirstOrDefault();

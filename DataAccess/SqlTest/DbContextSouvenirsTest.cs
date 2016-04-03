@@ -5,7 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Impulse.DataAccess.Sql.DataContexts;
 using Impulse.Common.Models.Souvenirs;
 using System.Collections.Generic;
-using Impulse.DataAccess.Contracts;
 using Impulse.DataAccess.Sql.Repositories;
 
 namespace SqlTest
@@ -21,13 +20,13 @@ namespace SqlTest
 		[TestMethod]
 		public void AddCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new SouvenirsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.SouvenirsCategories.Count();
+				int startItemsCount = db.Categories.Count();
 
 				for (int i = 1; i <= CategoriesCount; i++)
 				{
-					db.SouvenirsCategories.Add(new SouvenirsCategory
+					db.Categories.Add(new Category
 					{
 						Name = "name" + i,
 						Description = "description" + i,
@@ -37,17 +36,17 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				Assert.AreEqual(CategoriesCount, db.SouvenirsCategories.Count() - startItemsCount);
+				Assert.AreEqual(CategoriesCount, db.Categories.Count() - startItemsCount);
 			}
 		}
 		[TestMethod]
 		public void AddItems()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new SouvenirsDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Souvenirs.Count();
-				var categories = db.SouvenirsCategories.ToArray();
-				var addedCategories = new List<SouvenirsCategory>();
+				var categories = db.Categories.ToArray();
+				var addedCategories = new List<Category>();
 				var addedItems = new List<Souvenir>();
 
 				for (int i = 1; i <= ItemsCount; i++)
@@ -78,7 +77,7 @@ namespace SqlTest
 					Assert.IsNotNull(item, "item = null");
 					Assert.IsNotNull(item.Category, "item.Category = null");
 
-					var category = db.SouvenirsCategories.FirstOrDefault(c => c.Id == addedItem.Category.Id);
+					var category = db.Categories.FirstOrDefault(c => c.Id == addedItem.Category.Id);
 					Assert.IsNotNull(category, "category = null");
 				}
 			}
@@ -87,9 +86,9 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new SouvenirsDataContext(ConnectionString))
 			{
-				foreach (var item in db.SouvenirsCategories)
+				foreach (var item in db.Categories)
 				{
 					item.Name = item.Name + UpdateKey;
 					item.Description = item.Description + UpdateKey;
@@ -100,7 +99,7 @@ namespace SqlTest
 
 				db.SaveChanges();
 
-				foreach (var item in db.SouvenirsCategories)
+				foreach (var item in db.Categories)
 				{
 					Assert.IsTrue(item.Name.EndsWith(UpdateKey), "item.Name.EndsWith(UpdateKey)");
 					Assert.IsTrue(item.Description.EndsWith(UpdateKey), "item.Description.EndsWith(UpdateKey)");
@@ -111,7 +110,7 @@ namespace SqlTest
 		[TestMethod]
 		public void UpdateItems()
 		{
-				using (var db = new EntityDataContext(ConnectionString))
+				using (var db = new SouvenirsDataContext(ConnectionString))
 				{
 					foreach (var item in db.Souvenirs)
 					{
@@ -134,7 +133,7 @@ namespace SqlTest
 					}
 
 					var random = new Random();
-					var categories = db.SouvenirsCategories.ToArray();
+					var categories = db.Categories.ToArray();
 					var items = db.Souvenirs.ToArray();
 
 					for (int i = 0; i < items.Length; i++)
@@ -159,26 +158,26 @@ namespace SqlTest
 		[TestMethod]
 		public void RemoveCategories()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new SouvenirsDataContext(ConnectionString))
 			{
-				int startItemsCount = db.SouvenirsCategories.Count();
-				var item = db.SouvenirsCategories.FirstOrDefault();
+				int startItemsCount = db.Categories.Count();
+				var item = db.Categories.FirstOrDefault();
 
 				if (item != null)
 				{
-					db.SouvenirsCategories.Remove(item);
+					db.Categories.Remove(item);
 					db.SaveChanges();
 
-					var removedItem = db.SouvenirsCategories.FirstOrDefault(c => c.Id == item.Id);
+					var removedItem = db.Categories.FirstOrDefault(c => c.Id == item.Id);
 					Assert.IsNull(removedItem, "removedItem != null");
-					Assert.IsFalse(startItemsCount == db.SouvenirsCategories.Count());
+					Assert.IsFalse(startItemsCount == db.Categories.Count());
 				}
 			}
 		}
 		[TestMethod]
 		public void RemoveItems()
 		{
-			using (var db = new EntityDataContext(ConnectionString))
+			using (var db = new SouvenirsDataContext(ConnectionString))
 			{
 				int startItemsCount = db.Souvenirs.Count();
 				var item = db.Souvenirs.FirstOrDefault();
