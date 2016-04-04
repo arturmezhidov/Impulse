@@ -2,7 +2,7 @@
 
 namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 {
-	public class ShopModule : NinjectModule
+	public class ShopBusinessModule : NinjectModule
 	{
 		public override void Load()
 		{

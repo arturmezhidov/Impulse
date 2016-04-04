@@ -4,11 +4,11 @@ using Ninject.Modules;
 
 namespace Impulse.DependencyInjections.NInjectResolver.DataModules
 {
-	public class ShopModule : NinjectModule
+	public class ShopDataModule : NinjectModule
 	{
 		private readonly string connectionString;
 
-		public ShopModule(string connectionString)
+		public ShopDataModule(string connectionString)
 		{
 			this.connectionString = connectionString;
 		}

@@ -4,19 +4,19 @@ using Ninject.Modules;
 
 namespace Impulse.DependencyInjections.NInjectResolver.DataModules
 {
-	public class TipographiesModule : NinjectModule
+	public class AdvertisementsDataModule : NinjectModule
 	{
 		private readonly string connectionString;
 
-		public TipographiesModule(string connectionString)
+		public AdvertisementsDataModule(string connectionString)
 		{
 			this.connectionString = connectionString;
 		}
 
 		public override void Load()
 		{
-			Bind<IUnitOfWorkTipographies>()
-				.To<TipographiesUnitOfWork>()
+			Bind<IUnitOfWorkAdvertisements>()
+				.To<AdvertisementsUnitOfWork>()
 				.WithConstructorArgument(connectionString);
 		}
 	}

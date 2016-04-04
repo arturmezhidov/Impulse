@@ -2,7 +2,7 @@
 
 namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 {
-	public class OurWorksModule : NinjectModule
+	public class PhotographyBusinessModule : NinjectModule
 	{
 		public override void Load()
 		{

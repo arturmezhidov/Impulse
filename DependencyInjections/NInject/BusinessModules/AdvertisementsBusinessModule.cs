@@ -4,7 +4,7 @@ using Ninject.Modules;
 
 namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 {
-	public class AdvertisementsModule : NinjectModule
+	public class AdvertisementsBusinessModule : NinjectModule
 	{
 		public override void Load()
 		{

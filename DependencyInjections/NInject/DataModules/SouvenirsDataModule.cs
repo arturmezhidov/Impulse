@@ -4,19 +4,19 @@ using Ninject.Modules;
 
 namespace Impulse.DependencyInjections.NInjectResolver.DataModules
 {
-	public class StendsModule : NinjectModule
+	public class SouvenirsDataModule : NinjectModule
 	{
 		private readonly string connectionString;
 
-		public StendsModule(string connectionString)
+		public SouvenirsDataModule(string connectionString)
 		{
 			this.connectionString = connectionString;
 		}
 
 		public override void Load()
 		{
-			Bind<IUnitOfWorkStends>()
-				.To<StendsUnitOfWork>()
+			Bind<IUnitOfWorkSouvenirs>()
+				.To<SouvenirsUnitOfWork>()
 				.WithConstructorArgument(connectionString);
 		}
 	}
