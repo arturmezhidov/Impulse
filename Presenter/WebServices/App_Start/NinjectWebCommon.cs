@@ -15,6 +15,8 @@ namespace WebServices.App_Start
 	using System.Web.Http;
 
 	using Impulse.DependencyInjections.NInjectResolver;
+	using Impulse.DependencyInjections.NInjectResolver.DataModules;
+	using Impulse.DependencyInjections.NInjectResolver.BusinessModules;
 
 	public static class NinjectWebCommon
 	{
@@ -69,13 +71,33 @@ namespace WebServices.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
-			List<INinjectModule> modules = new List<INinjectModule>
-			{
-				new DataAccessModule("DbConnectionString"),
-				new BusinessModule()
-			};
+			kernel.Load(DataModules());
+			kernel.Load(BusinessModules());
+		}
 
-			kernel.Load(modules);
+		static IEnumerable<INinjectModule> DataModules()
+		{
+			yield return new AdvertisementsDataModule("DbConnectionString");
+			yield return new ContactsDataModule("DbConnectionString");
+			yield return new OurWorksDataModule("DbConnectionString");
+			yield return new PhotographyDataModule("DbConnectionString");
+			yield return new ServicesDataModule("DbConnectionString");
+			yield return new ShopDataModule("DbConnectionString");
+			yield return new SouvenirsDataModule("DbConnectionString");
+			yield return new StendsDataModule("DbConnectionString");
+			yield return new TipographiesDataModule("DbConnectionString");
+		}
+		static IEnumerable<INinjectModule> BusinessModules()
+		{
+			yield return new AdvertisementsBusinessModule();
+			yield return new ContactsBusinessModule();
+			yield return new OurWorksBusinessModule();
+			yield return new PhotographyBusinessModule();
+			yield return new ServicesBusinessModule();
+			yield return new ShopBusinessModule();
+			yield return new SouvenirsBusinessModule();
+			yield return new StendsBusinessModule();
+			yield return new TipographiesBusinessModule();
 		}
 	}
 }

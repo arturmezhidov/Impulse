@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenter", "Presenter", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServices", "Presenter\WebServices\WebServices.csproj", "{9BA72873-A531-419E-BA43-68B922D004DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components", "Common\Components\Components.csproj", "{2E0BD31F-0CBB-426E-862D-DE26AB707A17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{9BA72873-A531-419E-BA43-68B922D004DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BA72873-A531-419E-BA43-68B922D004DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BA72873-A531-419E-BA43-68B922D004DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0BD31F-0CBB-426E-862D-DE26AB707A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0BD31F-0CBB-426E-862D-DE26AB707A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0BD31F-0CBB-426E-862D-DE26AB707A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0BD31F-0CBB-426E-862D-DE26AB707A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,5 +93,6 @@ Global
 		{7C71DBDA-1644-4CCC-8562-0B42393FFB89} = {AB2A07EC-E846-4305-84B3-82614D9E2C0C}
 		{A7EF02C5-A9D1-4A90-A446-565271EE33DD} = {3CF14579-24A2-4B1C-B4A1-871765208386}
 		{9BA72873-A531-419E-BA43-68B922D004DA} = {07E42A95-D50A-4BF5-A1C6-3359366D0A95}
+		{2E0BD31F-0CBB-426E-862D-DE26AB707A17} = {5821E366-B5FD-4DB7-816F-3D40B893D96F}
 	EndGlobalSection
 EndGlobal

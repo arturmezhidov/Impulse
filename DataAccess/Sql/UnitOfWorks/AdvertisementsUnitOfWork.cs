@@ -43,5 +43,22 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return materials ?? (materials = new BaseRepository<Material>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			if (typeof(T) == typeof(Type))
+			{
+				return (IRepository<T>)Types;
+			}
+			if (typeof(T) == typeof(Material))
+			{
+				return (IRepository<T>)Materials;
+			}
+			if (typeof(T) == typeof(Advert))
+			{
+				return (IRepository<T>)Adverts;
+			}
+			return null;
+		}
 	}
 }

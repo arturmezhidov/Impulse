@@ -25,5 +25,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return photoServices ?? (photoServices = new BaseRepository<PhotoService>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

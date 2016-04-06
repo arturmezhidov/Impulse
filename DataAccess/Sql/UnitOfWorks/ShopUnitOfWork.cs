@@ -14,5 +14,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			: base(new ShopDataContext(stringConnection))
 		{
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

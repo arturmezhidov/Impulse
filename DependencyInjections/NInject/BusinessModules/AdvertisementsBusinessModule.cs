@@ -8,7 +8,7 @@ namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 	{
 		public override void Load()
 		{
-			Bind<IAdvertsManager>().To<AdvertsManager>();
+			Bind<ITypeDataManager>().To<TypeDataManager>();
 		}
 	}
 }

@@ -34,5 +34,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return folders ?? (folders = new BaseRepository<Folder>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

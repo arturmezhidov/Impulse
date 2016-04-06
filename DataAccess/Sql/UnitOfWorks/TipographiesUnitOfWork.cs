@@ -34,5 +34,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return kinds ?? (kinds = new BaseRepository<Kind>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

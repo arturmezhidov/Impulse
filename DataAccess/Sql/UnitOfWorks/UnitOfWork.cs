@@ -9,7 +9,7 @@ using Impulse.DataAccess.Sql.DataContexts;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {
-	public class UnitOfWork : IUnitOfWork
+	public abstract class UnitOfWork : IUnitOfWork
 	{
 		protected readonly DbContext Context;
 		private bool disposed;
@@ -18,6 +18,8 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 		{
 			Context = instance;
 		}
+
+		public abstract IRepository<T> GetRepository<T>() where T : class, new();
 
 		public void Save()
 		{

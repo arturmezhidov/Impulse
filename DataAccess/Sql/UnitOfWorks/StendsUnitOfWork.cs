@@ -43,5 +43,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return materials ?? (materials = new BaseRepository<Material>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

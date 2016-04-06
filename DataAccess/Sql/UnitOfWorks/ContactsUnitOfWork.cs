@@ -52,5 +52,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return socials ?? (socials = new BaseRepository<Social>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

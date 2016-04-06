@@ -34,5 +34,10 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return categories ?? (categories = new BaseRepository<Category>(Context));
 			}
 		}
+
+		public override IRepository<T> GetRepository<T>()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }
