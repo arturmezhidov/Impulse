@@ -1,18 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Advertisements
+namespace WebServices.Models.OurWorks
 {
-	public class AdvertViewModel
+	public class ItemViewModel
 	{
 		public int Id { get; set; }
 
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }
-
-		[Required]
-		[MaxLength(1024)]
-		public string Number { get; set; }
 
 		[MaxLength(2048)]
 		public string Description { get; set; }

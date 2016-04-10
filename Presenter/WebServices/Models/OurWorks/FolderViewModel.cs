@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Advertisements
+namespace WebServices.Models.OurWorks
 {
-	public class AdvertViewModel
+	public class FolderViewModel
 	{
 		public int Id { get; set; }
 
@@ -10,15 +10,11 @@ namespace WebServices.Models.Advertisements
 		[MaxLength(1024)]
 		public string Name { get; set; }
 
-		[Required]
-		[MaxLength(1024)]
-		public string Number { get; set; }
-
 		[MaxLength(2048)]
 		public string Description { get; set; }
 
 		[Required]
 		[MaxLength(1024)]
-		public string Image { get; set; }
+		public string Icon { get; set; }
 	}
 }

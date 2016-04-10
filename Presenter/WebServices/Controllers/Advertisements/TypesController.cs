@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Advertisements;
-using Impulse.Common.Models.Advertisements;
 using Impulse.Common.Components;
+using Impulse.Common.Models.Advertisements;
 using WebServices.Models.Advertisements;
 
 namespace WebServices.Controllers.Advertisements
@@ -11,9 +10,9 @@ namespace WebServices.Controllers.Advertisements
 	[RoutePrefix("api/advertisements")]
 	public class TypesController : BaseApiController
 	{
-		protected ITypeDataManager DataManager;
+		protected ITypeManager DataManager;
 
-		public TypesController(ITypeDataManager dataManager) : base(dataManager)
+		public TypesController(ITypeManager dataManager) : base(dataManager)
 		{
 			DataManager = dataManager;
 		}
@@ -32,8 +31,9 @@ namespace WebServices.Controllers.Advertisements
 			}
 
 			Type newType = Mapper.Mapp<TypeViewModel, Type>(vm);
+			Type createdType = DataManager.Create(newType);
 
-			var response = DataManager.Create(newType);
+			var response = Mapper.Mapp<Type, TypeViewModel>(createdType);
 
 			return Created("api/advertisements/types/" + response.Id, response);
 		}
@@ -82,26 +82,6 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpPut]
-		[Route("types/{id:int}")]
-		public IHttpActionResult Update(TypeViewModel vm)
-		{
-			if (vm == null)
-			{
-				return BadRequest();
-			}
-			else if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			Type type = Mapper.Mapp<TypeViewModel, Type>(vm);
-
-			var response = DataManager.Update(type);
-
-			return Created("api/advertisements/types/" + response.Id, response);
-		}
-
-		[HttpPut]
 		[Route("types")]
 		public IHttpActionResult Update(List<TypeViewModel> vms)
 		{
@@ -115,10 +95,11 @@ namespace WebServices.Controllers.Advertisements
 			}
 
 			IEnumerable<Type> types = Mapper.MappCollection<TypeViewModel, Type>(vms);
+			IEnumerable<Type> updatedTypes = DataManager.Update(types);
 
-			var response = DataManager.Update(types);
+			var response = Mapper.MappCollection<Type, TypeViewModel>(updatedTypes);
 
-			return Created("api/advertisements/types", response);
+			return Ok(response);
 		}
 
 		[HttpDelete]

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Advertisements
+namespace WebServices.Models.Stends
 {
-	public class AdvertViewModel
+	public class StendViewModel
 	{
 		public int Id { get; set; }
 
@@ -20,5 +20,11 @@ namespace WebServices.Models.Advertisements
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int Pockets { get; set; }
+
+		public int Eyelets { get; set; }
+
+		public bool IsBorder { get; set; }
 	}
 }

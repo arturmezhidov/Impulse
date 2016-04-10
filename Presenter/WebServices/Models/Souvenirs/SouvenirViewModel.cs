@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Advertisements
+namespace WebServices.Models.Souvenirs
 {
-	public class AdvertViewModel
+	public class SouvenirViewModel
 	{
 		public int Id { get; set; }
 
