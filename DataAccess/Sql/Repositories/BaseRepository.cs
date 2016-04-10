@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Impulse.DataAccess.DataContracts;
 
@@ -21,7 +18,7 @@ namespace Impulse.DataAccess.Sql.Repositories
 			Items = context.Set<T>();
 		}
 
-		public int Count { get { return Items.Count(); } }
+		public virtual int Count { get { return Items.Count(); } }
 
 		public virtual T Add(T item)
 		{
@@ -53,16 +50,17 @@ namespace Impulse.DataAccess.Sql.Repositories
 		public virtual IEnumerable<T> AddRange(IEnumerable<T> items)
 		{
 			Context.Configuration.AutoDetectChangesEnabled = false;
+			List<T> result = new List<T>();
 
 			foreach (var item in items)
 			{
-				Items.Add(item);
+				result.Add(Items.Add(item));
 			}
 
 			Context.Configuration.AutoDetectChangesEnabled = true;
 			Context.SaveChanges();
 
-			return items;
+			return result;
 		}
 		public virtual IEnumerable<T> UpdateRange(IEnumerable<T> items)
 		{

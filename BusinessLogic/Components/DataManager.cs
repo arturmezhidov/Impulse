@@ -93,17 +93,16 @@ namespace Impulse.BusinessLogic.Components
 			}
 
 			var newItems = items.Where(IsNewItem);
+			var updateItems = items.Except(newItems);
 
 			if (newItems.Any())
 			{
 				repository.AddRange(newItems);
 			}
 
-			var updateItems = items.Except(newItems);
-
 			if (updateItems.Any())
 			{
-				repository.AddRange(updateItems);
+				repository.UpdateRange(updateItems);
 			}
 
 			IEnumerable<T> result = repository.UpdateRange(items);
