@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Impulse.Common.Models.Contacts;
 using Impulse.DataAccess.DataContracts;
-using Impulse.Common.Models.Contacts;
-using Impulse.DataAccess.Sql.Repositories;
 using Impulse.DataAccess.Sql.DataContexts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {
@@ -55,7 +51,23 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		public override IRepository<T> GetRepository<T>()
 		{
-			throw new System.NotImplementedException();
+			if (typeof(T) == typeof(Address))
+			{
+				return (IRepository<T>)Addresses;
+			}
+			if (typeof(T) == typeof(Email))
+			{
+				return (IRepository<T>)Emails;
+			}
+			if (typeof(T) == typeof(Phone))
+			{
+				return (IRepository<T>)Phones;
+			}
+			if (typeof(T) == typeof(Social))
+			{
+				return (IRepository<T>)Socials;
+			}
+			return null;
 		}
 	}
 }

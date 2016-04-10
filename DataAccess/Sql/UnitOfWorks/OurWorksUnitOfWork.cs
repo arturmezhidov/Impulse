@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Impulse.Common.Models.OurWorks;
 using Impulse.DataAccess.DataContracts;
-using Impulse.Common.Models.OurWorks;
-using Impulse.DataAccess.Sql.Repositories;
 using Impulse.DataAccess.Sql.DataContexts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {
@@ -37,7 +33,15 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		public override IRepository<T> GetRepository<T>()
 		{
-			throw new System.NotImplementedException();
+			if (typeof(T) == typeof(Item))
+			{
+				return (IRepository<T>)Items;
+			}
+			if (typeof(T) == typeof(Folder))
+			{
+				return (IRepository<T>)Folders;
+			}
+			return null;
 		}
 	}
 }

@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Impulse.Common.Models.Advertisements;
 using Impulse.DataAccess.DataContracts;
-using Impulse.Common.Models.Advertisements;
-using Impulse.DataAccess.Sql.Repositories;
 using Impulse.DataAccess.Sql.DataContexts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {

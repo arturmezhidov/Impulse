@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Impulse.Common.Models.Photography;
 using Impulse.DataAccess.DataContracts;
-using Impulse.Common.Models.Photography;
-using Impulse.DataAccess.Sql.Repositories;
 using Impulse.DataAccess.Sql.DataContexts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {
@@ -28,7 +24,11 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		public override IRepository<T> GetRepository<T>()
 		{
-			throw new System.NotImplementedException();
+			if (typeof(T) == typeof(PhotoService))
+			{
+				return (IRepository<T>)PhotoServices;
+			}
+			return null;
 		}
 	}
 }

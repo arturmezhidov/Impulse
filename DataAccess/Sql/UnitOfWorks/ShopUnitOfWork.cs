@@ -17,7 +17,7 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		public override IRepository<T> GetRepository<T>()
 		{
-			throw new System.NotImplementedException();
+			return null;
 		}
 	}
 }

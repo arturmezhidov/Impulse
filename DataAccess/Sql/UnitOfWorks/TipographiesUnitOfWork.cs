@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Impulse.Common.Models.Tipographies;
 using Impulse.DataAccess.DataContracts;
-using Impulse.Common.Models.Tipographies;
-using Impulse.DataAccess.Sql.Repositories;
 using Impulse.DataAccess.Sql.DataContexts;
+using Impulse.DataAccess.Sql.Repositories;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
 {
@@ -37,7 +33,15 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		public override IRepository<T> GetRepository<T>()
 		{
-			throw new System.NotImplementedException();
+			if (typeof(T) == typeof(Tipography))
+			{
+				return (IRepository<T>)Tipographies;
+			}
+			if (typeof(T) == typeof(Kind))
+			{
+				return (IRepository<T>)Kinds;
+			}
+			return null;
 		}
 	}
 }
