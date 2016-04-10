@@ -30,33 +30,26 @@ namespace Impulse.BusinessLogic.Components
 			return result;
 		}
 
-		public T GetById(int id)
+		public virtual T GetById(int id)
 		{
 			T result = repository.GetById(id);
 
 			return result;
 		}
 
-		public T Update(T item)
+		public virtual T Update(T item)
 		{
 			if (item == null)
 			{
 				throw new ArgumentNullException("item");
 			}
 
-			if (Contains(item))
-			{
-				item = repository.Update(item);
-			}
-			else
-			{
-				item = repository.Add(item);
-			}
+			item = repository.Update(item);
 
 			return item;
 		}
 
-		public T Delete(int id)
+		public virtual T Delete(int id)
 		{
 			T result = repository.Delete(id);
 
@@ -77,6 +70,11 @@ namespace Impulse.BusinessLogic.Components
 				throw new ArgumentNullException("items");
 			}
 
+			if (!items.Any())
+			{
+				return items;
+			}
+
 			IEnumerable<T> result = repository.AddRange(items);
 
 			return result;
@@ -89,19 +87,26 @@ namespace Impulse.BusinessLogic.Components
 				throw new ArgumentNullException("items");
 			}
 
-			var existItems = items.Where(Contains);
-			var newItems = items.Except(existItems);
-			var result = new List<T>();
-
-			if (existItems.Any())
+			if (!items.Any())
 			{
-				result.AddRange(repository.UpdateRange(existItems));
+				return items;
 			}
+
+			var newItems = items.Where(IsNewItem);
 
 			if (newItems.Any())
 			{
-				result.AddRange(repository.AddRange(newItems));
+				repository.AddRange(newItems);
 			}
+
+			var updateItems = items.Except(newItems);
+
+			if (updateItems.Any())
+			{
+				repository.AddRange(updateItems);
+			}
+
+			IEnumerable<T> result = repository.UpdateRange(items);
 
 			return result;
 		}
@@ -123,7 +128,6 @@ namespace Impulse.BusinessLogic.Components
 				disposed = true;
 			}
 		}
-
-		protected abstract bool Contains(T item);
+		protected abstract bool IsNewItem(T item);
 	}
 }
