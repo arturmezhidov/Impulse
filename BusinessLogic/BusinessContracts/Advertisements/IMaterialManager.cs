@@ -2,7 +2,7 @@
 
 namespace Impulse.BusinessLogic.BusinessContracts.Advertisements
 {
-	public interface ITypeDataManager : IDataManager<Type>
+	public interface IMaterialManager : IDataManager<Material>
 	{
 
 	}
