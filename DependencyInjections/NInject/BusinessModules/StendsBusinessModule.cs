@@ -1,4 +1,6 @@
-﻿using Ninject.Modules;
+﻿using Impulse.BusinessLogic.BusinessContracts.Stends;
+using Impulse.BusinessLogic.Components.Stends;
+using Ninject.Modules;
 
 namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 {
@@ -6,7 +8,9 @@ namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 	{
 		public override void Load()
 		{
-
+			Bind<ICategoryManager>().To<CategoryManager>();
+			Bind<IMaterialManager>().To<MaterialManager>();
+			Bind<IStendManager>().To<StendManager>();
 		}
 	}
 }

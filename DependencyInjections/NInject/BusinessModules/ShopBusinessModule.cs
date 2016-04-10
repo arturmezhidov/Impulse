@@ -6,6 +6,7 @@ namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 	{
 		public override void Load()
 		{
+
 		}
 	}
 }
