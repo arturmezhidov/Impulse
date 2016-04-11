@@ -3,6 +3,7 @@ using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Advertisements;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Advertisements;
+using WebServices.Filters;
 using WebServices.Models.Advertisements;
 
 namespace WebServices.Controllers.Advertisements
@@ -19,17 +20,9 @@ namespace WebServices.Controllers.Advertisements
 
 		[HttpPost]
 		[Route("types")]
+		[ModelCheck]
 		public IHttpActionResult Create(TypeViewModel vm)
 		{
-			if (vm == null)
-			{
-				return BadRequest();
-			}
-			else if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
 			Type newType = Mapper.Mapp<TypeViewModel, Type>(vm);
 			Type createdType = DataManager.Create(newType);
 
@@ -83,17 +76,9 @@ namespace WebServices.Controllers.Advertisements
 
 		[HttpPut]
 		[Route("types")]
+		[ModelCheck]
 		public IHttpActionResult Update(List<TypeViewModel> vms)
 		{
-			if (vms == null)
-			{
-				return BadRequest();
-			}
-			else if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
 			IEnumerable<Type> types = Mapper.MappCollection<TypeViewModel, Type>(vms);
 			IEnumerable<Type> updatedTypes = DataManager.Update(types);
 

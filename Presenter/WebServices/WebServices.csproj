@@ -109,14 +109,32 @@
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Advertisements\MaterialsController.cs" />
     <Compile Include="Controllers\Advertisements\TypesController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Filters\ModelCheckAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Advertisements\AdvertViewModel.cs" />
     <Compile Include="Models\Advertisements\MaterialViewModel.cs" />
     <Compile Include="Models\Advertisements\TypeViewModel.cs" />
+    <Compile Include="Models\Contacts\AddressViewModel.cs" />
+    <Compile Include="Models\Contacts\EmailViewModel.cs" />
+    <Compile Include="Models\Contacts\PhoneViewModel.cs" />
+    <Compile Include="Models\Contacts\SocialViewModel.cs" />
+    <Compile Include="Models\OurWorks\FolderViewModel.cs" />
+    <Compile Include="Models\OurWorks\ItemViewModel.cs" />
+    <Compile Include="Models\Photography\PhotoService.cs" />
+    <Compile Include="Models\Services\CategoryViewModel.cs" />
+    <Compile Include="Models\Services\ServiceViewModel.cs" />
+    <Compile Include="Models\Souvenirs\CategoryViewModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirViewModel.cs" />
+    <Compile Include="Models\Stends\CategoryViewModel.cs" />
+    <Compile Include="Models\Stends\MaterialViewModel.cs" />
+    <Compile Include="Models\Stends\StendViewModel.cs" />
+    <Compile Include="Models\Tipographies\KindViewModel.cs" />
+    <Compile Include="Models\Tipographies\TipographyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,7 +146,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\Shop\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BusinessLogic\BusinessContracts\BusinessContracts.csproj">
       <Project>{e2ec32ca-1dd3-43aa-8685-31d71638cada}</Project>
