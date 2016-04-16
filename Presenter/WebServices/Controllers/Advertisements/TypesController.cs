@@ -48,11 +48,11 @@ namespace WebServices.Controllers.Advertisements
 		{
 			var type = DataManager.GetById(id);
 
-			if (type == null)
-			{
-				return NotFound();
-			}
-
+			//if (type == null)
+			//{
+			//	return NotFound();
+			//}
+			throw new System.Exception("Test exception");
 			var response = Mapper.Mapp<Type, TypeViewModel>(type);
 
 			return Ok(response);

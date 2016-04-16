@@ -106,12 +106,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FiltersConfig.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Advertisements\MaterialsController.cs" />
     <Compile Include="Controllers\Advertisements\TypesController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Filters\ExceptionLoggerAttribute.cs" />
     <Compile Include="Filters\ModelCheckAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
