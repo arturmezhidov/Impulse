@@ -2,7 +2,7 @@
 
 namespace WebServices.Models.Photography
 {
-	public class PhotoService
+	public class PhotoServiceViewModel
 	{
 		public int Id { get; set; }
 

@@ -8,7 +8,7 @@ using WebServices.Models.Advertisements;
 
 namespace WebServices.Controllers.Advertisements
 {
-	[RoutePrefix("api/advertisements")]
+	[RoutePrefix("api/advertisements/types")]
 	public class TypesController : BaseApiController
 	{
 		protected ITypeManager DataManager;
@@ -19,7 +19,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpPost]
-		[Route("types")]
+		[Route("")]
 		[ModelCheck]
 		public IHttpActionResult Create(TypeViewModel vm)
 		{
@@ -32,7 +32,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpGet]
-		[Route("types")]
+		[Route("")]
 		public IHttpActionResult GetAll()
 		{
 			var types = DataManager.GetAll();
@@ -43,23 +43,23 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpGet]
-		[Route("types/{id:int}")]
+		[Route("{id:int}")]
 		public IHttpActionResult GetById(int id)
 		{
 			var type = DataManager.GetById(id);
 
-			//if (type == null)
-			//{
-			//	return NotFound();
-			//}
-			throw new System.Exception("Test exception");
+			if (type == null)
+			{
+				return NotFound();
+			}
+
 			var response = Mapper.Mapp<Type, TypeViewModel>(type);
 
 			return Ok(response);
 		}
 
 		[HttpGet]
-		[Route("types/{id:int}/adverts")]
+		[Route("{id:int}/adverts")]
 		public IHttpActionResult GetAdvertsByType(int id)
 		{
 			var type = DataManager.GetById(id);
@@ -75,7 +75,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpPut]
-		[Route("types")]
+		[Route("")]
 		[ModelCheck]
 		public IHttpActionResult Update(List<TypeViewModel> vms)
 		{
@@ -88,7 +88,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpDelete]
-		[Route("types/{id:int}")]
+		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
 			var type = DataManager.Delete(id);

@@ -12,7 +12,7 @@ namespace Impulse.BusinessLogic.Components
 		private IRepository<T> repository;
 		private bool disposed;
 
-		public DataManager(IUnitOfWork uow)
+		protected DataManager(IUnitOfWork uow)
 		{
 			this.uow = uow;
 			this.repository = uow.GetRepository<T>();

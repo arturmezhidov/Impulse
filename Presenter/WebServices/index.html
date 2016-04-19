@@ -2,120 +2,119 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
-    <div>
-        <button id="post">POST (Create)</button>
-    </div>
-    <div>
-        <button id="getAll">GET (GetAll)</button>
-    </div>
-    <div>
-        <button id="get">GET (GetById)</button>
-    </div>
-    <div>
-        <button id="put">PUT (Update)</button>
-    </div>
-    <div>
-        <button id="putAll">PUT (Update all)</button>
-    </div>
-    <div>
-        <button id="delete">DELETE</button>
-    </div>
+	<div>
+		<button id="post">POST (Create)</button>
+	</div>
+	<div>
+		<button id="getAll">GET (GetAll)</button>
+	</div>
+	<div>
+		<button id="get">GET (GetById)</button>
+	</div>
+	<div>
+		<button id="put">PUT (Update)</button>
+	</div>
+	<div>
+		<button id="putAll">PUT (Update all)</button>
+	</div>
+	<div>
+		<button id="delete">DELETE</button>
+	</div>
+	 
+	<script>
+		var uri = 'api/advertisements/types';
+		function success(a, b, c) {
+			console.log('success:');
+			console.log('a:');
+			console.log(a);
+			console.log('b:');
+			console.log(b);
+			console.log('c:');
+			console.log(c);
+		}
+		function error(a, b, c) {
+			console.log('errorq:');
+			console.log('a:');
+			console.log(a);
+			console.log('b:');
+			console.log(b);
+			console.log('c:');
+			console.log(c);
+		}
 
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-    <script>
-        var uri = 'api/advertisements/types';
-        function success(a, b, c) {
-            console.log('success:');
-            console.log('a:');
-            console.log(a);
-            console.log('b:');
-            console.log(b);
-            console.log('c:');
-            console.log(c);
-        }
-        function error(a, b, c) {
-            console.log('errorq:');
-            console.log('a:');
-            console.log(a);
-            console.log('b:');
-            console.log(b);
-            console.log('c:');
-            console.log(c);
-        }
+		$('#post').on('click', function (e) {
+			var data = {
+				Name: "newNew",
+				Description: "Description",
+				Icon: 'Icon'
+			};
+			$.ajax({
+				url: uri,
+				type: 'POST',
+				data: JSON.stringify(data),
+				contentType: "application/json;charset=utf-8",
+				async: false,
+				success: success,
+				error: error
+			});
+		});
+		$('#getAll').on('click', function (e) {
+			$.ajax({
+				url: uri,
+				type: 'GET',
+				contentType: "application/json;charset=utf-8",
+				async: true,
+				success: success,
+				error: error
+			});
+		});
+		$('#get').on('click', function (e) {
+			$.ajax({
+				url: uri + '/99',
+				type: 'GET',
+				contentType: "application/json;charset=utf-8",
+				async: false,
+				success: success,
+				error: error
+			});
+		});
+		$('#putAll').on('click', function (e) {
+			var data = [{
+				Id: 106,
+				Name: "newNew222222222",
+				Description: "Description",
+				Icon: 'Icon'
+			},
+			{
+				Name: "super",
+				Description: "Description",
+				Icon: 'Icon'
+			}];
+			$.ajax({
+				url: uri,
+				type: 'PUT',
+				data: JSON.stringify(data),
+				contentType: "application/json;charset=utf-8",
+				async: false,
+				success: success,
+				error: error
+			});
+		});
+		$('#delete').on('click', function (e) {
+			$.ajax({
+				url: uri + '/100',
+				type: 'DELETE',
+				contentType: "application/json;charset=utf-8",
+				async: false,
+				success: success,
+				error: error
+			});
+		});
 
-        $('#post').on('click', function (e) {
-            var data = {
-                //Name: "newNew",
-                Description: "Description",
-                Icon: 'Icon'
-            };
-            $.ajax({
-                url: uri,
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: "application/json;charset=utf-8",
-                async: false,
-                success: success,
-                error: error
-            });
-        });
-        $('#getAll').on('click', function (e) {
-            $.ajax({
-                url: uri,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-                async: false,
-                success: success,
-                error: error
-            });
-        });
-        $('#get').on('click', function (e) {
-            $.ajax({
-                url: uri + '/1351',
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-                async: false,
-                success: success,
-                error: error
-            });
-        });
-        $('#putAll').on('click', function (e) {
-            var data = [{
-                Id: 106,
-                Name: "newNew222222222",
-                Description: "Description",
-                Icon: 'Icon'
-            },
-            {
-                Name: "super",
-                Description: "Description",
-                Icon: 'Icon'
-            }];
-            $.ajax({
-                url: uri,
-                type: 'PUT',
-                data: JSON.stringify(data),
-                contentType: "application/json;charset=utf-8",
-                async: false,
-                success: success,
-                error: error
-            });
-        });
-        $('#delete').on('click', function (e) {
-            $.ajax({
-                url: uri + '/1351',
-                type: 'DELETE',
-                contentType: "application/json;charset=utf-8",
-                async: false,
-                success: success,
-                error: error
-            });
-        });
-
-    </script>
+	</script>
 </body>
 </html>

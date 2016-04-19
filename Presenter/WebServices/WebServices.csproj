@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,9 +112,25 @@
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Advertisements\AdvertsController.cs" />
     <Compile Include="Controllers\Advertisements\MaterialsController.cs" />
     <Compile Include="Controllers\Advertisements\TypesController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\Contacts\SocialsController.cs" />
+    <Compile Include="Controllers\Contacts\PhonesController.cs" />
+    <Compile Include="Controllers\Contacts\AddressesController.cs" />
+    <Compile Include="Controllers\Contacts\EmailsController.cs" />
+    <Compile Include="Controllers\OurWorks\ItemsController.cs" />
+    <Compile Include="Controllers\OurWorks\FoldersController.cs" />
+    <Compile Include="Controllers\Photography\PhotoServicesController.cs" />
+    <Compile Include="Controllers\Services\CategoriesController.cs" />
+    <Compile Include="Controllers\Services\ServicesController.cs" />
+    <Compile Include="Controllers\Souvenirs\CategoriesController.cs" />
+    <Compile Include="Controllers\Souvenirs\SouvenirsController.cs" />
+    <Compile Include="Controllers\Stends\CategoriesController.cs" />
+    <Compile Include="Controllers\Stends\StendsController.cs" />
+    <Compile Include="Controllers\Tipographies\KindsController.cs" />
+    <Compile Include="Controllers\Tipographies\TipographiesController.cs" />
     <Compile Include="Filters\ExceptionLoggerAttribute.cs" />
     <Compile Include="Filters\ModelCheckAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -127,7 +145,7 @@
     <Compile Include="Models\Contacts\SocialViewModel.cs" />
     <Compile Include="Models\OurWorks\FolderViewModel.cs" />
     <Compile Include="Models\OurWorks\ItemViewModel.cs" />
-    <Compile Include="Models\Photography\PhotoService.cs" />
+    <Compile Include="Models\Photography\PhotoServiceViewModel.cs" />
     <Compile Include="Models\Services\CategoryViewModel.cs" />
     <Compile Include="Models\Services\ServiceViewModel.cs" />
     <Compile Include="Models\Souvenirs\CategoryViewModel.cs" />
@@ -149,6 +167,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controllers\Shop\" />
     <Folder Include="Models\Shop\" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +213,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

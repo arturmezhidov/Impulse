@@ -3,11 +3,12 @@ using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Advertisements;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Advertisements;
+using WebServices.Filters;
 using WebServices.Models.Advertisements;
 
 namespace WebServices.Controllers.Advertisements
 {
-	[RoutePrefix("api/advertisements")]
+	[RoutePrefix("api/advertisements/materials")]
 	public class MaterialsController : BaseApiController
 	{
 		protected IMaterialManager DataManager;
@@ -19,18 +20,10 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpPost]
-		[Route("materials")]
+		[Route("")]
+		[ModelCheck]
 		public IHttpActionResult Create(MaterialViewModel vm)
 		{
-			if (vm == null)
-			{
-				return BadRequest();
-			}
-			else if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
 			Material newItem = Mapper.Mapp<MaterialViewModel, Material>(vm);
 			Material createdItem = DataManager.Create(newItem);
 
@@ -40,7 +33,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpGet]
-		[Route("materials")]
+		[Route("")]
 		public IHttpActionResult GetAll()
 		{
 			var items = DataManager.GetAll();
@@ -51,7 +44,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpGet]
-		[Route("materials/{id:int}")]
+		[Route("{id:int}")]
 		public IHttpActionResult GetById(int id)
 		{
 			var item = DataManager.GetById(id);
@@ -67,18 +60,10 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpPut]
-		[Route("materials")]
+		[Route("")]
+		[ModelCheck]
 		public IHttpActionResult Update(List<MaterialViewModel> vms)
 		{
-			if (vms == null)
-			{
-				return BadRequest();
-			}
-			else if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
 			IEnumerable<Material> items = Mapper.MappCollection<MaterialViewModel, Material>(vms);
 			IEnumerable<Material> updatedItems = DataManager.Update(items);
 
@@ -88,7 +73,7 @@ namespace WebServices.Controllers.Advertisements
 		}
 
 		[HttpDelete]
-		[Route("materials/{id:int}")]
+		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
 			var item = DataManager.Delete(id);

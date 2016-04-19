@@ -12,19 +12,17 @@ namespace WebServices.Filters
 	{
 		public Task<HttpResponseMessage> ExecuteActionFilterAsync(HttpActionContext actionContext, CancellationToken cancellationToken, Func<Task<System.Net.Http.HttpResponseMessage>> continuation)
 		{
-			var response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+			if (!actionContext.ModelState.IsValid)
+			{
+				return Task.FromResult(actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState));
+			}
 
 			foreach(var param in actionContext.ActionArguments)
 			{
 				if (param.Value == null)
 				{
-					return Task.FromResult(response);
+					return Task.FromResult(actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState));
 				}
-			}
-
-			if (!actionContext.ModelState.IsValid)
-			{
-				return Task.FromResult(response);
 			}
 
 			return continuation();
