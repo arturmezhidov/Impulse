@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+using Impulse.Common.Models.Application;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Impulse.DataAccess.Sql.DataContexts
 {
-	public class ApplicationDataContext : DbContext
+	public class ApplicationDataContext : IdentityDbContext<ApplicationUser>
 	{
+		public DbSet<ProfileUser> ProfilesUsers { get; set; }
+
 		public ApplicationDataContext(string stringConnection) : base(stringConnection) { }
 	}
 }

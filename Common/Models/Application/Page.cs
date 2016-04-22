@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
-namespace Impulse.Common.Models
+namespace Impulse.Common.Models.Application
 {
 	public class Page<T>
 	{
-		IQueryable<T> Items { get; set; }
+		public IQueryable<T> Items { get; set; }
 		public bool HasNextPage { get; set; }
 		public bool HasPreviousPage { get; set; }
 		public bool IsFirstPage { get; set; }
