@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Advertisements
 {
 	[Table("Advertisements_Types")]
-	public class Type
+	public class Type : ISortable, IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -31,5 +27,8 @@ namespace Impulse.Common.Models.Advertisements
 		{
 			Adverts = new HashSet<Advert>();
 		}
+
+		public int SortingNumber { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

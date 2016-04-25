@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Contacts
 {
 	public class PhoneManager : DataManager<Phone>, IPhoneManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkContacts unitOfWork;
 
-		public PhoneManager(IUnitOfWorkAdvertisements unitOfWork)
+		public PhoneManager(IUnitOfWorkContacts unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

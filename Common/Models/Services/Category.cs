@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Services
 {
 	[Table("Services_Categories")]
-	public class Category
+	public class Category : ISortable, IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,5 +27,8 @@ namespace Impulse.Common.Models.Services
 		{
 			Services = new HashSet<Service>();
 		}
+
+		public int SortingNumber { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

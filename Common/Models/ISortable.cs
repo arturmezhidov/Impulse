@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Impulse.Common.Models
+﻿namespace Impulse.Common.Models
 {
-	interface ISortable
+	public interface ISortable
 	{
+		int SortingNumber { get; set; }
 	}
 }

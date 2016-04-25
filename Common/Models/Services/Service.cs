@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Services
 {
 	[Table("Services_Services")]
-	public class Service
+	public class Service : ISortable, IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -22,5 +22,7 @@ namespace Impulse.Common.Models.Services
 
 		public int CategoryId { get; set; }
 		public virtual Category Category { get; set; }
+		public int SortingNumber { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

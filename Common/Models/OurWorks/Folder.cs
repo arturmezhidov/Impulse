@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.OurWorks
 {
 	[Table("OurWorks_Folders")]
-	public class Folder
+	public class Folder : ISortable, IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -27,5 +27,8 @@ namespace Impulse.Common.Models.OurWorks
 		{
 			Items = new HashSet<Item>();
 		}
+
+		public int SortingNumber { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

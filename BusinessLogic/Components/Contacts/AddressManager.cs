@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Contacts
 {
 	public class AddressManager : DataManager<Address>, IAddressManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkContacts unitOfWork;
 
-		public AddressManager(IUnitOfWorkAdvertisements unitOfWork)
+		public AddressManager(IUnitOfWorkContacts unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

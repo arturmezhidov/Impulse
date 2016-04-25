@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Stends
 {
 	public class MaterialManager : DataManager<Material>, IMaterialManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkStends unitOfWork;
 
-		public MaterialManager(IUnitOfWorkAdvertisements unitOfWork)
+		public MaterialManager(IUnitOfWorkStends unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

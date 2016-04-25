@@ -49,6 +49,8 @@
     <Compile Include="Contacts\Address.cs" />
     <Compile Include="Contacts\Phone.cs" />
     <Compile Include="Contacts\Social.cs" />
+    <Compile Include="IDeletable.cs" />
+    <Compile Include="IOrderable.cs" />
     <Compile Include="ISortable.cs" />
     <Compile Include="OurWorks\Folder.cs" />
     <Compile Include="OurWorks\Item.cs" />

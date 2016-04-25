@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Contacts
 {
 	public class SocialManager : DataManager<Social>, ISocialManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkContacts unitOfWork;
 
-		public SocialManager(IUnitOfWorkAdvertisements unitOfWork)
+		public SocialManager(IUnitOfWorkContacts unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

@@ -1,4 +1,5 @@
-﻿using Impulse.BusinessLogic.BusinessContracts.Advertisements;
+﻿using System.Linq;
+using Impulse.BusinessLogic.BusinessContracts.Advertisements;
 using Impulse.Common.Models.Advertisements;
 using Impulse.DataAccess.DataContracts;
 
@@ -12,6 +13,11 @@ namespace Impulse.BusinessLogic.Components.Advertisements
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;
+		}
+
+		public override IQueryable<Advert> GetAll()
+		{
+			return unitOfWork.Adverts.GetAll().Where(i => !i.IsDeleted);
 		}
 
 		protected override bool IsNewItem(Advert item)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Impulse.BusinessLogic.BusinessContracts;
+using Impulse.Common.Models;
 using Impulse.DataAccess.DataContracts;
 
 namespace Impulse.BusinessLogic.Components
@@ -56,14 +57,14 @@ namespace Impulse.BusinessLogic.Components
 			return result;
 		}
 
-		public IQueryable<T> GetAll()
+		public virtual IQueryable<T> GetAll()
 		{
 			IQueryable<T> result = repository.GetAll();
 
 			return result;
 		}
 
-		public IEnumerable<T> Create(IEnumerable<T> items)
+		public virtual IEnumerable<T> Create(IEnumerable<T> items)
 		{
 			if (items == null)
 			{
@@ -80,7 +81,7 @@ namespace Impulse.BusinessLogic.Components
 			return result;
 		}
 
-		public IEnumerable<T> Update(IEnumerable<T> items)
+		public virtual IEnumerable<T> Update(IEnumerable<T> items)
 		{
 			if (items == null)
 			{

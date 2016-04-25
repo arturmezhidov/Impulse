@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Tipographies
 {
 	[Table("Tipographies_Kinds")]
-	public class Kind
+	public class Kind : ISortable, IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -31,5 +27,8 @@ namespace Impulse.Common.Models.Tipographies
 		{
 			Tipographies = new HashSet<Tipography>();
 		}
+
+		public int SortingNumber { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

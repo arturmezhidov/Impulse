@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.OurWorks
 {
 	public class ItemManager : DataManager<Item>, IItemManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkOurWorks unitOfWork;
 
-		public ItemManager(IUnitOfWorkAdvertisements unitOfWork)
+		public ItemManager(IUnitOfWorkOurWorks unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

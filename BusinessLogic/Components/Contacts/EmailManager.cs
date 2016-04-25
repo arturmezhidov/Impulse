@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Contacts
 {
 	public class EmailManager : DataManager<Email>, IEmailManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkContacts unitOfWork;
 
-		public EmailManager(IUnitOfWorkAdvertisements unitOfWork)
+		public EmailManager(IUnitOfWorkContacts unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

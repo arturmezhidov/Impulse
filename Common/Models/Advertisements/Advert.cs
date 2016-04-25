@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Advertisements
 {
 	[Table("Advertisements_Adverts")]
-	public class Advert
+	public class Advert : IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -29,5 +29,6 @@ namespace Impulse.Common.Models.Advertisements
 
 		public int TypeId { get; set; }
 		public virtual Type Type { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

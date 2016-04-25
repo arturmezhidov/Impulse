@@ -6,9 +6,9 @@ namespace Impulse.BusinessLogic.Components.Tipographies
 {
 	public class TipographyManager : DataManager<Tipography>, ITipographyManager
 	{
-		protected IUnitOfWorkAdvertisements unitOfWork;
+		protected IUnitOfWorkTipographies unitOfWork;
 
-		public TipographyManager(IUnitOfWorkAdvertisements unitOfWork)
+		public TipographyManager(IUnitOfWorkTipographies unitOfWork)
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Impulse.Common.Models.Stends
 {
 	[Table("Stends_Stends")]
-	public class Stend
+	public class Stend : IDeletable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -40,5 +35,6 @@ namespace Impulse.Common.Models.Stends
 
 		public int CategoryId { get; set; }
 		public virtual Category Category { get; set; }
+		public bool IsDeleted { get; set; }
 	}
 }

@@ -45,12 +45,14 @@
     <Compile Include="Contacts\SocialManager.cs" />
     <Compile Include="Contacts\AddressManager.cs" />
     <Compile Include="DataManager.cs" />
+    <Compile Include="Deleter.cs" />
     <Compile Include="OurWorks\ItemManager.cs" />
     <Compile Include="OurWorks\FolderManager.cs" />
     <Compile Include="Photography\PhotoServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceManager.cs" />
     <Compile Include="Services\CategoryManager.cs" />
+    <Compile Include="Sorter.cs" />
     <Compile Include="Souvenirs\SouvenirManager.cs" />
     <Compile Include="Souvenirs\CategoryManager.cs" />
     <Compile Include="Stends\MaterialManager.cs" />
