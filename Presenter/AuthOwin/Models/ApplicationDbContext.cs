@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Impulse.Presenter.AuthOwin.Models
 {
@@ -14,6 +15,11 @@ namespace Impulse.Presenter.AuthOwin.Models
 		public static ApplicationDbContext Create()
 		{
 			return new ApplicationDbContext(ConntectionString);
+		}
+
+		static ApplicationDbContext()
+		{
+			Database.SetInitializer(new DbInitializer());
 		}
 	}
 }

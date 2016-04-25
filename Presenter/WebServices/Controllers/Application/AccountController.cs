@@ -354,6 +354,8 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 				return GetErrorResult(result);
 			}
 
+			UserManager.AddToRole(appUser.Id, SystemRoles.User.ToString());
+
 			return Ok();
 		}
 
