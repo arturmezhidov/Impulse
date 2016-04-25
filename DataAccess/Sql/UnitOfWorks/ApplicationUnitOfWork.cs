@@ -10,7 +10,7 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 		private IRepository<ProfileUser> profilesUsers;
 
 		public ApplicationUnitOfWork(string stringConnection)
-			: base(new AdvertisementsDataContext(stringConnection))
+			: base(new ApplicationDataContext(stringConnection))
 		{
 		}
 
@@ -21,7 +21,6 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return profilesUsers ?? (profilesUsers = new BaseRepository<ProfileUser>(Context));
 			}
 		}
-
 
 		public override IRepository<T> GetRepository<T>()
 		{

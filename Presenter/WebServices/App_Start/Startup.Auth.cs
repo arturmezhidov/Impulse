@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using Impulse.Presenter.AuthOwin.Managers;
+using Impulse.Presenter.AuthOwin.Models;
+using Impulse.Presenter.AuthOwin.Providers;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using WebServices.Models;
-using WebServices.Models.Application;
-using WebServices.Providers;
+ 
 
-namespace WebServices
+namespace Impulse.Presenter.WebServices
 {
 	public partial class Startup
 	{
@@ -19,10 +17,13 @@ namespace WebServices
 
 		public static string PublicClientId { get; private set; }
 
+
 		// Дополнительные сведения о настройке аутентификации см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301864
 		public void ConfigureAuth(IAppBuilder app)
 		{
+		
 			// Настройка контекста базы данных и диспетчера пользователей для использования одного экземпляра на запрос
+			ApplicationDbContext.ConntectionString = "DbConnectionString";
 			app.CreatePerOwinContext(ApplicationDbContext.Create);
 			app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 

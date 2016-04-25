@@ -6,44 +6,40 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Impulse.BusinessLogic.BusinessContracts.Application;
+using Impulse.Common.Models.Application;
+using Impulse.Presenter.AuthOwin.Managers;
+using Impulse.Presenter.AuthOwin.Models;
+using Impulse.Presenter.AuthOwin.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using WebServices.Models;
 using WebServices.Models.Application;
-using WebServices.Providers;
-using WebServices.Results;
 
-namespace WebServices.Controllers
+namespace Impulse.Presenter.WebServices.Controllers.Application
 {
 	[Authorize]
 	[RoutePrefix("api/Account")]
 	public class AccountController : ApiController
 	{
 		private const string LocalLoginProvider = "Local";
-		private ApplicationUserManager _userManager;
-		//private IUserService service;
+		private readonly IUserManager manager;
 
-		public AccountController()
+		public AccountController(IUserManager manager)
 		{
-
+			this.manager = manager;
 		}
 
-		//public AccountController(IUserService service)
-		//{
-		//	this.service = service;
-		//}
-
-		public AccountController(ApplicationUserManager userManager,
-			ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+		public AccountController(ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
 		{
 			UserManager = userManager;
 			AccessTokenFormat = accessTokenFormat;
 		}
 
+		private ApplicationUserManager _userManager;
 		public ApplicationUserManager UserManager
 		{
 			get
@@ -335,18 +331,17 @@ namespace WebServices.Controllers
 				return BadRequest(ModelState);
 			}
 
-			//User user = service.Create(new User()
-			//{
-			//	GroupId = model.GroupId,
-			//	FirstName = model.FirstName,
-			//	LastName = model.LastName
-			//});
+			ProfileUser profile = manager.Create(new ProfileUser()
+			{
+				Name = model.FirstName,
+				Surname = model.LastName
+			});
 
 			var appUser = new ApplicationUser()
 			{
-				UserName = model.Login,
+				UserName = model.Email,
 				Email = model.Email,
-				//ProfileUserId = user.Id,
+				ProfileUserId = profile.Id,
 				PhoneNumber = model.Phone
 			};
 
@@ -354,6 +349,8 @@ namespace WebServices.Controllers
 
 			if (!result.Succeeded)
 			{
+				manager.Delete(profile.Id);
+
 				return GetErrorResult(result);
 			}
 
@@ -401,7 +398,7 @@ namespace WebServices.Controllers
 		{
 			if (disposing)
 			{
-				UserManager.Dispose();
+				manager.Dispose();
 			}
 
 			base.Dispose(disposing);

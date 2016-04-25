@@ -77,6 +77,7 @@ namespace WebServices.App_Start
 
 		static IEnumerable<INinjectModule> DataModules()
 		{
+			yield return new ApplicationDataModule("DbConnectionString");
 			yield return new AdvertisementsDataModule("DbConnectionString");
 			yield return new ContactsDataModule("DbConnectionString");
 			yield return new OurWorksDataModule("DbConnectionString");
@@ -89,6 +90,7 @@ namespace WebServices.App_Start
 		}
 		static IEnumerable<INinjectModule> BusinessModules()
 		{
+			yield return new ApplicationBusinessModule();
 			yield return new AdvertisementsBusinessModule();
 			yield return new ContactsBusinessModule();
 			yield return new OurWorksBusinessModule();

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessModules\ApplicationBusinessModule.cs" />
     <Compile Include="BusinessModules\AdvertisementsBusinessModule.cs" />
     <Compile Include="BusinessModules\ContactsBusinessModule.cs" />
     <Compile Include="BusinessModules\OurWorksBusinessModule.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="BusinessModules\SouvenirsBusinessModule.cs" />
     <Compile Include="BusinessModules\StendsBusinessModule.cs" />
     <Compile Include="BusinessModules\TipographiesBusinessModule.cs" />
+    <Compile Include="DataModules\ApplicationDataModule.cs" />
     <Compile Include="DataModules\AdvertisementsDataModule.cs" />
     <Compile Include="DataModules\ContactsDataModule.cs" />
     <Compile Include="DataModules\OurWorksDataModule.cs" />

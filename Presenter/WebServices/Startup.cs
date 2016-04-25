@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Impulse.Presenter.WebServices;
 using Microsoft.Owin;
 using Owin;
-using System.Threading.Tasks;
 
-[assembly: OwinStartup(typeof(WebServices.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace WebServices
+namespace Impulse.Presenter.WebServices
 {
 	public partial class Startup
 	{

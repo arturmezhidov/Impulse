@@ -42,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{157D07
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthOwin", "Presenter\AuthOwin\AuthOwin.csproj", "{F078DD26-78F4-468D-A248-99634C6EAC20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{E6902516-2ACA-4083-A69A-BC88CA6A3642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6902516-2ACA-4083-A69A-BC88CA6A3642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6902516-2ACA-4083-A69A-BC88CA6A3642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F078DD26-78F4-468D-A248-99634C6EAC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F078DD26-78F4-468D-A248-99634C6EAC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F078DD26-78F4-468D-A248-99634C6EAC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F078DD26-78F4-468D-A248-99634C6EAC20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +114,6 @@ Global
 		{7C71DBDA-1644-4CCC-8562-0B42393FFB89} = {AB2A07EC-E846-4305-84B3-82614D9E2C0C}
 		{9BA72873-A531-419E-BA43-68B922D004DA} = {07E42A95-D50A-4BF5-A1C6-3359366D0A95}
 		{E6902516-2ACA-4083-A69A-BC88CA6A3642} = {07E42A95-D50A-4BF5-A1C6-3359366D0A95}
+		{F078DD26-78F4-468D-A248-99634C6EAC20} = {07E42A95-D50A-4BF5-A1C6-3359366D0A95}
 	EndGlobalSection
 EndGlobal

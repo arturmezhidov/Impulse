@@ -1,8 +1,9 @@
 ﻿using System.Web.Http;
 using Impulse.Common.Components.Loggers;
+using WebServices;
 using WebServices.App_Start;
 
-namespace WebServices
+namespace Impulse.Presenter.WebServices
 {
 	public class WebApiApplication : System.Web.HttpApplication
 	{

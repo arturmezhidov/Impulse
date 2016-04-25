@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Impulse.Presenter.AuthOwin.Managers;
+using Impulse.Presenter.AuthOwin.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using WebServices.Models.Application;
 
-namespace WebServices.Providers
+namespace Impulse.Presenter.AuthOwin.Providers
 {
 	public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
 	{

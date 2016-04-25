@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace WebServices.Results
+namespace Impulse.Presenter.AuthOwin.Models
 {
 	public class ChallengeResult : IHttpActionResult
 	{
