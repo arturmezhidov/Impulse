@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Advertisements
+namespace Impulse.Presenter.WebServices.Models.Advertisements
 {
 	public class AdvertViewModel
 	{

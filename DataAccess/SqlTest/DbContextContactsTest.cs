@@ -3,8 +3,8 @@ using System.Linq;
 using System.Data.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Impulse.DataAccess.Sql.DataContexts;
-using Impulse.Common.Models.Contacts;
 using System.Collections.Generic;
+using Impulse.Common.Models.Application;
 using Impulse.DataAccess.Sql.Repositories;
 
 namespace SqlTest

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Souvenirs
+namespace Impulse.Presenter.WebServices.Models.Souvenirs
 {
 	public class CategoryViewModel
 	{

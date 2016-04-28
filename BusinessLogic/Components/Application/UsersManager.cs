@@ -12,10 +12,5 @@ namespace Impulse.BusinessLogic.Components.Application
 		{
 			this.uow = uow;
 		}
-
-		protected override bool IsNewItem(ProfileUser item)
-		{
-			return item.Id <= 0;
-		}
 	}
 }

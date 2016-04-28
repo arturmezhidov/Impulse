@@ -2,7 +2,7 @@
 
 namespace Impulse.BusinessLogic.BusinessContracts
 {
-	public interface IBaseDataManager : IDisposable
+	public interface IBaseManager : IDisposable
 	{
 	}
 }

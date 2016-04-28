@@ -1,11 +1,11 @@
 ﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts;
 
-namespace WebServices.Controllers
+namespace Impulse.Presenter.WebServices.Controllers
 {
 	public class BaseApiController : ApiController
 	{
-		private IBaseManager dataManager;
+		private readonly IBaseManager dataManager;
 
 		public BaseApiController(IBaseManager dataManager)
 		{

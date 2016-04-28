@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Contacts
+namespace Impulse.Presenter.WebServices.Models.Application
 {
 	public class PhoneViewModel
 	{

@@ -3,10 +3,10 @@ using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Tipographies;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Tipographies;
-using WebServices.Filters;
-using WebServices.Models.Tipographies;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Tipographies;
 
-namespace WebServices.Controllers.Tipographies
+namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 {
 	[RoutePrefix("api/tipographies/tipographies")]
 	public class TipographysController : BaseApiController

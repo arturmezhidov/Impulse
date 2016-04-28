@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Photography
+namespace Impulse.Presenter.WebServices.Models.Photography
 {
 	public class PhotoServiceViewModel
 	{

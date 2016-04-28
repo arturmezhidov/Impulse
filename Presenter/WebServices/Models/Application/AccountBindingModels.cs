@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Application
+namespace Impulse.Presenter.WebServices.Models.Application
 {
 	public class AddExternalLoginBindingModel
 	{

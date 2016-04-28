@@ -40,12 +40,11 @@
     <Compile Include="Advertisements\AdvertManager.cs" />
     <Compile Include="Advertisements\TypeManager.cs" />
     <Compile Include="Application\UsersManager.cs" />
-    <Compile Include="Contacts\EmailManager.cs" />
-    <Compile Include="Contacts\PhoneManager.cs" />
-    <Compile Include="Contacts\SocialManager.cs" />
-    <Compile Include="Contacts\AddressManager.cs" />
+    <Compile Include="Application\EmailManager.cs" />
+    <Compile Include="Application\PhoneManager.cs" />
+    <Compile Include="Application\SocialManager.cs" />
+    <Compile Include="Application\AddressManager.cs" />
     <Compile Include="DataManager.cs" />
-    <Compile Include="Deleter.cs" />
     <Compile Include="OurWorks\ItemManager.cs" />
     <Compile Include="OurWorks\FolderManager.cs" />
     <Compile Include="Photography\PhotoServiceManager.cs" />
@@ -53,6 +52,7 @@
     <Compile Include="Services\ServiceManager.cs" />
     <Compile Include="Services\CategoryManager.cs" />
     <Compile Include="Sorter.cs" />
+    <Compile Include="SorterManager.cs" />
     <Compile Include="Souvenirs\SouvenirManager.cs" />
     <Compile Include="Souvenirs\CategoryManager.cs" />
     <Compile Include="Stends\MaterialManager.cs" />

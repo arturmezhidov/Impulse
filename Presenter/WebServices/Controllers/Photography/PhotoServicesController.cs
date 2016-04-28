@@ -2,10 +2,10 @@
 using Impulse.BusinessLogic.BusinessContracts.Photography;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Photography;
-using WebServices.Filters;
-using WebServices.Models.Photography;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Photography;
 
-namespace WebServices.Controllers.Photography
+namespace Impulse.Presenter.WebServices.Controllers.Photography
 {
 	[RoutePrefix("api/photographies/services")]
 	public class PhotoServicesController : BaseApiController

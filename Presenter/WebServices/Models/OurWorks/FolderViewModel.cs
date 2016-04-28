@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.OurWorks
+namespace Impulse.Presenter.WebServices.Models.OurWorks
 {
 	public class FolderViewModel
 	{

@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Stends
 {
 	[Table("Stends_Stends")]
-	public class Stend : IDeletable
+	public class Stend : BaseItem
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }
@@ -35,6 +32,5 @@ namespace Impulse.Common.Models.Stends
 
 		public int CategoryId { get; set; }
 		public virtual Category Category { get; set; }
-		public bool IsDeleted { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Tipographies
+namespace Impulse.Presenter.WebServices.Models.Tipographies
 {
 	public class KindViewModel
 	{

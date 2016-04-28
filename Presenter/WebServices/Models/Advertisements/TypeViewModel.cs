@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using Impulse.Common.Models.Advertisements;
-
-namespace WebServices.Models.Advertisements
+namespace Impulse.Presenter.WebServices.Models.Advertisements
 {
 	public class TypeViewModel
 	{

@@ -9,6 +9,10 @@ namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 		public override void Load()
 		{
 			Bind<IUserManager>().To<UsersManager>();
+			Bind<IAddressManager>().To<AddressManager>();
+			Bind<IEmailManager>().To<EmailManager>();
+			Bind<IPhoneManager>().To<PhoneManager>();
+			Bind<ISocialManager>().To<SocialManager>();
 		}
 	}
 }

@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="BusinessModules\ApplicationBusinessModule.cs" />
     <Compile Include="BusinessModules\AdvertisementsBusinessModule.cs" />
-    <Compile Include="BusinessModules\ContactsBusinessModule.cs" />
     <Compile Include="BusinessModules\OurWorksBusinessModule.cs" />
     <Compile Include="BusinessModules\PhotographyBusinessModule.cs" />
     <Compile Include="BusinessModules\ServicesBusinessModule.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="BusinessModules\TipographiesBusinessModule.cs" />
     <Compile Include="DataModules\ApplicationDataModule.cs" />
     <Compile Include="DataModules\AdvertisementsDataModule.cs" />
-    <Compile Include="DataModules\ContactsDataModule.cs" />
     <Compile Include="DataModules\OurWorksDataModule.cs" />
     <Compile Include="DataModules\PhotographyDataModule.cs" />
     <Compile Include="DataModules\ServicesDataModule.cs" />
@@ -80,6 +78,10 @@
     <ProjectReference Include="..\..\BusinessLogic\Components\Components.csproj">
       <Project>{29fda308-3980-4a99-beac-653ad51b499d}</Project>
       <Name>Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Models\Models.csproj">
+      <Project>{2476d61c-f690-4c60-99d4-8bbd78cd615e}</Project>
+      <Name>Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataAccess\DataContracts\DataContracts.csproj">
       <Project>{3cadc255-e69b-4b44-b717-d97ba416bdde}</Project>

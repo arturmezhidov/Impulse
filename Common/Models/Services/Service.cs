@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Services
 {
 	[Table("Services_Services")]
-	public class Service : ISortable, IDeletable
+	public class Service : BaseItem, ISortable
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }
@@ -20,9 +17,9 @@ namespace Impulse.Common.Models.Services
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
+		public int SortingNumber { get; set; }
+
 		public int CategoryId { get; set; }
 		public virtual Category Category { get; set; }
-		public int SortingNumber { get; set; }
-		public bool IsDeleted { get; set; }
 	}
 }

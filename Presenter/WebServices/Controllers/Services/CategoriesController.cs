@@ -2,10 +2,10 @@
 using Impulse.BusinessLogic.BusinessContracts.Services;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Services;
-using WebServices.Filters;
-using WebServices.Models.Services;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Services;
 
-namespace WebServices.Controllers.Services
+namespace Impulse.Presenter.WebServices.Controllers.Services
 {
 	[RoutePrefix("api/servies/categories")]
 	public class CategoriesController : BaseApiController

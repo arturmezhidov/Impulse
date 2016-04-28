@@ -2,10 +2,10 @@
 using Impulse.BusinessLogic.BusinessContracts.Stends;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Stends;
-using WebServices.Filters;
-using WebServices.Models.Stends;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Stends;
 
-namespace WebServices.Controllers.Stends
+namespace Impulse.Presenter.WebServices.Controllers.Stends
 {
 	[RoutePrefix("api/stends/categories")]
 	public class CategoriesController : BaseApiController

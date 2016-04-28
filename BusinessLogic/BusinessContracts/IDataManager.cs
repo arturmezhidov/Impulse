@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 
 namespace Impulse.BusinessLogic.BusinessContracts
 {
-	public interface IDataManager<T> : IBaseDataManager where T : class, new()
+	public interface IDataManager<T> : IBaseManager where T : class, new()
 	{
 		T Create(T item);
 		T GetById(int id);

@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebServices.Models.Contacts
+namespace Impulse.Common.Models.Application
 {
-	public class AddressViewModel
+	[Table("Addresses")]
+	public class Address : BaseItem
 	{
-		public int Id { get; set; }
 
 		[MaxLength(1024)]
 		public string Country { get; set; }

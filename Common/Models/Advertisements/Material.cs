@@ -5,11 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Advertisements
 {
 	[Table("Advertisements_Materials")]
-	public class Material
+	public class Material : BaseItem
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }

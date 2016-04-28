@@ -5,11 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.OurWorks
 {
 	[Table("OurWorks_Folders")]
-	public class Folder : ISortable, IDeletable
+	public class Folder : BaseItem, ISortable
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }
@@ -21,14 +18,13 @@ namespace Impulse.Common.Models.OurWorks
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
+		public int SortingNumber { get; set; }
+
 		public virtual ICollection<Item> Items { get; set; }
 
 		public Folder()
 		{
 			Items = new HashSet<Item>();
 		}
-
-		public int SortingNumber { get; set; }
-		public bool IsDeleted { get; set; }
 	}
 }

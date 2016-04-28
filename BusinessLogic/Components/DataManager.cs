@@ -7,16 +7,16 @@ using Impulse.DataAccess.DataContracts;
 
 namespace Impulse.BusinessLogic.Components
 {
-	public abstract class DataManager<T> : IDataManager<T> where T : class, new()
+	public abstract class DataManager<T> : IDataManager<T> where T : BaseItem, new()
 	{
-		private IUnitOfWork uow;
-		private IRepository<T> repository;
+		private readonly IUnitOfWork uow;
+		private readonly IRepository<T> repository;
 		private bool disposed;
 
 		protected DataManager(IUnitOfWork uow)
 		{
 			this.uow = uow;
-			this.repository = uow.GetRepository<T>();
+			repository = uow.GetRepository<T>();
 		}
 
 		public virtual T Create(T newItem)
@@ -52,14 +52,23 @@ namespace Impulse.BusinessLogic.Components
 
 		public virtual T Delete(int id)
 		{
-			T result = repository.Delete(id);
+			T item = repository.GetById(id);
 
-			return result;
+			if (item != null)
+			{
+				item.IsDeleted = true;
+
+				item = repository.Update(item);
+			}
+
+			return item;
 		}
 
 		public virtual IQueryable<T> GetAll()
 		{
-			IQueryable<T> result = repository.GetAll();
+			IQueryable<T> result = repository
+				.GetAll()
+				.Where(i => !i.IsDeleted);
 
 			return result;
 		}
@@ -71,12 +80,14 @@ namespace Impulse.BusinessLogic.Components
 				throw new ArgumentNullException("items");
 			}
 
-			if (!items.Any())
+			var arrItems = items.ToArray();
+
+			if (!arrItems.Any())
 			{
-				return items;
+				return arrItems;
 			}
 
-			IEnumerable<T> result = repository.AddRange(items);
+			IEnumerable<T> result = repository.AddRange(arrItems);
 
 			return result;
 		}
@@ -88,13 +99,15 @@ namespace Impulse.BusinessLogic.Components
 				throw new ArgumentNullException("items");
 			}
 
-			if (!items.Any())
+			var arrItems = (items as List<T>) ?? items.ToList();
+
+			if (!arrItems.Any())
 			{
-				return items;
+				return arrItems;
 			}
 
-			var newItems = items.Where(IsNewItem);
-			var updateItems = items.Except(newItems);
+			var newItems = arrItems.Where(IsNewItem).ToList();
+			var updateItems = arrItems.Except(newItems).ToList();
 
 			if (newItems.Any())
 			{
@@ -106,9 +119,12 @@ namespace Impulse.BusinessLogic.Components
 				repository.UpdateRange(updateItems);
 			}
 
-			IEnumerable<T> result = repository.UpdateRange(items);
+			return newItems.Concat(updateItems);
+		}
 
-			return result;
+		protected virtual bool IsNewItem(T item)
+		{
+			return item.Id <= 0;
 		}
 
 		public void Dispose()
@@ -128,6 +144,5 @@ namespace Impulse.BusinessLogic.Components
 				disposed = true;
 			}
 		}
-		protected abstract bool IsNewItem(T item);
 	}
 }

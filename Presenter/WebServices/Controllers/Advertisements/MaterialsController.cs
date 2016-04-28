@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Advertisements;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Advertisements;
-using WebServices.Controllers;
-using WebServices.Filters;
-using WebServices.Models.Advertisements;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Advertisements;
 
 namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 {

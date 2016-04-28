@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using WebServices.Filters;
+using Impulse.Presenter.WebServices.Filters;
 
 namespace WebServices.App_Start
 {

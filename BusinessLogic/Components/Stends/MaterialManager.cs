@@ -13,10 +13,5 @@ namespace Impulse.BusinessLogic.Components.Stends
 		{
 			this.unitOfWork = unitOfWork;
 		}
-
-		protected override bool IsNewItem(Material item)
-		{
-			return item.Id <= 0;
-		}
 	}
 }

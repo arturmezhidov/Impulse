@@ -13,10 +13,5 @@ namespace Impulse.BusinessLogic.Components.OurWorks
 		{
 			this.unitOfWork = unitOfWork;
 		}
-
-		protected override bool IsNewItem(Item item)
-		{
-			return item.Id <= 0;
-		}
 	}
 }

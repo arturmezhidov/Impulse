@@ -5,11 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Souvenirs
 {
 	[Table("Souvenirs_Categories")]
-	public class Category : ISortable, IDeletable
+	public class Category : BaseItem, ISortable
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		[MaxLength(1024)]
 		public string Name { get; set; }
@@ -21,14 +18,13 @@ namespace Impulse.Common.Models.Souvenirs
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
+		public int SortingNumber { get; set; }
+
 		public virtual ICollection<Souvenir> Souvenirs { get; set; }
 
 		public Category()
 		{
 			Souvenirs = new HashSet<Souvenir>();
 		}
-
-		public int SortingNumber { get; set; }
-		public bool IsDeleted { get; set; }
 	}
 }

@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Impulse.BusinessLogic.BusinessContracts.OurWorks;
+﻿using Impulse.BusinessLogic.BusinessContracts.OurWorks;
 using Impulse.Common.Models.OurWorks;
 using Impulse.DataAccess.DataContracts;
 
 namespace Impulse.BusinessLogic.Components.OurWorks
 {
-	public class FolderManager : DataManager<Folder>, IFolderManager
+	public class FolderManager : SorterManager<Folder>, IFolderManager
 	{
 		protected IUnitOfWorkOurWorks unitOfWork;
 
@@ -13,16 +12,6 @@ namespace Impulse.BusinessLogic.Components.OurWorks
 			: base(unitOfWork)
 		{
 			this.unitOfWork = unitOfWork;
-		}
-
-		public override IQueryable<Folder> GetAll()
-		{
-			return unitOfWork.Folders.GetAll().Where(i => !i.IsDeleted).OrderBy(i => i.SortingNumber);
-		}
-
-		protected override bool IsNewItem(Folder item)
-		{
-			return item.Id <= 0;
 		}
 	}
 }

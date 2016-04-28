@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using WebServices.Models.Advertisements;
 
 namespace Impulse.Presenter.WebServices.Models.Advertisements
 {

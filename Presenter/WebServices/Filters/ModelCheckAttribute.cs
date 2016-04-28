@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace WebServices.Filters
+namespace Impulse.Presenter.WebServices.Filters
 {
 	public class ModelCheckAttribute : Attribute, IActionFilter
 	{

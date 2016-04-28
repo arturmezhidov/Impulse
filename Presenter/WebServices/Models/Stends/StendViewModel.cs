@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Stends
+namespace Impulse.Presenter.WebServices.Models.Stends
 {
 	public class StendViewModel
 	{

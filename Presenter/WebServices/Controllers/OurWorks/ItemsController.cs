@@ -2,10 +2,10 @@
 using Impulse.BusinessLogic.BusinessContracts.OurWorks;
 using Impulse.Common.Components;
 using Impulse.Common.Models.OurWorks;
-using WebServices.Filters;
-using WebServices.Models.OurWorks;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.OurWorks;
 
-namespace WebServices.Controllers.OurWorks
+namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 {
 	[RoutePrefix("api/ourworks/items")]
 	public class ItemsController : BaseApiController

@@ -11,13 +11,13 @@ using Impulse.Common.Models.Application;
 using Impulse.Presenter.AuthOwin.Managers;
 using Impulse.Presenter.AuthOwin.Models;
 using Impulse.Presenter.AuthOwin.Providers;
+using Impulse.Presenter.WebServices.Models.Application;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using WebServices.Models.Application;
 
 namespace Impulse.Presenter.WebServices.Controllers.Application
 {

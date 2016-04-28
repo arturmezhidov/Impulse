@@ -50,7 +50,6 @@
     <Compile Include="IUnitOfWorkAdvertisements.cs" />
     <Compile Include="IUnitOfWorkOurWorks.cs" />
     <Compile Include="IUnitOfWorkPhotography.cs" />
-    <Compile Include="IUnitOfWorkContacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

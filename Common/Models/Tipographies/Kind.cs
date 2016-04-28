@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Impulse.Common.Models.Tipographies
 {
 	[Table("Tipographies_Kinds")]
-	public class Kind : ISortable, IDeletable
+	public class Kind : BaseItem, ISortable
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
@@ -21,14 +21,13 @@ namespace Impulse.Common.Models.Tipographies
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
+		public int SortingNumber { get; set; }
+
 		public virtual ICollection<Tipography> Tipographies { get; set; }
 
 		public Kind()
 		{
 			Tipographies = new HashSet<Tipography>();
 		}
-
-		public int SortingNumber { get; set; }
-		public bool IsDeleted { get; set; }
 	}
 }

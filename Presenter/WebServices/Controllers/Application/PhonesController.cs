@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Impulse.BusinessLogic.BusinessContracts.Contacts;
+using Impulse.BusinessLogic.BusinessContracts.Application;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Contacts;
-using WebServices.Filters;
-using WebServices.Models.Contacts;
+using Impulse.Common.Models.Application;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Application;
 
-namespace WebServices.Controllers.Contacts
+namespace Impulse.Presenter.WebServices.Controllers.Application
 {
 	[RoutePrefix("api/contacts/phones")]
 	public class PhonesController : BaseApiController

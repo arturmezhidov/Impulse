@@ -77,7 +77,6 @@ namespace Impulse.Presenter.WebServices
 		{
 			yield return new ApplicationDataModule("DbConnectionString");
 			yield return new AdvertisementsDataModule("DbConnectionString");
-			yield return new ContactsDataModule("DbConnectionString");
 			yield return new OurWorksDataModule("DbConnectionString");
 			yield return new PhotographyDataModule("DbConnectionString");
 			yield return new ServicesDataModule("DbConnectionString");
@@ -90,7 +89,6 @@ namespace Impulse.Presenter.WebServices
 		{
 			yield return new ApplicationBusinessModule();
 			yield return new AdvertisementsBusinessModule();
-			yield return new ContactsBusinessModule();
 			yield return new OurWorksBusinessModule();
 			yield return new PhotographyBusinessModule();
 			yield return new ServicesBusinessModule();

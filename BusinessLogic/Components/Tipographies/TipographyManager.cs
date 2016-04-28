@@ -13,10 +13,5 @@ namespace Impulse.BusinessLogic.Components.Tipographies
 		{
 			this.unitOfWork = unitOfWork;
 		}
-
-		protected override bool IsNewItem(Tipography item)
-		{
-			return item.Id <= 0;
-		}
 	}
 }

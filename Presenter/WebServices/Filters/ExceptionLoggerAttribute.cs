@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using Impulse.Common.Components.Loggers;
 
-namespace WebServices.Filters
+namespace Impulse.Presenter.WebServices.Filters
 {
 	public class ExceptionLoggerAttribute : ExceptionFilterAttribute
 	{

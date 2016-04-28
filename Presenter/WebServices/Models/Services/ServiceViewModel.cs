@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebServices.Models.Services
+namespace Impulse.Presenter.WebServices.Models.Services
 {
 	public class ServiceViewModel
 	{

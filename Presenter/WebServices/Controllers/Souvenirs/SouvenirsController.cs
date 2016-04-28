@@ -3,10 +3,10 @@ using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Souvenirs;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Souvenirs;
-using WebServices.Filters;
-using WebServices.Models.Souvenirs;
+using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Models.Souvenirs;
 
-namespace WebServices.Controllers.Souvenirs
+namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 {
 	[RoutePrefix("api/souvenirs/souvenirs")]
 	public class SouvenirsController : BaseApiController
