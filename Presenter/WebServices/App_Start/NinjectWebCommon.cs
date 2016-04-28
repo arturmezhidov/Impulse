@@ -1,23 +1,21 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebServices.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebServices.App_Start.NinjectWebCommon), "Stop")]
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Http;
+using Impulse.DependencyInjections.NInjectResolver;
+using Impulse.DependencyInjections.NInjectResolver.BusinessModules;
+using Impulse.DependencyInjections.NInjectResolver.DataModules;
+using Impulse.Presenter.WebServices;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Modules;
+using Ninject.Web.Common;
 
-namespace WebServices.App_Start
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
+
+namespace Impulse.Presenter.WebServices
 {
-	using System;
-	using System.Web;
-	using System.Collections.Generic;
-
-	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-	using Ninject;
-	using Ninject.Web.Common;
-	using Ninject.Modules;
-	using System.Web.Http;
-
-	using Impulse.DependencyInjections.NInjectResolver;
-	using Impulse.DependencyInjections.NInjectResolver.DataModules;
-	using Impulse.DependencyInjections.NInjectResolver.BusinessModules;
-
 	public static class NinjectWebCommon
 	{
 		private static readonly Bootstrapper bootstrapper = new Bootstrapper();

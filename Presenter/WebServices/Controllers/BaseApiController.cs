@@ -5,9 +5,9 @@ namespace WebServices.Controllers
 {
 	public class BaseApiController : ApiController
 	{
-		private IBaseDataManager dataManager;
+		private IBaseManager dataManager;
 
-		public BaseApiController(IBaseDataManager dataManager)
+		public BaseApiController(IBaseManager dataManager)
 		{
 			this.dataManager = dataManager;
 		}

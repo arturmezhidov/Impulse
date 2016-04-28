@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Models\Advertisements\AdvertViewModel.cs" />
     <Compile Include="Models\Advertisements\MaterialViewModel.cs" />
+    <Compile Include="Models\Advertisements\TypeDetailsModel.cs" />
     <Compile Include="Models\Advertisements\TypeViewModel.cs" />
     <Compile Include="Models\Application\AccountBindingModels.cs" />
     <Compile Include="Models\Application\AccountViewModels.cs" />

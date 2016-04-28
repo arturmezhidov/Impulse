@@ -1,0 +1,39 @@
+﻿<div class="dialog">
+
+	<div class="dialog-inner">
+
+		<div class="dialog-header"><a ui-sref="^">X</a></div>
+
+
+		<input ng-model="editType.Name" />
+		<input ng-model="editType.Icon" />
+
+	</div>
+
+</div>
+
+<style>
+
+	.dialog {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.dialog-inner {
+		max-width: 1200px;
+		margin: 20px auto;
+		padding: 30px;
+		height: 700px;
+		background: white;
+	}
+
+	.dialog-header {
+		text-align: right;
+	}
+
+
+</style>

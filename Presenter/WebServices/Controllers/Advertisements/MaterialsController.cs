@@ -3,10 +3,11 @@ using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Advertisements;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Advertisements;
+using WebServices.Controllers;
 using WebServices.Filters;
 using WebServices.Models.Advertisements;
 
-namespace WebServices.Controllers.Advertisements
+namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 {
 	[RoutePrefix("api/advertisements/materials")]
 	public class MaterialsController : BaseApiController
@@ -62,12 +63,12 @@ namespace WebServices.Controllers.Advertisements
 		[HttpPut]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Update(List<MaterialViewModel> vms)
+		public IHttpActionResult Update(MaterialViewModel vm)
 		{
-			IEnumerable<Material> items = Mapper.MappCollection<MaterialViewModel, Material>(vms);
-			IEnumerable<Material> updatedItems = DataManager.Update(items);
+			Material item = Mapper.Mapp<MaterialViewModel, Material>(vm);
+			Material updatedItem = DataManager.Update(item);
 
-			var response = Mapper.MappCollection<Material, MaterialViewModel>(updatedItems);
+			var response = Mapper.Mapp<Material, MaterialViewModel>(updatedItem);
 
 			return Ok(response);
 		}
