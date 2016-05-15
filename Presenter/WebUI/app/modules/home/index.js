@@ -1,4 +1,4 @@
-﻿define(['./view.controller', './states'], function (controller, states) {
+﻿define(['./states', './data-context', './slides/list.controller', './slides/edit.controller'], function (states) {
 
 	return {
 		

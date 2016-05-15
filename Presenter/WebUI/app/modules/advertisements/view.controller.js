@@ -2,7 +2,7 @@
 
 	module.controller('advertisementsController', advertisementsController);
 
-	advertisementsController.$inject = ['$scope', 'dataContext'];
+	advertisementsController.$inject = ['$scope', 'advertisements.dataContext'];
 
 	function advertisementsController($scope, dataContext) {
 

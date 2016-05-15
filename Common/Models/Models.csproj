@@ -45,6 +45,7 @@
     <Compile Include="Advertisements\Type.cs" />
     <Compile Include="Advertisements\Material.cs" />
     <Compile Include="Application\ProfileUser.cs" />
+    <Compile Include="Application\Slide.cs" />
     <Compile Include="BaseItem.cs" />
     <Compile Include="Application\Email.cs" />
     <Compile Include="Application\Address.cs" />
@@ -54,7 +55,7 @@
     <Compile Include="ISortable.cs" />
     <Compile Include="OurWorks\Folder.cs" />
     <Compile Include="OurWorks\Item.cs" />
-    <Compile Include="Application\Page.cs" />
+    <Compile Include="Page.cs" />
     <Compile Include="Photography\PhotoService.cs" />
     <Compile Include="Stends\Material.cs" />
     <Compile Include="Tipographies\Kind.cs" />

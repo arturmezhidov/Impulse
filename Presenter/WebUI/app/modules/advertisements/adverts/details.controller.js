@@ -2,7 +2,7 @@
 
 	module.controller('advertDetailController', advertDetailController);
 
-	advertDetailController.$inject = ['$scope', '$stateParams', 'dataContext'];
+	advertDetailController.$inject = ['$scope', '$stateParams', 'advertisements.dataContext'];
 
 	function advertDetailController($scope, $stateParams, dataContext) {
 

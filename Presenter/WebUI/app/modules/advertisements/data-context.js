@@ -1,8 +1,8 @@
 ﻿define(['./module'], function (module) {
 
-	module.service('dataContext', dataContext);
+	module.service('advertisements.dataContext', dataContext);
 
-	dataContext.$inject = ['config', 'dataServicesFactory'];
+	dataContext.$inject = ['advertisements.config', 'dataServicesFactory'];
 
 	function dataContext(config, dataServicesFactory) {
 

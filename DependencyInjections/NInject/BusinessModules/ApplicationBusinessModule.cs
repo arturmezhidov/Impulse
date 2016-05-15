@@ -13,6 +13,7 @@ namespace Impulse.DependencyInjections.NInjectResolver.BusinessModules
 			Bind<IEmailManager>().To<EmailManager>();
 			Bind<IPhoneManager>().To<PhoneManager>();
 			Bind<ISocialManager>().To<SocialManager>();
+			Bind<ISlideManager>().To<SlideManager>();
 		}
 	}
 }

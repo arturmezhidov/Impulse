@@ -2,7 +2,7 @@
 
 	module.controller('materialsEditController', materialsEditController);
 
-	materialsEditController.$inject = ['$scope', '$stateParams', 'dataContext', 'NgTableParams'];
+	materialsEditController.$inject = ['$scope', '$stateParams', 'advertisements.dataContext', 'NgTableParams'];
 
 	function materialsEditController($scope, $stateParams, dataContext, NgTableParams) {
 

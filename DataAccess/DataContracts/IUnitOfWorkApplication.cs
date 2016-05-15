@@ -9,5 +9,6 @@ namespace Impulse.DataAccess.DataContracts
 		IRepository<Email> Emails { get; }
 		IRepository<Phone> Phones { get; }
 		IRepository<Social> Socials { get; }
+		IRepository<Slide> Slides { get; }
 	}
 }

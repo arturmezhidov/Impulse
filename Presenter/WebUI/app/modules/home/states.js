@@ -9,8 +9,18 @@
 				$stateProvider
 					.state(options.state, {
 						url: options.url,
-						templateUrl: '/app/modules/home/view.html',
-						controller: 'homeController'
+						abstract: true,
+						templateUrl: '/app/modules/home/view.html'
+					})
+					.state(options.state + '.slides', {
+						url: '',
+						templateUrl: '/app/modules/home/slides/list.html',
+						controller: 'slidesListController'
+					})
+					.state(options.state + '.edit', {
+						url: 'home/edit',
+						templateUrl: '/app/modules/home/slides/edit.html',
+						controller: 'slidesEditController'
 					});
 			}]);
 

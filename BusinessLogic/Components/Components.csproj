@@ -39,6 +39,7 @@
     <Compile Include="Advertisements\MaterialManager.cs" />
     <Compile Include="Advertisements\AdvertManager.cs" />
     <Compile Include="Advertisements\TypeManager.cs" />
+    <Compile Include="Application\SlideManager.cs" />
     <Compile Include="Application\UsersManager.cs" />
     <Compile Include="Application\EmailManager.cs" />
     <Compile Include="Application\PhoneManager.cs" />

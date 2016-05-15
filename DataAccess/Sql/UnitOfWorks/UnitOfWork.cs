@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Linq;
 using Impulse.DataAccess.DataContracts;
 
 namespace Impulse.DataAccess.Sql.UnitOfWorks
@@ -9,12 +10,17 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 		protected readonly DbContext Context;
 		private bool disposed;
 
-		public UnitOfWork(DbContext instance)
+		protected UnitOfWork(DbContext instance)
 		{
 			Context = instance;
 		}
 
-		public abstract IRepository<T> GetRepository<T>() where T : class, new();
+		public virtual IRepository<T> GetRepository<T>() where T : class, new()
+		{
+			var property = GetType().GetProperties().FirstOrDefault(i => i.PropertyType == typeof (IRepository<T>));
+
+			return (IRepository<T>)property.GetValue(this);
+		}
 
 		public void Save()
 		{

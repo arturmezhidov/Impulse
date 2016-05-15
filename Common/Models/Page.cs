@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Impulse.Common.Models.Application
+namespace Impulse.Common.Models
 {
 	public class Page<T>
 	{

@@ -2,7 +2,7 @@
 
 	module.controller('typesEditController', typesEditController);
 
-	typesEditController.$inject = ['$scope', '$stateParams','dataContext'];
+	typesEditController.$inject = ['$scope', '$stateParams', 'advertisements.dataContext'];
 
 	function typesEditController($scope, $stateParams, dataContext) {
 

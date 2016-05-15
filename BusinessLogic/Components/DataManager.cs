@@ -45,7 +45,14 @@ namespace Impulse.BusinessLogic.Components
 				throw new ArgumentNullException("item");
 			}
 
-			item = repository.Update(item);
+			if (IsNewItem(item))
+			{
+				item = repository.Add(item);
+			}
+			else
+			{
+				item = repository.Update(item);
+			}
 
 			return item;
 		}

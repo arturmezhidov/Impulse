@@ -2,7 +2,7 @@
 
 	module.controller('typesListController', typesListController);
 
-	typesListController.$inject = ['$scope', 'dataContext'];
+	typesListController.$inject = ['$scope', 'advertisements.dataContext'];
 
 	function typesListController($scope, dataContext) {
 

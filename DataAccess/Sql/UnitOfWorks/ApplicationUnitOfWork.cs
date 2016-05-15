@@ -12,6 +12,7 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 		private IRepository<Email> emails;
 		private IRepository<Phone> phones;
 		private IRepository<Social> socials;
+		private IRepository<Slide> slides;
 
 		public ApplicationUnitOfWork(string stringConnection)
 			: base(new ApplicationDataContext(stringConnection))
@@ -58,29 +59,12 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			}
 		}
 
-		public override IRepository<T> GetRepository<T>()
+		public IRepository<Slide> Slides
 		{
-			if (typeof(T) == typeof(ProfileUser))
+			get
 			{
-				return (IRepository<T>)ProfilesUsers;
+				return slides ?? (slides = new BaseRepository<Slide>(Context));
 			}
-			if (typeof(T) == typeof(Address))
-			{
-				return (IRepository<T>)Addresses;
-			}
-			if (typeof(T) == typeof(Email))
-			{
-				return (IRepository<T>)Emails;
-			}
-			if (typeof(T) == typeof(Phone))
-			{
-				return (IRepository<T>)Phones;
-			}
-			if (typeof(T) == typeof(Social))
-			{
-				return (IRepository<T>)Socials;
-			}
-			return null;
 		}
 	}
 }

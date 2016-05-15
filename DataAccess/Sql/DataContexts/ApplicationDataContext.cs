@@ -10,6 +10,7 @@ namespace Impulse.DataAccess.Sql.DataContexts
 		public DbSet<Email> Emails { get; set; }
 		public DbSet<Phone> Phones { get; set; }
 		public DbSet<Social> Socials { get; set; }
+		public DbSet<Slide> Slides { get; set; }
 
 		public ApplicationDataContext(string stringConnection) : base(stringConnection) { }
 	}

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\Advertisements\AdvertsController.cs" />
     <Compile Include="Controllers\Advertisements\MaterialsController.cs" />
     <Compile Include="Controllers\Advertisements\TypesController.cs" />
+    <Compile Include="Controllers\Application\SlidesController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\Application\SocialsController.cs" />
     <Compile Include="Controllers\Application\PhonesController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Models\Application\AddressViewModel.cs" />
     <Compile Include="Models\Application\EmailViewModel.cs" />
     <Compile Include="Models\Application\PhoneViewModel.cs" />
+    <Compile Include="Models\Application\SlideViewModel.cs" />
     <Compile Include="Models\Application\SocialViewModel.cs" />
     <Compile Include="Models\OurWorks\FolderViewModel.cs" />
     <Compile Include="Models\OurWorks\ItemViewModel.cs" />
@@ -234,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Shop\" />
+    <Folder Include="Images\Slides\" />
     <Folder Include="Models\Shop\" />
   </ItemGroup>
   <ItemGroup>

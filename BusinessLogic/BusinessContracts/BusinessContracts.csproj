@@ -39,6 +39,7 @@
     <Compile Include="Advertisements\IAdvertManager.cs" />
     <Compile Include="Advertisements\IMaterialManager.cs" />
     <Compile Include="Advertisements\ITypeManager.cs" />
+    <Compile Include="Application\ISlideManager.cs" />
     <Compile Include="Application\IUserManager.cs" />
     <Compile Include="Application\IEmailManager.cs" />
     <Compile Include="Application\ISocialManager.cs" />

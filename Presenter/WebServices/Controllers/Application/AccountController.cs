@@ -22,7 +22,7 @@ using Microsoft.Owin.Security.OAuth;
 namespace Impulse.Presenter.WebServices.Controllers.Application
 {
 	[Authorize]
-	[RoutePrefix("api/Account")]
+	[RoutePrefix("api/account")]
 	public class AccountController : ApiController
 	{
 		private const string LocalLoginProvider = "Local";
