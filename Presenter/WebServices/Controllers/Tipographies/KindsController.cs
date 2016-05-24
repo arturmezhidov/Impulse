@@ -1,7 +1,8 @@
 ﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Tipographies;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Tipographies;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Filters;
 using Impulse.Presenter.WebServices.Models.Tipographies;
 
@@ -23,10 +24,10 @@ namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 		[ModelCheck]
 		public IHttpActionResult Create(KindViewModel vm)
 		{
-			Kind newKind = Mapper.Mapp<KindViewModel, Kind>(vm);
-			Kind createdKind = DataManager.Create(newKind);
+			TipographyCategory newKind = Mapper.Mapp<KindViewModel, TipographyCategory>(vm);
+			TipographyCategory createdKind = DataManager.Create(newKind);
 
-			var response = Mapper.Mapp<Kind, KindViewModel>(createdKind);
+			var response = Mapper.Mapp<TipographyCategory, KindViewModel>(createdKind);
 
 			return Created("api/tipographies/kinds/" + response.Id, response);
 		}
@@ -37,7 +38,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 		{
 			var kinds = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Kind, KindViewModel>(kinds);
+			var response = Mapper.MappCollection<TipographyCategory, KindViewModel>(kinds);
 
 			return Ok(response);
 		}
@@ -53,7 +54,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Kind, KindViewModel>(category);
+			var response = Mapper.Mapp<TipographyCategory, KindViewModel>(category);
 
 			return Ok(response);
 		}
@@ -79,10 +80,10 @@ namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 		[ModelCheck]
 		public IHttpActionResult Update(KindViewModel vm)
 		{
-			Kind category = Mapper.Mapp<KindViewModel, Kind>(vm);
-			Kind updatedKind = DataManager.Update(category);
+			TipographyCategory category = Mapper.Mapp<KindViewModel, TipographyCategory>(vm);
+			TipographyCategory updatedKind = DataManager.Update(category);
 
-			var response = Mapper.Mapp<Kind, KindViewModel>(updatedKind);
+			var response = Mapper.Mapp<TipographyCategory, KindViewModel>(updatedKind);
 
 			return Ok(response);
 		}
@@ -91,14 +92,14 @@ namespace Impulse.Presenter.WebServices.Controllers.Tipographies
 		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
-			Kind category = DataManager.Delete(id);
+			TipographyCategory category = DataManager.Delete(id);
 
 			if (category == null)
 			{
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Kind, KindViewModel>(category);
+			var response = Mapper.Mapp<TipographyCategory, KindViewModel>(category);
 
 			return Ok(response);
 		}

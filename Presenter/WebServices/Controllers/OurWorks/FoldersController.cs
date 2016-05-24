@@ -21,12 +21,12 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		[HttpPost]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Create(FolderViewModel vm)
+		public IHttpActionResult Create(OurWorksFolderViewModel vm)
 		{
-			Folder newItem = Mapper.Mapp<FolderViewModel, Folder>(vm);
+			Folder newItem = Mapper.Mapp<OurWorksFolderViewModel, Folder>(vm);
 			Folder createdItem = DataManager.Create(newItem);
 
-			var response = Mapper.Mapp<Folder, FolderViewModel>(createdItem);
+			var response = Mapper.Mapp<Folder, OurWorksFolderViewModel>(createdItem);
 
 			return Created("api/ourworks/folders/" + response.Id, response);
 		}
@@ -37,7 +37,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		{
 			var folders = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Folder, FolderViewModel>(folders);
+			var response = Mapper.MappCollection<Folder, OurWorksFolderViewModel>(folders);
 
 			return Ok(response);
 		}
@@ -53,7 +53,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Folder, FolderViewModel>(item);
+			var response = Mapper.Mapp<Folder, OurWorksFolderViewModel>(item);
 
 			return Ok(response);
 		}
@@ -69,7 +69,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 				return NotFound();
 			}
 
-			var response = Mapper.MappCollection<Item, ItemViewModel>(item.Items);
+			var response = Mapper.MappCollection<Item, OurWorksItemViewModel>(item.Items);
 
 			return Ok(response);
 		}
@@ -77,12 +77,12 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		[HttpPut]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Update(List<FolderViewModel> vms)
+		public IHttpActionResult Update(List<OurWorksFolderViewModel> vms)
 		{
-			IEnumerable<Folder> items = Mapper.MappCollection<FolderViewModel, Folder>(vms);
+			IEnumerable<Folder> items = Mapper.MappCollection<OurWorksFolderViewModel, Folder>(vms);
 			IEnumerable<Folder> updatedItems = DataManager.Update(items);
 
-			var response = Mapper.MappCollection<Folder, FolderViewModel>(updatedItems);
+			var response = Mapper.MappCollection<Folder, OurWorksFolderViewModel>(updatedItems);
 
 			return Ok(response);
 		}
@@ -98,7 +98,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Folder, FolderViewModel>(item);
+			var response = Mapper.Mapp<Folder, OurWorksFolderViewModel>(item);
 
 			return Ok(response);
 		}

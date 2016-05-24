@@ -21,12 +21,12 @@ namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 		[HttpPost]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Create(TypeViewModel vm)
+		public IHttpActionResult Create(AdvertCategoryViewModel vm)
 		{
-			Type newType = Mapper.Mapp<TypeViewModel, Type>(vm);
+			Type newType = Mapper.Mapp<AdvertCategoryViewModel, Type>(vm);
 			Type createdType = DataManager.Create(newType);
 
-			var response = Mapper.Mapp<Type, TypeViewModel>(createdType);
+			var response = Mapper.Mapp<Type, AdvertCategoryViewModel>(createdType);
 
 			return Created("api/advertisements/types/" + response.Id, response);
 		}
@@ -37,7 +37,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 		{
 			var types = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Type, TypeViewModel>(types);
+			var response = Mapper.MappCollection<Type, AdvertCategoryViewModel>(types);
 
 			return Ok(response);
 		}
@@ -78,12 +78,12 @@ namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 		[HttpPut]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Update(List<TypeViewModel> vms)
+		public IHttpActionResult Update(List<AdvertCategoryViewModel> vms)
 		{
-			IEnumerable<Type> types = Mapper.MappCollection<TypeViewModel, Type>(vms);
+			IEnumerable<Type> types = Mapper.MappCollection<AdvertCategoryViewModel, Type>(vms);
 			IEnumerable<Type> updatedTypes = DataManager.Update(types);
 
-			var response = Mapper.MappCollection<Type, TypeViewModel>(updatedTypes);
+			var response = Mapper.MappCollection<Type, AdvertCategoryViewModel>(updatedTypes);
 
 			return Ok(response);
 		}
@@ -99,7 +99,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Advertisements
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Type, TypeViewModel>(type);
+			var response = Mapper.Mapp<Type, AdvertCategoryViewModel>(type);
 
 			return Ok(response);
 		}

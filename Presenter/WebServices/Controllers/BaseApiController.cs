@@ -5,9 +5,9 @@ namespace Impulse.Presenter.WebServices.Controllers
 {
 	public class BaseApiController : ApiController
 	{
-		private readonly IBaseManager dataManager;
+		private readonly IBaseService dataManager;
 
-		public BaseApiController(IBaseManager dataManager)
+		public BaseApiController(IBaseService dataManager)
 		{
 			this.dataManager = dataManager;
 		}

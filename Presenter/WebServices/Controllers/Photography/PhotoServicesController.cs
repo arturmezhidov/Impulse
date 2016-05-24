@@ -1,7 +1,8 @@
 ﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Photography;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Photography;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Filters;
 using Impulse.Presenter.WebServices.Models.Photography;
 

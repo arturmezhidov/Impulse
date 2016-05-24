@@ -199,10 +199,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Advertisements\AdvertsOrderDetailsModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertsOrderViewModel.cs" />
     <Compile Include="Models\Advertisements\AdvertViewModel.cs" />
-    <Compile Include="Models\Advertisements\MaterialViewModel.cs" />
-    <Compile Include="Models\Advertisements\TypeDetailsModel.cs" />
-    <Compile Include="Models\Advertisements\TypeViewModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertCategoryViewModel.cs" />
     <Compile Include="Models\Application\AccountBindingModels.cs" />
     <Compile Include="Models\Application\AccountViewModels.cs" />
     <Compile Include="Models\Application\AddressViewModel.cs" />
@@ -210,8 +210,8 @@
     <Compile Include="Models\Application\PhoneViewModel.cs" />
     <Compile Include="Models\Application\SlideViewModel.cs" />
     <Compile Include="Models\Application\SocialViewModel.cs" />
-    <Compile Include="Models\OurWorks\FolderViewModel.cs" />
-    <Compile Include="Models\OurWorks\ItemViewModel.cs" />
+    <Compile Include="Models\OurWorks\OurWorksFolderViewModel.cs" />
+    <Compile Include="Models\OurWorks\OurWorksItemViewModel.cs" />
     <Compile Include="Models\Photography\PhotoServiceViewModel.cs" />
     <Compile Include="Models\Services\CategoryViewModel.cs" />
     <Compile Include="Models\Services\ServiceViewModel.cs" />
