@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Impulse.Common.Models.Entities;
 
 namespace Impulse.Presenter.WebServices.Models.OurWorks
@@ -19,6 +19,11 @@ namespace Impulse.Presenter.WebServices.Models.OurWorks
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
-		public IQueryable<OurWorksItem> Items { get; set; }
+		public List<OurWorksItem> Items { get; set; }
+
+		public OurWorksFolderViewModel()
+		{
+			Items = new List<OurWorksItem>();
+		}
 	}
 }

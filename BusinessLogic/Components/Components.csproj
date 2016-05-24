@@ -39,6 +39,7 @@
     <Compile Include="AddressService.cs" />
     <Compile Include="AdvertsCategoryService.cs" />
     <Compile Include="AdvertService.cs" />
+    <Compile Include="AdvertsGuestOrderService.cs" />
     <Compile Include="AdvertsOrderService.cs" />
     <Compile Include="DataService.cs" />
     <Compile Include="EmailService.cs" />
@@ -48,15 +49,18 @@
     <Compile Include="PhotoServicesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceCategoryService.cs" />
+    <Compile Include="ServiceGuestOrderService.cs" />
     <Compile Include="ServiceOrderService.cs" />
     <Compile Include="ServicesService.cs" />
     <Compile Include="SlideService.cs" />
     <Compile Include="SocialService.cs" />
     <Compile Include="SorterService.cs" />
     <Compile Include="SouvenirCategoryService.cs" />
+    <Compile Include="SouvenirGuestOrderService.cs" />
     <Compile Include="SouvenirOrderService.cs" />
     <Compile Include="SouvenirService.cs" />
     <Compile Include="StendCategoryService.cs" />
+    <Compile Include="StendGuestOrderService.cs" />
     <Compile Include="StendOrderService.cs" />
     <Compile Include="StendService.cs" />
     <Compile Include="TipographyCategoryService.cs" />

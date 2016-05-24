@@ -52,10 +52,13 @@
     <Compile Include="ContactType.cs" />
     <Compile Include="Entities\Advert.cs" />
     <Compile Include="Entities\AdvertsCategory.cs" />
+    <Compile Include="Entities\AdvertsGuestOrder.cs" />
     <Compile Include="Entities\AdvertsOrder.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\BaseGuestOrder.cs" />
     <Compile Include="Entities\BaseOrder.cs" />
     <Compile Include="Entities\ProfileUser.cs" />
+    <Compile Include="Entities\ServiceGuestOrder.cs" />
     <Compile Include="Entities\ServiceOrder.cs" />
     <Compile Include="Entities\Slide.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
@@ -63,7 +66,9 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Phone.cs" />
     <Compile Include="Entities\Social.cs" />
+    <Compile Include="Entities\SouvenirGuestOrder.cs" />
     <Compile Include="Entities\SouvenirOrder.cs" />
+    <Compile Include="Entities\StendGuestOrder.cs" />
     <Compile Include="Entities\StendOrder.cs" />
     <Compile Include="IOrderable.cs" />
     <Compile Include="ISortable.cs" />

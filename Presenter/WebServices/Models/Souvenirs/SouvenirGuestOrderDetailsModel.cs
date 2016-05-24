@@ -1,9 +1,13 @@
 ﻿using System;
 
-namespace Impulse.Presenter.WebServices.Models.Advertisements
+namespace Impulse.Presenter.WebServices.Models.Souvenirs
 {
-	public class AdvertsOrderDetailsModel
+	public class SouvenirGuestOrderDetailsModel
 	{
+		public string Name { get; set; }
+
+		public string Contacts { get; set; }
+
 		public string Description { get; set; }
 
 		public bool IsApprove { get; set; }
@@ -14,10 +18,6 @@ namespace Impulse.Presenter.WebServices.Models.Advertisements
 
 		public int Count { get; set; }
 
-		public double Width { get; set; }
-
-		public double Height { get; set; }
-
-		public virtual AdvertViewModel Advert { get; set; }
+		public virtual SouvenirViewModel Souvenir { get; set; }
 	}
 }

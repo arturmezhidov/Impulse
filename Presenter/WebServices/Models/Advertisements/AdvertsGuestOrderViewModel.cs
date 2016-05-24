@@ -2,8 +2,16 @@
 
 namespace Impulse.Presenter.WebServices.Models.Advertisements
 {
-	public class AdvertsOrderViewModel
+	public class AdvertsGuestOrderViewModel
 	{
+		[Required]
+		[MaxLength(1024)]
+		public string Name { get; set; }
+
+		[Required]
+		[MaxLength(1024)]
+		public string Contacts { get; set; }
+
 		[MaxLength(2048)]
 		public string Description { get; set; }
 

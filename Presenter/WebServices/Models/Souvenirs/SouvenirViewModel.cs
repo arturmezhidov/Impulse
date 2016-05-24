@@ -20,5 +20,7 @@ namespace Impulse.Presenter.WebServices.Models.Souvenirs
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int SouvenirCategoryId { get; set; }
 	}
 }

@@ -16,5 +16,7 @@ namespace Impulse.Presenter.WebServices.Models.OurWorks
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int OurWorksFolderId { get; set; }
 	}
 }

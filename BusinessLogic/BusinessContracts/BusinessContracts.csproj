@@ -36,7 +36,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdvertsGuestOrderService.cs" />
+    <Compile Include="IServiceGuestOrderService.cs" />
+    <Compile Include="ISouvenirGuestOrderService.cs" />
     <Compile Include="ISouvenirOrderService.cs" />
+    <Compile Include="IStendGuestOrderService.cs" />
     <Compile Include="ITipographyCategoryService.cs" />
     <Compile Include="ITipographyService.cs" />
     <Compile Include="IStendOrderService.cs" />

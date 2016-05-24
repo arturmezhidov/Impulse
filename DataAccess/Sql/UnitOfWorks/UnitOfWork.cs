@@ -26,18 +26,22 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 		private IRepository<Advert> adverts;
 		private IRepository<AdvertsCategory> advertsCategories;
 		private IRepository<AdvertsOrder> advertsOrders;
+		private IRepository<AdvertsGuestOrder> advertsGuestOrders;
 
 		private IRepository<Service> services;
 		private IRepository<ServiceCategory> serviceCategories;
 		private IRepository<ServiceOrder> serviceOrders;
+		private IRepository<ServiceGuestOrder> serviceGuestOrders;
 
 		private IRepository<Souvenir> souvenirs;
 		private IRepository<SouvenirCategory> souvenirCategories;
 		private IRepository<SouvenirOrder> souvenirOrders;
+		private IRepository<SouvenirGuestOrder> souvenirGuestOrders;
 
 		private IRepository<Stend> stends;
 		private IRepository<StendCategory> stendCategories;
 		private IRepository<StendOrder> stendOrders;
+		private IRepository<StendGuestOrder> stendGuestOrders;
 
 		private IRepository<Tipography> tipographies;
 		private IRepository<TipographyCategory> tipographyCategories;
@@ -118,6 +122,13 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return advertsOrders ?? (advertsOrders = new Repository<AdvertsOrder>(Context));
 			}
 		}
+		public IRepository<AdvertsGuestOrder> AdvertsGuestOrders
+		{
+			get
+			{
+				return advertsGuestOrders ?? (advertsGuestOrders = new Repository<AdvertsGuestOrder>(Context));
+			}
+		}
 
 		public IRepository<Service> Services
 		{
@@ -138,6 +149,13 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			get
 			{
 				return serviceOrders ?? (serviceOrders = new Repository<ServiceOrder>(Context));
+			}
+		}
+		public IRepository<ServiceGuestOrder> ServiceGuestOrders
+		{
+			get
+			{
+				return serviceGuestOrders ?? (serviceGuestOrders = new Repository<ServiceGuestOrder>(Context));
 			}
 		}
 
@@ -162,6 +180,13 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 				return souvenirOrders ?? (souvenirOrders = new Repository<SouvenirOrder>(Context));
 			}
 		}
+		public IRepository<SouvenirGuestOrder> SouvenirGuestOrders
+		{
+			get
+			{
+				return souvenirGuestOrders ?? (souvenirGuestOrders = new Repository<SouvenirGuestOrder>(Context));
+			}
+		}
 
 		public IRepository<Stend> Stends
 		{
@@ -182,6 +207,13 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			get
 			{
 				return stendOrders ?? (stendOrders = new Repository<StendOrder>(Context));
+			}
+		}
+		public IRepository<StendGuestOrder> StendGuestOrders
+		{
+			get
+			{
+				return stendGuestOrders ?? (stendGuestOrders = new Repository<StendGuestOrder>(Context));
 			}
 		}
 

@@ -13,7 +13,7 @@ namespace Impulse.Presenter.WebServices.Models.Application
 		[MaxLength(1024)]
 		public string Url { get; set; }
 
-		[MaxLength(1024)]
+		[MaxLength(4096)]
 		public string About { get; set; }
 	}
 }

@@ -2,8 +2,12 @@
 
 namespace Impulse.Presenter.WebServices.Models.Advertisements
 {
-	public class AdvertsOrderDetailsModel
+	public class AdvertsGuestOrderDetailsModel
 	{
+		public string Name { get; set; }
+
+		public string Contacts { get; set; }
+
 		public string Description { get; set; }
 
 		public bool IsApprove { get; set; }
@@ -18,6 +22,6 @@ namespace Impulse.Presenter.WebServices.Models.Advertisements
 
 		public double Height { get; set; }
 
-		public virtual AdvertViewModel Advert { get; set; }
+		public AdvertViewModel Advert { get; set; }
 	}
 }

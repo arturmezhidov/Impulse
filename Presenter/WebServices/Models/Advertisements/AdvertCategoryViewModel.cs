@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Microsoft.AspNet.Identity;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Impulse.Presenter.WebServices.Models.Advertisements
 {
@@ -19,6 +18,11 @@ namespace Impulse.Presenter.WebServices.Models.Advertisements
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
-		public IQueryable<AdvertViewModel> Adverts { get; set; }
+		public List<AdvertViewModel> Adverts { get; set; }
+
+		public AdvertCategoryViewModel()
+		{
+			Adverts = new List<AdvertViewModel>();
+		}
 	}
 }

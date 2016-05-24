@@ -16,18 +16,22 @@ namespace Impulse.DataAccess.Sql.DataContexts
 		public virtual DbSet<Advert> Adverts { get; set; }
 		public virtual DbSet<AdvertsCategory> AdvertsCategories { get; set; }
 		public virtual DbSet<AdvertsOrder> AdvertsOrders { get; set; }
+		public virtual DbSet<AdvertsGuestOrder> AdvertsGuestOrders { get; set; }
 
 		public virtual DbSet<Service> Services { get; set; }
 		public virtual DbSet<ServiceCategory> ServiceCategories { get; set; }
 		public virtual DbSet<ServiceOrder> ServiceOrders { get; set; }
+		public virtual DbSet<ServiceGuestOrder> ServiceGuestOrder { get; set; }
 
 		public virtual DbSet<Souvenir> Souvenirs { get; set; }
 		public virtual DbSet<SouvenirCategory> SouvenirCategories { get; set; }
 		public virtual DbSet<SouvenirOrder> SouvenirOrders { get; set; }
+		public virtual DbSet<SouvenirGuestOrder> SouvenirGuestOrders { get; set; }
 
 		public virtual DbSet<Stend> Stends { get; set; }
 		public virtual DbSet<StendCategory> StendCategories { get; set; }
 		public virtual DbSet<StendOrder> StendOrders { get; set; }
+		public virtual DbSet<StendGuestOrder> StendGuestOrders { get; set; }
 
 		public virtual DbSet<Tipography> Tipographies { get; set; }
 		public virtual DbSet<TipographyCategory> TipographyCategories { get; set; }

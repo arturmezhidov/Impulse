@@ -17,18 +17,22 @@ namespace Impulse.DataAccess.DataContracts
 		IRepository<Advert> Adverts { get; }
 		IRepository<AdvertsCategory> AdvertsCategories { get; }
 		IRepository<AdvertsOrder> AdvertsOrders { get; }
+		IRepository<AdvertsGuestOrder> AdvertsGuestOrders { get; }
 
 		IRepository<Service> Services { get; }
 		IRepository<ServiceCategory> ServiceCategories { get; }
 		IRepository<ServiceOrder> ServiceOrders { get; }
+		IRepository<ServiceGuestOrder> ServiceGuestOrders { get; }
 
 		IRepository<Souvenir> Souvenirs { get; }
 		IRepository<SouvenirCategory> SouvenirCategories { get; }
 		IRepository<SouvenirOrder> SouvenirOrders { get; }
+		IRepository<SouvenirGuestOrder> SouvenirGuestOrders { get; }
 
 		IRepository<Stend> Stends { get; }
 		IRepository<StendCategory> StendCategories { get; }
 		IRepository<StendOrder> StendOrders { get; }
+		IRepository<StendGuestOrder> StendGuestOrders { get; }
 
 		IRepository<Tipography> Tipographies { get; }
 		IRepository<TipographyCategory> TipographyCategories { get; }
