@@ -1,0 +1,262 @@
+﻿@import 'colors.less';
+@import 'advertisements.less';
+
+*,
+*:after,
+*::before {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+.scale-rotate-pusher {
+	height: 100%;
+
+	.menu {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 300px;
+		height: 100%;
+		background: @menu-color;
+		z-index: 3;
+		opacity: 1;
+		-webkit-transition: 0.5s linear all;
+		transition: 0.5s linear all;
+
+		&.ng-hide {
+			opacity: 0;
+			left: -300px;
+
+			ul {
+				a {
+					padding: 0;
+				}
+			}
+		}
+
+		.title {
+			color: @title-color;
+			font-family: 'Century Gothic', Arial, sans-serif;
+			font-size: 32px;
+			margin: 20px;
+		}
+
+		.btn-menu-close {
+			position: absolute;
+			right: 15px;
+			top: 15px;
+			height: 22px;
+			width: 22px;
+			color: #bbbbbb;
+			cursor: pointer;
+			background: url('../img/close.png') -23px -1px no-repeat;
+			opacity: 0.5;
+			-webkit-transition: 0.3s linear all;
+			transition: 0.3s linear all;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		a {
+			display: block;
+			outline: none;
+			text-decoration: none;
+			font-family: 'Lato', Arial, sans-serif;
+			-webkit-transition: 0.5s linear all;
+			transition: 0.5s linear all;
+		}
+
+		ul {
+			li {
+				-webkit-transition: 0.3s linear all;
+				transition: 0.3s linear all;
+
+				&:hover {
+					background-color: @menu-item-hover-color;
+				}
+			}
+
+			a {
+				margin: 0 10px;
+				padding: 15px 20px;
+				box-shadow: inset 0 1px rgba(0,0,0,0.2);
+				color: @menu-font-color;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 1em;
+
+				&:hover {
+					color: @menu-font-hover-color;
+				}
+			}
+
+			li:last-child a {
+				box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
+			}
+		}
+	}
+
+	.btn-menu-show {
+		position: absolute;
+		top: 0;
+		left: 5px;
+		z-index: 2;
+		font-size: 45px;
+		color: @menu-color;
+		cursor: pointer;
+	}
+
+	.content {
+		-webkit-perspective: 1500px;
+		perspective: 1500px;
+		height: 100%;
+		width: 100%;
+		-webkit-transition: 0.5s linear all;
+		transition: 0.5s linear all;
+		overflow: hidden;
+
+		.view {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			height: 100%;
+			width: 100%;
+			-webkit-transition: 0.5s linear all;
+			transition: 0.5s linear all;
+			position: relative;
+
+			[ui-view],
+			.page {
+				height: 100%;
+				width: 100%;
+			}
+
+			.main-view[ui-view].ng-enter, .main-view[ui-view].ng-leave {
+				position: absolute;
+				left: 0;
+				right: 0;
+				-webkit-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
+			}
+
+			[ui-view].ng-enter {
+				-webkit-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
+				opacity: 0;
+			}
+
+			[ui-view].ng-enter-active {
+				-webkit-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
+				opacity: 1;
+			}
+
+			[ui-view].ng-leave {
+				-webkit-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
+				opacity: 1;
+			}
+
+			[ui-view].ng-leave-active {
+				-webkit-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
+				opacity: 0;
+			}
+
+			.slide.ng-enter {
+				transition: 1s linear all;
+				position: relative;
+				top: -100%;
+			}
+
+			.slide.ng-enter-active {
+				transition: 1s linear all;
+				top: 0%;
+			}
+
+			.slide.ng-leave {
+				transition: 1s linear all;
+				position: relative;
+				top: 0%;
+			}
+
+			.slide.ng-leave-active {
+				transition: 1s linear all;
+				top: 100%;
+			}
+
+			&.pusher {
+				-webkit-transform: translate3d(100px, 0, -500px) rotateY(-20deg);
+				transform: translate3d(100px, 0, -500px) rotateY(-20deg);
+
+				.slide.ng-enter {
+					transition: 2s linear all;
+					opacity: 0;
+				}
+
+				.slide.ng-enter-active {
+					transition: 2s linear all;
+					opacity: 1;
+				}
+			}
+
+			.page {
+				.items-block {
+					display: block;
+					text-align: center;
+				}
+
+				.item-block {
+					display: inline-block;
+				}
+			}
+		}
+
+		hr {
+		}
+	}
+
+	.footer {
+		position: absolute;
+		left: 300px;
+		bottom: 0;
+		width: 100%;
+		height: 50px;
+		z-index: 2;
+		opacity: 1;
+		background: @menu-color;
+		-webkit-transition: 0.5s linear all;
+		transition: 0.5s linear all;
+		text-align: right;
+		padding-right: 300px;
+
+		&.ng-hide {
+			opacity: 0;
+			bottom: -50px;
+			left: 0px;
+			/*padding-right: 0px;
+			transition: 0.5s linear all;
+			text-align: right;*/
+		}
+
+		i {
+			color: @menu-font-color;
+			display: inline-block;
+			font-size: 22px;
+			margin: 12px 15px;
+			cursor: pointer;
+			/*-webkit-transition: 0.3s linear all;
+			transition: 0.3s linear all;*/
+			&:hover {
+				color: @menu-font-hover-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+﻿<div class="scale-rotate-pusher">
+
+	<nav class="menu" ng-show="menuShow" ng-animate>
+		
+		<h2 class="title"><i class="fa fa-bolt"></i> Импульс </h2>
+
+		<span class="btn-menu-close" ng-click="menuClosing()"></span>
+
+		<ul>
+			<li><a ui-sref="home">Главная</a></li>
+			<li><a ui-sref="advertisements">Реклама</a></li>
+			<li><a ui-sref="stends">Стенды</a></li>
+			<li><a ui-sref="souvenirs">Сувенирная продукция</a></li>
+			<li><a ui-sref="services">Сервис и услуги</a></li>
+			<li><a ui-sref="tipographies">Типография</a></li>
+			<li><a ui-sref="photography">Фотоуслуги</a></li>
+			<li><a ui-sref="shop">Магазин</a></li>
+			<li><a ui-sref="our-works">Наши работы</a></li>
+			<li><a ui-sref="contacts">Контакты</a></li>
+			<li><a ui-sref="test">Тест</a></li>
+		</ul>
+	</nav>
+
+	<i class="btn-menu-show fa fa-bars" ng-click="menuShowing()"></i>
+
+	<div class="content" ng-click="menuClosing()">
+		<div class="view" ng-class="{'pusher': menuShow }">
+			<div class="main-view" ng-animate ui-view></div>
+		</div>
+	</div>
+
+	<div class="footer" ng-show="menuShow" ng-animate>
+		<a><i class="fa fa-facebook"></i></a>
+		<a><i class="fa fa-odnoklassniki"></i></a>
+		<a><i class="fa fa-vk"></i></a>
+		<a><i class="fa fa-twitter"></i></a>
+	</div>
+
+</div>

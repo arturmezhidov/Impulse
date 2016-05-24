@@ -1,0 +1,40 @@
+﻿<div class="container">
+
+	<table ng-table="tableParams" show-filter="true" class="table table-condensed table-bordered table-striped">
+		<tr ng-repeat="row in $data" ng-form="rowForm">
+			<td title="'Id'" data-title="'Id'" filter="{ Id: 'number'}" sortable="'Id'">{{row.Id}}</td>
+			<td title="'Name'" filter="{ Name: 'text'}" sortable="'Name'" ng-form="cellForm" ng-class="cellForm.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Name}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellForm.$invalid && cellForm.$dirty ? 'has-error' : ''">
+					<input type="text" name="Name" ng-model="row.Name" class="editable-input form-control input-sm" required />
+				</div>
+			</td>
+			<td>
+				<button class="btn btn-primary btn-sm" ng-click="save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button class="btn btn-danger btn-sm" ng-click="del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+
+<style>
+
+	.table tr td {
+		padding: 8px !important;
+		vertical-align: middle !important;
+	}
+
+	table td:first-child,
+	table th:first-child {
+		width: 80px;
+	}
+
+	table td:last-child,
+	table th:last-child {
+		width: 100px;
+	}
+</style>

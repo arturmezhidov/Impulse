@@ -1,0 +1,68 @@
+﻿<div class="container">
+
+	<h1>Редактирование слайдов</h1>
+
+	<hr/>
+
+	<div class="table-manage-panel">
+
+		<button class="btn btn-default" ng-click="add()">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+	</div>
+
+	<table ng-table="tableParams" show-filter="true" class="table table-condensed table-bordered table-striped">
+		<tr ng-repeat="row in $data">
+			<td title="'Id'" data-title="'Id'" filter="{ Id: 'number'}" sortable="'Id'">{{row.Id}}</td>
+			<td title="'Image'" filter="{ Image: 'text'}" sortable="'Image'" ng-form="cellImage" ng-class="cellImage.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Image}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellImage.$invalid && cellImage.$dirty ? 'has-error' : ''">
+					<input type="text" name="Image" ng-model="row.Image" class="editable-input form-control input-sm" required />
+				</div>
+			</td>
+			<td title="'Url'" filter="{ Url: 'text'}" sortable="'Url'" ng-form="cellUrl" ng-class="cellUrl.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Url}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellUrl.$invalid && cellUrl.$dirty ? 'has-error' : ''">
+					<input type="text" name="Url" ng-model="row.Url" class="editable-input form-control input-sm" required />
+				</div>
+			</td>
+			<!--<td title="'About'" filter="{ About: 'text'}" sortable="'About'" ng-form="cellAbout" ng-class="cellAbout.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.About}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellAbout.$invalid && cellAbout.$dirty ? 'has-error' : ''">
+					<input type="text" name="About" ng-model="row.About" class="editable-input form-control input-sm" required />
+				</div>
+			</td>-->
+			<td>
+				<button class="btn btn-primary btn-sm" ng-click="save(row)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="cancel(row)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button class="btn btn-danger btn-sm" ng-click="del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+
+<style>
+
+	.table tr td {
+		padding: 8px !important;
+		vertical-align: middle !important;
+	}
+
+	table td:first-child,
+	table th:first-child {
+		width: 80px;
+	}
+
+	table td:last-child,
+	table th:last-child {
+		width: 100px;
+	}
+
+	.table-manage-panel {
+		text-align: right;
+		padding-bottom: 20px;
+	}
+</style>
