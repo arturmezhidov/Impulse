@@ -20,5 +20,7 @@ namespace Impulse.Presenter.WebServices.Models.Tipographies
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int TipographyCategoryId { get; set; }
 	}
 }

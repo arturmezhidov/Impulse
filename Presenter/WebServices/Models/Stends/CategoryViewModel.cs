@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Impulse.Presenter.WebServices.Models.Stends
 {
@@ -16,5 +17,12 @@ namespace Impulse.Presenter.WebServices.Models.Stends
 		[Required]
 		[MaxLength(1024)]
 		public string Icon { get; set; }
+
+		public List<StendViewModel> Stends { get; set; }
+
+		public CategoryViewModel()
+		{
+			Stends = new List<StendViewModel>();
+		}
 	}
 }

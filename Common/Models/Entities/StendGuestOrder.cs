@@ -1,6 +1,6 @@
 ﻿namespace Impulse.Common.Models.Entities
 {
-	public class StendGuestOrder : BaseOrder
+	public class StendGuestOrder : BaseGuestOrder
 	{
 		public int Count { get; set; }
 

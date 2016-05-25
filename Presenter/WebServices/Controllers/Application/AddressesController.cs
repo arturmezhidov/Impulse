@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Impulse.BusinessLogic.BusinessContracts;
 using Impulse.Common.Components;
 using Impulse.Common.Models;
 using Impulse.Common.Models.Entities;
@@ -11,12 +12,12 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 	[RoutePrefix("api/contacts/addresses")]
 	public class AddressesController : BaseApiController
 	{
-		protected IAddressManager DataManager;
+		protected IAddressService DataService;
 
-		public AddressesController(IAddressManager dataManager)
-			: base(dataManager)
+		public AddressesController(IAddressService dataService)
+			: base(dataService)
 		{
-			DataManager = dataManager;
+			DataService = dataService;
 		}
 
 		[HttpPost]
@@ -25,7 +26,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		public IHttpActionResult Create(AddressViewModel vm)
 		{
 			Address newItem = Mapper.Mapp<AddressViewModel, Address>(vm);
-			Address createdItem = DataManager.Create(newItem);
+			Address createdItem = DataService.Create(newItem);
 
 			var response = Mapper.Mapp<Address, AddressViewModel>(createdItem);
 
@@ -36,7 +37,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		[Route("")]
 		public IHttpActionResult GetAll()
 		{
-			var items = DataManager.GetAll();
+			var items = DataService.GetAll();
 
 			var response = Mapper.MappCollection<Address, AddressViewModel>(items);
 
@@ -47,7 +48,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		[Route("{id:int}")]
 		public IHttpActionResult GetById(int id)
 		{
-			var item = DataManager.GetById(id);
+			var item = DataService.GetById(id);
 
 			if (item == null)
 			{
@@ -65,7 +66,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		public IHttpActionResult Update(List<AddressViewModel> vms)
 		{
 			IEnumerable<Address> items = Mapper.MappCollection<AddressViewModel, Address>(vms);
-			IEnumerable<Address> updatedItems = DataManager.Update(items);
+			IEnumerable<Address> updatedItems = DataService.Update(items);
 
 			var response = Mapper.MappCollection<Address, AddressViewModel>(updatedItems);
 
@@ -76,7 +77,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
-			var item = DataManager.Delete(id);
+			var item = DataService.Delete(id);
 
 			if (item == null)
 			{
