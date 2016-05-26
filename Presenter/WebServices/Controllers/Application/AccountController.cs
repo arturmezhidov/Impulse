@@ -19,6 +19,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using ApplicationUser = Impulse.Common.Models.Entities.ApplicationUser;
 
 namespace Impulse.Presenter.WebServices.Controllers.Application
 {
@@ -27,31 +28,31 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 	public class AccountController : ApiController
 	{
 		private const string LocalLoginProvider = "Local";
-		private readonly IUserService manager;
+		protected readonly IUserManager UserManager;
 
-		public AccountController(IUserService manager)
+		public AccountController(IUserManager manager)
 		{
-			this.manager = manager;
+			UserManager = manager;
 		}
 
-		public AccountController(ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
-		{
-			UserManager = userManager;
-			AccessTokenFormat = accessTokenFormat;
-		}
+		//public AccountController(ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+		//{
+		//	UserManager = userManager;
+		//	AccessTokenFormat = accessTokenFormat;
+		//}
 
-		private ApplicationUserManager _userManager;
-		public ApplicationUserManager UserManager
-		{
-			get
-			{
-				return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-			}
-			private set
-			{
-				_userManager = value;
-			}
-		}
+		//private ApplicationUserManager _userManager;
+		//public ApplicationUserManager UserManager
+		//{
+		//	get
+		//	{
+		//		return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+		//	}
+		//	private set
+		//	{
+		//		_userManager = value;
+		//	}
+		//}
 
 		public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
@@ -332,7 +333,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 				return BadRequest(ModelState);
 			}
 
-			ProfileUser profile = manager.Create(new ProfileUser()
+			ProfileUser profile = UserManager.Create(new ProfileUser()
 			{
 				Name = model.FirstName,
 				Surname = model.LastName
@@ -350,7 +351,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 
 			if (!result.Succeeded)
 			{
-				manager.Delete(profile.Id);
+				UserManager.Delete(profile.Id);
 
 				return GetErrorResult(result);
 			}
@@ -401,7 +402,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 		{
 			if (disposing)
 			{
-				manager.Dispose();
+				UserManager.Dispose();
 			}
 
 			base.Dispose(disposing);

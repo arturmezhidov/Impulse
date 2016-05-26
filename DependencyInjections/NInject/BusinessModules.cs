@@ -8,7 +8,7 @@ namespace Impulse.DependencyInjections.NInjectResolver
 	{
 		public override void Load()
 		{
-			Bind<IUserService>().To<UserService>();
+			Bind<IUserManager>().To<ApplicationUserManager>();
 
 			Bind<ISlideService>().To<SlideService>();
 
