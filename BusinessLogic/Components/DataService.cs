@@ -31,7 +31,7 @@ namespace Impulse.BusinessLogic.Components
 			return result;
 		}
 
-		public virtual T GetById(int id)
+		public virtual T GetById(object id)
 		{
 			T result = Repository.GetById(id);
 
@@ -52,7 +52,7 @@ namespace Impulse.BusinessLogic.Components
 			return item;
 		}
 
-		public virtual T Delete(int id)
+		public virtual T Delete(object id)
 		{
 			T item = Repository.GetById(id);
 

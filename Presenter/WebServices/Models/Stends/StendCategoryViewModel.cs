@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Impulse.Presenter.WebServices.Models.Services
+namespace Impulse.Presenter.WebServices.Models.Stends
 {
-	public class CategoryViewModel
+	public class StendCategoryViewModel
 	{
 		public int Id { get; set; }
 
@@ -18,11 +18,11 @@ namespace Impulse.Presenter.WebServices.Models.Services
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
-		public List<ServiceViewModel> Services { get; set; }
+		public List<StendViewModel> Stends { get; set; }
 
-		public CategoryViewModel()
+		public StendCategoryViewModel()
 		{
-			Services = new List<ServiceViewModel>();
+			Stends = new List<StendViewModel>();
 		}
 	}
 }

@@ -173,25 +173,34 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Advertisements\AdvertsCategoryController.cs" />
+    <Compile Include="Controllers\Advertisements\AdvertsGuestOrdersController.cs" />
+    <Compile Include="Controllers\Advertisements\AdvertsOrdersController.cs" />
     <Compile Include="Controllers\Application\AccountController.cs" />
     <Compile Include="Controllers\Advertisements\AdvertsController.cs" />
-    <Compile Include="Controllers\Advertisements\TypesController.cs" />
-    <Compile Include="Controllers\Application\SlidesController.cs" />
-    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\Application\SocialsController.cs" />
+    <Compile Include="Controllers\Application\SlidesController.cs" />
     <Compile Include="Controllers\Application\PhonesController.cs" />
-    <Compile Include="Controllers\Application\AddressesController.cs" />
     <Compile Include="Controllers\Application\EmailsController.cs" />
-    <Compile Include="Controllers\OurWorks\ItemsController.cs" />
-    <Compile Include="Controllers\OurWorks\FoldersController.cs" />
+    <Compile Include="Controllers\Application\AddressesController.cs" />
+    <Compile Include="Controllers\BaseDetailsApiController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\OurWorks\OurWorksItemsController.cs" />
+    <Compile Include="Controllers\OurWorks\OurWorksFoldersController.cs" />
     <Compile Include="Controllers\Photography\PhotoServicesController.cs" />
-    <Compile Include="Controllers\Services\CategoriesController.cs" />
+    <Compile Include="Controllers\Services\ServicesGuestOrdersController.cs" />
+    <Compile Include="Controllers\Services\ServicesOrdersController.cs" />
+    <Compile Include="Controllers\Services\ServiceCategoriesController.cs" />
     <Compile Include="Controllers\Services\ServicesController.cs" />
-    <Compile Include="Controllers\Souvenirs\CategoriesController.cs" />
+    <Compile Include="Controllers\Souvenirs\SouvenirsGuestOrdersController.cs" />
+    <Compile Include="Controllers\Souvenirs\SouvenirsOrdersController.cs" />
+    <Compile Include="Controllers\Souvenirs\SouvenirsCategoriesController.cs" />
     <Compile Include="Controllers\Souvenirs\SouvenirsController.cs" />
-    <Compile Include="Controllers\Stends\CategoriesController.cs" />
+    <Compile Include="Controllers\Stends\StendsGuestOrdersController.cs" />
+    <Compile Include="Controllers\Stends\StendsOrdersController.cs" />
+    <Compile Include="Controllers\Stends\StendsCategoriesController.cs" />
     <Compile Include="Controllers\Stends\StendsController.cs" />
-    <Compile Include="Controllers\Tipographies\KindsController.cs" />
+    <Compile Include="Controllers\Tipographies\TipographiesCategoriesController.cs" />
     <Compile Include="Controllers\Tipographies\TipographiesController.cs" />
     <Compile Include="Filters\ExceptionLoggerAttribute.cs" />
     <Compile Include="Filters\ModelCheckAttribute.cs" />
@@ -215,7 +224,7 @@
     <Compile Include="Models\OurWorks\OurWorksFolderViewModel.cs" />
     <Compile Include="Models\OurWorks\OurWorksItemViewModel.cs" />
     <Compile Include="Models\Photography\PhotoServiceViewModel.cs" />
-    <Compile Include="Models\Services\CategoryViewModel.cs" />
+    <Compile Include="Models\Services\ServiceCategoryViewModel.cs" />
     <Compile Include="Models\Services\ServiceGuestOrderDetailsModel.cs" />
     <Compile Include="Models\Services\ServiceGuestOrderViewModel.cs" />
     <Compile Include="Models\Services\ServiceOrderDetailsModel.cs" />
@@ -227,7 +236,7 @@
     <Compile Include="Models\Souvenirs\SouvenirOrderDetailsModel.cs" />
     <Compile Include="Models\Souvenirs\SouvenirOrderViewModel.cs" />
     <Compile Include="Models\Souvenirs\SouvenirViewModel.cs" />
-    <Compile Include="Models\Stends\CategoryViewModel.cs" />
+    <Compile Include="Models\Stends\StendCategoryViewModel.cs" />
     <Compile Include="Models\Stends\StendGuestOrderDetailsModel.cs" />
     <Compile Include="Models\Stends\StendGuestOrderViewModel.cs" />
     <Compile Include="Models\Stends\StendOrderDetailsModel.cs" />
@@ -248,7 +257,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\Shop\" />
     <Folder Include="Images\Slides\" />
     <Folder Include="Models\Shop\" />
   </ItemGroup>
@@ -273,9 +281,6 @@
       <Project>{f078dd26-78f4-468d-a248-99634c6eac20}</Project>
       <Name>AuthOwin</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

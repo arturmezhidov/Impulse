@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Impulse.Presenter.WebServices.Models.Advertisements;
 using Impulse.Presenter.WebServices.Models.Services;
+using Impulse.Presenter.WebServices.Models.Souvenirs;
+using Impulse.Presenter.WebServices.Models.Stends;
 
 namespace Impulse.Presenter.WebServices.Models.Application
 {

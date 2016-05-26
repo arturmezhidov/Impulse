@@ -19,11 +19,11 @@ namespace Impulse.Presenter.WebServices.Models.OurWorks
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 
-		public List<OurWorksItem> Items { get; set; }
+		public List<OurWorksItemViewModel> Items { get; set; }
 
 		public OurWorksFolderViewModel()
 		{
-			Items = new List<OurWorksItem>();
+			Items = new List<OurWorksItemViewModel>();
 		}
 	}
 }
