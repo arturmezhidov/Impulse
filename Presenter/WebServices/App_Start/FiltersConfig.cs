@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Impulse.Presenter.WebServices.Filters;
 
-namespace WebServices.App_Start
+namespace Impulse.Presenter.WebServices
 {
 	public class FiltersConfig
 	{

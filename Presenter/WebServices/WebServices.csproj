@@ -175,7 +175,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Application\AccountController.cs" />
     <Compile Include="Controllers\Advertisements\AdvertsController.cs" />
-    <Compile Include="Controllers\Advertisements\MaterialsController.cs" />
     <Compile Include="Controllers\Advertisements\TypesController.cs" />
     <Compile Include="Controllers\Application\SlidesController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -199,28 +198,42 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Advertisements\AdvertsGuestOrderDetailsModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertsGuestOrderViewModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertsOrderDetailsModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertsOrderViewModel.cs" />
     <Compile Include="Models\Advertisements\AdvertViewModel.cs" />
-    <Compile Include="Models\Advertisements\MaterialViewModel.cs" />
-    <Compile Include="Models\Advertisements\TypeDetailsModel.cs" />
-    <Compile Include="Models\Advertisements\TypeViewModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertCategoryViewModel.cs" />
     <Compile Include="Models\Application\AccountBindingModels.cs" />
     <Compile Include="Models\Application\AccountViewModels.cs" />
     <Compile Include="Models\Application\AddressViewModel.cs" />
     <Compile Include="Models\Application\EmailViewModel.cs" />
     <Compile Include="Models\Application\PhoneViewModel.cs" />
+    <Compile Include="Models\Application\ProfileUserViewModel.cs" />
     <Compile Include="Models\Application\SlideViewModel.cs" />
     <Compile Include="Models\Application\SocialViewModel.cs" />
-    <Compile Include="Models\OurWorks\FolderViewModel.cs" />
-    <Compile Include="Models\OurWorks\ItemViewModel.cs" />
+    <Compile Include="Models\OurWorks\OurWorksFolderViewModel.cs" />
+    <Compile Include="Models\OurWorks\OurWorksItemViewModel.cs" />
     <Compile Include="Models\Photography\PhotoServiceViewModel.cs" />
     <Compile Include="Models\Services\CategoryViewModel.cs" />
+    <Compile Include="Models\Services\ServiceGuestOrderDetailsModel.cs" />
+    <Compile Include="Models\Services\ServiceGuestOrderViewModel.cs" />
+    <Compile Include="Models\Services\ServiceOrderDetailsModel.cs" />
+    <Compile Include="Models\Services\ServiceOrderViewModel.cs" />
     <Compile Include="Models\Services\ServiceViewModel.cs" />
-    <Compile Include="Models\Souvenirs\CategoryViewModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirCategoryViewModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirGuestOrderDetailsModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirGuestOrderViewModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirOrderDetailsModel.cs" />
+    <Compile Include="Models\Souvenirs\SouvenirOrderViewModel.cs" />
     <Compile Include="Models\Souvenirs\SouvenirViewModel.cs" />
     <Compile Include="Models\Stends\CategoryViewModel.cs" />
-    <Compile Include="Models\Stends\MaterialViewModel.cs" />
+    <Compile Include="Models\Stends\StendGuestOrderDetailsModel.cs" />
+    <Compile Include="Models\Stends\StendGuestOrderViewModel.cs" />
+    <Compile Include="Models\Stends\StendOrderDetailsModel.cs" />
+    <Compile Include="Models\Stends\StendOrderViewModel.cs" />
     <Compile Include="Models\Stends\StendViewModel.cs" />
-    <Compile Include="Models\Tipographies\KindViewModel.cs" />
+    <Compile Include="Models\Tipographies\TipographyCategoryViewModel.cs" />
     <Compile Include="Models\Tipographies\TipographyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -260,6 +273,9 @@
       <Project>{f078dd26-78f4-468d-a248-99634c6eac20}</Project>
       <Name>AuthOwin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

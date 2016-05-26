@@ -16,5 +16,7 @@ namespace Impulse.Presenter.WebServices.Models.Services
 		[Required]
 		[MaxLength(1024)]
 		public string Icon { get; set; }
+
+		public int ServiceCategoryId { get; set; }
 	}
 }

@@ -2,7 +2,8 @@
 using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Services;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Services;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Filters;
 using Impulse.Presenter.WebServices.Models.Services;
 

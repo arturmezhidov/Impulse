@@ -3,20 +3,20 @@ using Impulse.BusinessLogic.BusinessContracts;
 
 namespace Impulse.Presenter.WebServices.Controllers
 {
-	public class BaseApiController : ApiController
+	public class BaseApiController<T> : ApiController where T : class, new()
 	{
-		private readonly IBaseManager dataManager;
+		protected readonly IDataService<T> DataService;
 
-		public BaseApiController(IBaseManager dataManager)
+		public BaseApiController(IDataService<T> dataService)
 		{
-			this.dataManager = dataManager;
+			DataService = dataService;
 		}
 
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
 			{
-				dataManager.Dispose();
+				DataService.Dispose();
 			}
 		}
 	}

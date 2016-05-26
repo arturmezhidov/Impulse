@@ -26,5 +26,7 @@ namespace Impulse.Presenter.WebServices.Models.Stends
 		public int Eyelets { get; set; }
 
 		public bool IsBorder { get; set; }
+
+		public int StendCategoryId { get; set; }
 	}
 }

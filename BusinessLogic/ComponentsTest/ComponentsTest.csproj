@@ -43,6 +43,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Impulse.DataAccess.DataContracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Presenter\WebServices\Bin\Impulse.DataAccess.DataContracts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
@@ -59,17 +63,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DataManagerTestByAdvertsTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Models\Models.csproj">
       <Project>{2476d61c-f690-4c60-99d4-8bbd78cd615e}</Project>
       <Name>Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DataAccess\DataContracts\DataContracts.csproj">
-      <Project>{3cadc255-e69b-4b44-b717-d97ba416bdde}</Project>
-      <Name>DataContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataAccess\Sql\Sql.csproj">
       <Project>{452fb66f-ab08-4190-9c50-1790465d19d6}</Project>

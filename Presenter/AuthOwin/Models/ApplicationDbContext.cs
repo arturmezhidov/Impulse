@@ -19,7 +19,7 @@ namespace Impulse.Presenter.AuthOwin.Models
 
 		static ApplicationDbContext()
 		{
-			Database.SetInitializer(new DbInitializer());
+			//Database.SetInitializer(new DbInitializer());
 		}
 	}
 }

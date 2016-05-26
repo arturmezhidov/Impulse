@@ -21,12 +21,12 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		[HttpPost]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Create(ItemViewModel vm)
+		public IHttpActionResult Create(OurWorksItemViewModel vm)
 		{
-			Item newItem = Mapper.Mapp<ItemViewModel, Item>(vm);
+			Item newItem = Mapper.Mapp<OurWorksItemViewModel, Item>(vm);
 			Item createdItem = DataManager.Create(newItem);
 
-			var response = Mapper.Mapp<Item, ItemViewModel>(createdItem);
+			var response = Mapper.Mapp<Item, OurWorksItemViewModel>(createdItem);
 
 			return Created("api/ourworks/items/" + response.Id, response);
 		}
@@ -37,7 +37,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		{
 			var items = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Item, ItemViewModel>(items);
+			var response = Mapper.MappCollection<Item, OurWorksItemViewModel>(items);
 
 			return Ok(response);
 		}
@@ -53,7 +53,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Item, ItemViewModel>(item);
+			var response = Mapper.Mapp<Item, OurWorksItemViewModel>(item);
 
 			return Ok(response);
 		}
@@ -61,12 +61,12 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 		[HttpPut]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Update(ItemViewModel vm)
+		public IHttpActionResult Update(OurWorksItemViewModel vm)
 		{
-			Item item = Mapper.Mapp<ItemViewModel, Item>(vm);
+			Item item = Mapper.Mapp<OurWorksItemViewModel, Item>(vm);
 			Item updatedItem = DataManager.Update(item);
 
-			var response = Mapper.Mapp<Item, ItemViewModel>(updatedItem);
+			var response = Mapper.Mapp<Item, OurWorksItemViewModel>(updatedItem);
 
 			return Ok(response);
 		}
@@ -82,7 +82,7 @@ namespace Impulse.Presenter.WebServices.Controllers.OurWorks
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Item, ItemViewModel>(item);
+			var response = Mapper.Mapp<Item, OurWorksItemViewModel>(item);
 
 			return Ok(response);
 		}

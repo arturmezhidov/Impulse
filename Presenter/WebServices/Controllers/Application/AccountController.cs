@@ -6,8 +6,9 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Impulse.BusinessLogic.BusinessContracts.Application;
-using Impulse.Common.Models.Application;
+using Impulse.BusinessLogic.BusinessContracts;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.AuthOwin.Managers;
 using Impulse.Presenter.AuthOwin.Models;
 using Impulse.Presenter.AuthOwin.Providers;
@@ -26,9 +27,9 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 	public class AccountController : ApiController
 	{
 		private const string LocalLoginProvider = "Local";
-		private readonly IUserManager manager;
+		private readonly IUserService manager;
 
-		public AccountController(IUserManager manager)
+		public AccountController(IUserService manager)
 		{
 			this.manager = manager;
 		}

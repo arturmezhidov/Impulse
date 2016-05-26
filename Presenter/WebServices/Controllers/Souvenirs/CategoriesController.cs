@@ -1,7 +1,8 @@
 ﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Souvenirs;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Souvenirs;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Filters;
 using Impulse.Presenter.WebServices.Models.Souvenirs;
 
@@ -21,12 +22,12 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 		[HttpPost]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Create(CategoryViewModel vm)
+		public IHttpActionResult Create(SouvenirCategoryViewModel vm)
 		{
-			Category newCategory = Mapper.Mapp<CategoryViewModel, Category>(vm);
-			Category createdCategory = DataManager.Create(newCategory);
+			SouvenirCategory newCategory = Mapper.Mapp<SouvenirCategoryViewModel, SouvenirCategory>(vm);
+			SouvenirCategory createdCategory = DataManager.Create(newCategory);
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(createdCategory);
+			var response = Mapper.Mapp<SouvenirCategory, SouvenirCategoryViewModel>(createdCategory);
 
 			return Created("api/souvenirs/categories/" + response.Id, response);
 		}
@@ -37,7 +38,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 		{
 			var categories = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Category, CategoryViewModel>(categories);
+			var response = Mapper.MappCollection<SouvenirCategory, SouvenirCategoryViewModel>(categories);
 
 			return Ok(response);
 		}
@@ -53,7 +54,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(category);
+			var response = Mapper.Mapp<SouvenirCategory, SouvenirCategoryViewModel>(category);
 
 			return Ok(response);
 		}
@@ -77,12 +78,12 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 		[HttpPut]
 		[Route("")]
 		[ModelCheck]
-		public IHttpActionResult Update(CategoryViewModel vm)
+		public IHttpActionResult Update(SouvenirCategoryViewModel vm)
 		{
-			Category category = Mapper.Mapp<CategoryViewModel, Category>(vm);
-			Category updatedCategory = DataManager.Update(category);
+			SouvenirCategory category = Mapper.Mapp<SouvenirCategoryViewModel, SouvenirCategory>(vm);
+			SouvenirCategory updatedCategory = DataManager.Update(category);
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(updatedCategory);
+			var response = Mapper.Mapp<SouvenirCategory, SouvenirCategoryViewModel>(updatedCategory);
 
 			return Ok(response);
 		}
@@ -91,14 +92,14 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
-			Category category = DataManager.Delete(id);
+			SouvenirCategory category = DataManager.Delete(id);
 
 			if (category == null)
 			{
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(category);
+			var response = Mapper.Mapp<SouvenirCategory, SouvenirCategoryViewModel>(category);
 
 			return Ok(response);
 		}

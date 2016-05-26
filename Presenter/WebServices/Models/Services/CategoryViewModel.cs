@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Impulse.Presenter.WebServices.Models.Services
 {
@@ -16,5 +17,12 @@ namespace Impulse.Presenter.WebServices.Models.Services
 		[Required]
 		[MaxLength(1024)]
 		public string Icon { get; set; }
+
+		public List<ServiceViewModel> Services { get; set; }
+
+		public CategoryViewModel()
+		{
+			Services = new List<ServiceViewModel>();
+		}
 	}
 }

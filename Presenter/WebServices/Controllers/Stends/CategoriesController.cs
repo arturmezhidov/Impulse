@@ -1,7 +1,8 @@
 ﻿using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts.Stends;
 using Impulse.Common.Components;
-using Impulse.Common.Models.Stends;
+using Impulse.Common.Models;
+using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Filters;
 using Impulse.Presenter.WebServices.Models.Stends;
 
@@ -23,10 +24,10 @@ namespace Impulse.Presenter.WebServices.Controllers.Stends
 		[ModelCheck]
 		public IHttpActionResult Create(CategoryViewModel vm)
 		{
-			Category newCategory = Mapper.Mapp<CategoryViewModel, Category>(vm);
-			Category createdCategory = DataManager.Create(newCategory);
+			StendCategory newCategory = Mapper.Mapp<CategoryViewModel, StendCategory>(vm);
+			StendCategory createdCategory = DataManager.Create(newCategory);
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(createdCategory);
+			var response = Mapper.Mapp<StendCategory, CategoryViewModel>(createdCategory);
 
 			return Created("api/stends/categories/" + response.Id, response);
 		}
@@ -37,7 +38,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Stends
 		{
 			var categories = DataManager.GetAll();
 
-			var response = Mapper.MappCollection<Category, CategoryViewModel>(categories);
+			var response = Mapper.MappCollection<StendCategory, CategoryViewModel>(categories);
 
 			return Ok(response);
 		}
@@ -53,7 +54,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Stends
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(category);
+			var response = Mapper.Mapp<StendCategory, CategoryViewModel>(category);
 
 			return Ok(response);
 		}
@@ -79,10 +80,10 @@ namespace Impulse.Presenter.WebServices.Controllers.Stends
 		[ModelCheck]
 		public IHttpActionResult Update(CategoryViewModel vm)
 		{
-			Category category = Mapper.Mapp<CategoryViewModel, Category>(vm);
-			Category updatedCategory = DataManager.Update(category);
+			StendCategory category = Mapper.Mapp<CategoryViewModel, StendCategory>(vm);
+			StendCategory updatedCategory = DataManager.Update(category);
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(updatedCategory);
+			var response = Mapper.Mapp<StendCategory, CategoryViewModel>(updatedCategory);
 
 			return Ok(response);
 		}
@@ -91,14 +92,14 @@ namespace Impulse.Presenter.WebServices.Controllers.Stends
 		[Route("{id:int}")]
 		public IHttpActionResult Delete(int id)
 		{
-			Category category = DataManager.Delete(id);
+			StendCategory category = DataManager.Delete(id);
 
 			if (category == null)
 			{
 				return NotFound();
 			}
 
-			var response = Mapper.Mapp<Category, CategoryViewModel>(category);
+			var response = Mapper.Mapp<StendCategory, CategoryViewModel>(category);
 
 			return Ok(response);
 		}

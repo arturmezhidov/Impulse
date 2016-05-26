@@ -36,16 +36,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-  </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
       <ItemGroup>
@@ -59,22 +49,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitOfWorkAdvertTest.cs" />
-    <Compile Include="UnitOfWorkContactsTest.cs" />
-    <Compile Include="UnitOfWorkOurWorksTest.cs" />
-    <Compile Include="UnitOfWorkPhotographyTest.cs" />
-    <Compile Include="UnitOfWorkServicesTest.cs" />
-    <Compile Include="UnitOfWorkSouvenirsTest.cs" />
-    <Compile Include="UnitOfWorkStendsTest.cs" />
-    <Compile Include="DbContextStendsTest.cs" />
-    <Compile Include="UnitOfWorkTipographiesTest.cs" />
-    <Compile Include="DbContextTipographiesTest.cs" />
-    <Compile Include="DbContextSouvenirsTest.cs" />
-    <Compile Include="DbContextServicesTest.cs" />
-    <Compile Include="DbContextPhotographyTest.cs" />
-    <Compile Include="DbContextOurWorksTest.cs" />
-    <Compile Include="DbContextContactsTest.cs" />
-    <Compile Include="DbContextAdvertTest.cs" />
+    <Compile Include="UnitOfWorkTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +69,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

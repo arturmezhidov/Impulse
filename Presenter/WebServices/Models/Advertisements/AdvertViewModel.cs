@@ -20,5 +20,7 @@ namespace Impulse.Presenter.WebServices.Models.Advertisements
 		[Required]
 		[MaxLength(1024)]
 		public string Image { get; set; }
+
+		public int AdvertsCategoryId { get; set; }
 	}
 }

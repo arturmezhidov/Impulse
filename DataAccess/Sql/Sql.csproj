@@ -35,30 +35,20 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContexts\TipographiesDataContext.cs" />
-    <Compile Include="DataContexts\OurWorksDataContext.cs" />
-    <Compile Include="DataContexts\PhotographyDataContext.cs" />
-    <Compile Include="DataContexts\ServicesDataContext.cs" />
-    <Compile Include="DataContexts\ShopDataContext.cs" />
-    <Compile Include="DataContexts\SouvenirsDataContext.cs" />
-    <Compile Include="DataContexts\StendsDataContext.cs" />
-    <Compile Include="DataContexts\AdvertisementsDataContext.cs" />
-    <Compile Include="DataContexts\ApplicationDataContext.cs" />
+    <Compile Include="DataContexts\DbInitializer.cs" />
+    <Compile Include="DataContexts\EntityDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="UnitOfWorks\ApplicationUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\OurWorksUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\PhotographyUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\ServicesUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\ShopUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\SouvenirsUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\StendsUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\TipographiesUnitOfWork.cs" />
-    <Compile Include="UnitOfWorks\AdvertisementsUnitOfWork.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="UnitOfWorks\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
