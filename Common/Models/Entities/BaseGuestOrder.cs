@@ -20,6 +20,6 @@ namespace Impulse.Common.Models.Entities
 
 		public DateTime CreatedDate { get; set; }
 
-		public DateTime ApproveDate { get; set; }
+		public DateTime ApprovedDate { get; set; }
 	}
 }

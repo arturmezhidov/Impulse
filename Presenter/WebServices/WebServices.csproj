@@ -178,6 +178,7 @@
     <Compile Include="Controllers\Advertisements\AdvertsOrdersController.cs" />
     <Compile Include="Controllers\Application\AccountController.cs" />
     <Compile Include="Controllers\Advertisements\AdvertsController.cs" />
+    <Compile Include="Controllers\Application\FeedbackController.cs" />
     <Compile Include="Controllers\Application\SocialsController.cs" />
     <Compile Include="Controllers\Application\SlidesController.cs" />
     <Compile Include="Controllers\Application\PhonesController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Models\Application\AccountViewModels.cs" />
     <Compile Include="Models\Application\AddressViewModel.cs" />
     <Compile Include="Models\Application\EmailViewModel.cs" />
+    <Compile Include="Models\Application\FeedbackViewModel.cs" />
     <Compile Include="Models\Application\PhoneViewModel.cs" />
     <Compile Include="Models\Application\ProfileUserViewModel.cs" />
     <Compile Include="Models\Application\SlideViewModel.cs" />

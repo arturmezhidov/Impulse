@@ -51,6 +51,8 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 
 		private IRepository<PhotoService> photoServices;
 
+		private IRepository<Feedback> feedbacks;
+
 		public IUserStore<ApplicationUser> ApplicationUsers
 		{
 			get
@@ -252,6 +254,14 @@ namespace Impulse.DataAccess.Sql.UnitOfWorks
 			get
 			{
 				return photoServices ?? (photoServices = new Repository<PhotoService>(Context));
+			}
+		}
+
+		public IRepository<Feedback> Feedbacks
+		{
+			get
+			{
+				return feedbacks ?? (feedbacks = new Repository<Feedback>(Context));
 			}
 		}
 

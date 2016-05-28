@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeedbackService.cs" />
     <Compile Include="AddressService.cs" />
     <Compile Include="AdvertsCategoryService.cs" />
     <Compile Include="AdvertService.cs" />

@@ -42,6 +42,8 @@ namespace Impulse.DataAccess.DataContracts
 
 		IRepository<PhotoService> PhotoServices { get; }
 
+		IRepository<Feedback> Feedbacks { get; }
+
 		IRepository<T> GetRepository<T>() where T : class, new();
 		void Save();
 	}

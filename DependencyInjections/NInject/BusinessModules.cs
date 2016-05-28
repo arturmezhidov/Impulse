@@ -40,6 +40,8 @@ namespace Impulse.DependencyInjections.NInjectResolver
 			Bind<IOurWorksItemService>().To<OurWorksItemService>();
 
 			Bind<IPhotoServicesService>().To<PhotoServicesService>();
+
+			Bind<IFeedbackService>().To<FeedbackService>();
 		}
 	}
 }

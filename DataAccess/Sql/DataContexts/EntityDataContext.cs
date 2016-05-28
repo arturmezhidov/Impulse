@@ -41,6 +41,8 @@ namespace Impulse.DataAccess.Sql.DataContexts
 
 		public virtual DbSet<PhotoService> PhotoServices { get; set; }
 
+		public virtual DbSet<Feedback> Feedbacks { get; set; }
+
 		public EntityDataContext(string connectionString)
 			: base(connectionString, throwIfV1Schema: false)
 		{

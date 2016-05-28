@@ -57,6 +57,7 @@
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\BaseGuestOrder.cs" />
     <Compile Include="Entities\BaseOrder.cs" />
+    <Compile Include="Entities\Feedback.cs" />
     <Compile Include="Entities\ProfileUser.cs" />
     <Compile Include="Entities\ServiceGuestOrder.cs" />
     <Compile Include="Entities\ServiceOrder.cs" />

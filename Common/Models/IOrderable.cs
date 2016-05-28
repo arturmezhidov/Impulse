@@ -7,5 +7,6 @@ namespace Impulse.Common.Models
 		string Description { get; set; }
 		bool IsApprove { get; set; }
 		DateTime CreatedDate { get; set; }
+		DateTime ApprovedDate { get; set; }
 	}
 }
