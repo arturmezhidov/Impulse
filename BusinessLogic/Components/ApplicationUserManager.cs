@@ -1,5 +1,4 @@
-﻿using System;
-using Impulse.BusinessLogic.BusinessContracts;
+﻿using Impulse.BusinessLogic.BusinessContracts;
 using Impulse.Common.Models.Entities;
 using Impulse.DataAccess.DataContracts;
 using Microsoft.AspNet.Identity;
@@ -10,10 +9,14 @@ namespace Impulse.BusinessLogic.Components
 	{
 		protected readonly IUnitOfWork UnitOfWork;
 
-		public ApplicationUserManager(IUnitOfWork uow)
-			: base(uow.ApplicationUsers)
+		public ApplicationUserManager(IUnitOfWork uow) : base(uow.ApplicationUsers)
 		{
 			UnitOfWork = uow;
+		}
+		
+		public IUserStore<ApplicationUser> GetUserStore()
+		{
+			return UnitOfWork.ApplicationUsers;
 		}
 	}
 }

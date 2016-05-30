@@ -16,6 +16,8 @@ namespace Impulse.Presenter.WebServices
 {
 	public static class NinjectWebCommon
 	{
+		public static IKernel Kernel { get; set; }
+
 		private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
 		/// <summary>
@@ -51,7 +53,7 @@ namespace Impulse.Presenter.WebServices
 				RegisterServices(kernel);
 
 				GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
-
+				Kernel = kernel;
 				return kernel;
 			}
 			catch

@@ -94,6 +94,7 @@
 								sessionStorage.setItem(tokenKey, data.access_token);
 								console.log(data.access_token);
 							}).fail(function (data) {
+								console.log(data);
 								alert('При логине возникла ошибка');
 							});
 						});
@@ -134,7 +135,7 @@
 </div>
 
 <script>
-	var uri = 'api/advertisements/types';
+	var uri = 'api/AdvertsCategory';
 
 	function success(a, b, c) {
 		console.log('success:');
@@ -192,20 +193,15 @@
 			error: error
 		});
 	});
-	$('#putAll').on('click', function(e) {
-		var data = [
-			{
-				Id: 106,
-				Name: "newNew222222222",
-				Description: "Description",
-				Icon: 'Icon'
-			},
-			{
-				Name: "super",
-				Description: "Description",
-				Icon: 'Icon'
-			}
-		];
+	$('#put').on('click', function(e) {
+		var data =
+		{
+			Id: 106,
+			Name: "newNew222222222",
+			Description: "Description",
+			Icon: 'Icon'
+		};
+
 		$.ajax({
 			url: uri,
 			type: 'PUT',
@@ -218,7 +214,7 @@
 	});
 	$('#delete').on('click', function(e) {
 		$.ajax({
-			url: uri + '/100',
+			url: uri + '/1',
 			type: 'DELETE',
 			contentType: "application/json;charset=utf-8",
 			async: false,

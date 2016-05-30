@@ -22,6 +22,7 @@ namespace Impulse.Presenter.WebServices.Controllers
 		{
 			var response = DataService
 				.GetAll()
+				.ToList()
 				.Select(ToViewModel);
 
 			return Ok(response);

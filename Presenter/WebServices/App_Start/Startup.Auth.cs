@@ -1,7 +1,5 @@
 ﻿using System;
-using Impulse.Presenter.AuthOwin.Managers;
-using Impulse.Presenter.AuthOwin.Models;
-using Impulse.Presenter.AuthOwin.Providers;
+using Impulse.Presenter.WebServices.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -17,14 +15,11 @@ namespace Impulse.Presenter.WebServices
 
 		public static string PublicClientId { get; private set; }
 
-
 		// Дополнительные сведения о настройке аутентификации см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301864
 		public void ConfigureAuth(IAppBuilder app)
 		{
-		
 			// Настройка контекста базы данных и диспетчера пользователей для использования одного экземпляра на запрос
-			ApplicationDbContext.ConntectionString = "DbConnectionString";
-			app.CreatePerOwinContext(ApplicationDbContext.Create);
+			//app.CreatePerOwinContext(ApplicationDbContext.Create);
 			app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
 			// Включение использования файла cookie, в котором приложение может хранить информацию для пользователя, выполнившего вход,
@@ -40,8 +35,7 @@ namespace Impulse.Presenter.WebServices
 				Provider = new ApplicationOAuthProvider(PublicClientId),
 				AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
 				AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-				AllowInsecureHttp = true,
-
+				AllowInsecureHttp = true
 			};
 
 			// Включение использования приложением маркера-носителя для аутентификации пользователей

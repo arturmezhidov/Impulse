@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FiltersConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Models\Application\ProfileUserViewModel.cs" />
     <Compile Include="Models\Application\SlideViewModel.cs" />
     <Compile Include="Models\Application\SocialViewModel.cs" />
+    <Compile Include="Models\ChallengeResult.cs" />
     <Compile Include="Models\OurWorks\OurWorksFolderViewModel.cs" />
     <Compile Include="Models\OurWorks\OurWorksItemViewModel.cs" />
     <Compile Include="Models\Photography\PhotoServiceViewModel.cs" />
@@ -247,6 +249,7 @@
     <Compile Include="Models\Tipographies\TipographyCategoryViewModel.cs" />
     <Compile Include="Models\Tipographies\TipographyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -278,10 +281,6 @@
     <ProjectReference Include="..\..\DependencyInjections\NInject\NInjectResolver.csproj">
       <Project>{7c71dbda-1644-4ccc-8562-0b42393ffb89}</Project>
       <Name>NInjectResolver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AuthOwin\AuthOwin.csproj">
-      <Project>{f078dd26-78f4-468d-a248-99634c6eac20}</Project>
-      <Name>AuthOwin</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

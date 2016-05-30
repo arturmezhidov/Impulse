@@ -6,13 +6,9 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Impulse.BusinessLogic.BusinessContracts;
-using Impulse.Common.Models;
-using Impulse.Common.Models.Entities;
-using Impulse.Presenter.AuthOwin.Managers;
-using Impulse.Presenter.AuthOwin.Models;
-using Impulse.Presenter.AuthOwin.Providers;
+using Impulse.Presenter.WebServices.Models;
 using Impulse.Presenter.WebServices.Models.Application;
+using Impulse.Presenter.WebServices.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -24,35 +20,34 @@ using ApplicationUser = Impulse.Common.Models.Entities.ApplicationUser;
 namespace Impulse.Presenter.WebServices.Controllers.Application
 {
 	[Authorize]
-	[RoutePrefix("api/account")]
+	[RoutePrefix("api/Account")]
 	public class AccountController : ApiController
 	{
 		private const string LocalLoginProvider = "Local";
-		protected readonly IUserManager UserManager;
+		private ApplicationUserManager _userManager;
 
-		public AccountController(IUserManager manager)
+		public AccountController()
 		{
-			UserManager = manager;
 		}
 
-		//public AccountController(ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
-		//{
-		//	UserManager = userManager;
-		//	AccessTokenFormat = accessTokenFormat;
-		//}
+		public AccountController(ApplicationUserManager userManager,
+			ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+		{
+			UserManager = userManager;
+			AccessTokenFormat = accessTokenFormat;
+		}
 
-		//private ApplicationUserManager _userManager;
-		//public ApplicationUserManager UserManager
-		//{
-		//	get
-		//	{
-		//		return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-		//	}
-		//	private set
-		//	{
-		//		_userManager = value;
-		//	}
-		//}
+		public ApplicationUserManager UserManager
+		{
+			get
+			{
+				return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+			}
+			private set
+			{
+				_userManager = value;
+			}
+		}
 
 		public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
@@ -264,9 +259,9 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 			{
 				Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
 
-				ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+				ClaimsIdentity oAuthIdentity = await UserManager.CreateIdentityAsync(user,
 				   OAuthDefaults.AuthenticationType);
-				ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
+				ClaimsIdentity cookieIdentity = await UserManager.CreateIdentityAsync(user,
 					CookieAuthenticationDefaults.AuthenticationType);
 
 				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
@@ -333,30 +328,14 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 				return BadRequest(ModelState);
 			}
 
-			ProfileUser profile = UserManager.Create(new ProfileUser()
-			{
-				Name = model.FirstName,
-				Surname = model.LastName
-			});
+			var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
-			var appUser = new ApplicationUser()
-			{
-				UserName = model.Email,
-				Email = model.Email,
-				ProfileUserId = profile.Id,
-				PhoneNumber = model.Phone
-			};
-
-			IdentityResult result = await UserManager.CreateAsync(appUser, model.Password);
+			IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
 			if (!result.Succeeded)
 			{
-				UserManager.Delete(profile.Id);
-
 				return GetErrorResult(result);
 			}
-
-			UserManager.AddToRole(appUser.Id, SystemRoles.User.ToString());
 
 			return Ok();
 		}
@@ -393,10 +372,6 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 			}
 			return Ok();
 		}
-
-		// POST api/Account/ConfirmLogin
-
-
 
 		protected override void Dispose(bool disposing)
 		{

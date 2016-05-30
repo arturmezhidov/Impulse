@@ -86,6 +86,7 @@
     <Compile Include="Entities\SouvenirCategory.cs" />
     <Compile Include="Entities\Stend.cs" />
     <Compile Include="Entities\StendCategory.cs" />
+    <Compile Include="RegisterUser.cs" />
     <Compile Include="SystemRoles.cs" />
   </ItemGroup>
   <ItemGroup>
