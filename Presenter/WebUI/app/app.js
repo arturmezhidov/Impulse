@@ -1,22 +1,38 @@
-﻿define(['angular', 'ngAnimate'], function (angular) {
+﻿(function () {
 
-	var requires = [
-		'ui.router',
+	'use strict';
+
+	angular.module('dataAccess', ['ngFileUpload']);
+	angular.module('components', []);
+	angular.module('adverts', []);
+	angular.module('feedback', []);
+	angular.module('map', []);
+	angular.module('ourWorks', []);
+	angular.module('photography', []);
+	angular.module('services', []);
+	angular.module('slider', []);
+	angular.module('souvenirs', []);
+	angular.module('stends', []);
+	angular.module('tipographies', []);
+	angular.module('aboutUs', []);
+
+	angular.module('app',
+	[
+		'ngRoute',
 		'ngAnimate',
-		'ngTable',
-		'home',
-		'advertisements',
-		'services',
-		'stends',
-		'souvenirs',
-		'tipographies',
+		'dataAccess',
+		'components',
+		'adverts',
+		'feedback',
+		'map',
+		'ourWorks',
 		'photography',
-		'shop',
-		'our-works',
-		'contacts',
-		'test'
-	];
+		'services',
+		'slider',
+		'souvenirs',
+		'stends',
+		'tipographies',
+		'aboutUs'
+	]);
 
-	return angular.module('app', requires);
-
-});
+})();
