@@ -1,3 +1,102 @@
+.impule-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.impule-dialog .inner-dialog {
+  position: relative;
+  margin: 60px auto 50px;
+  width: 580px;
+  background-color: #f05f40;
+  text-align: center;
+  color: white;
+}
+.impule-dialog .inner-dialog .close-dialog {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: url('/content/img/close.png') no-repeat right;
+}
+.impule-dialog .inner-dialog .header-dialog {
+  padding-top: 20px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.impule-dialog .inner-dialog .header-dialog h2 {
+  font-size: 40px;
+}
+.impule-dialog .inner-dialog .header-dialog p {
+  margin: 20px 20px 5px;
+}
+.impule-dialog .inner-dialog .form-dialog {
+  width: 400px;
+  margin: 0 auto;
+}
+.impule-dialog .inner-dialog .form-dialog input {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  color: #f05f40;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+.impule-dialog .inner-dialog .form-dialog .error,
+.impule-dialog .inner-dialog .form-dialog .errors span {
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+.impule-dialog .inner-dialog .controls-dialog {
+  padding: 20px;
+}
+.impule-dialog .inner-dialog .controls-dialog input {
+  color: #FFF;
+  background: #f05f40;
+  padding: 4px 18px;
+  outline: none;
+  border-radius: 0;
+  border: 3px solid #fff;
+}
+.impule-dialog .inner-dialog .controls-dialog input:hover {
+  border-color: #FFF;
+  color: #f05f40;
+  background: #FFF;
+}
+.impule-dialog .inner-dialog .controls-dialog input:active {
+  outline: none;
+}
+.impule-dialog .inner-dialog .controls-dialog input:focus {
+  outline: none;
+}
+.impule-dialog .inner-dialog .controls-dialog input:visited {
+  outline: none;
+}
+.impule-dialog .inner-dialog .register-now {
+  padding-bottom: 30px;
+}
+.impule-dialog .inner-dialog .register-now .btn-register-now {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.impule-dialog.login .inner-dialog {
+  margin-top: 100px;
+}
+.impule-dialog.login .inner-dialog .header-dialog {
+  padding-top: 40px;
+}
 html,
 body {
   height: 100%;
@@ -78,7 +177,9 @@ aside {
 .navbar-default .nav > li > a:focus {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: #222222;
 }
 .navbar-default .nav > li > a:hover,

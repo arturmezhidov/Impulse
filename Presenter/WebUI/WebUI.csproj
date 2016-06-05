@@ -77,13 +77,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\compareTo.js" />
+    <Content Include="app\components\user\login.controller.js" />
+    <Content Include="app\components\user\register.controller.js" />
+    <Content Include="app\components\user\userService.js" />
     <Content Include="app\config.js" />
+    <Content Include="app\data-access\data-context.service.js" />
     <Content Include="app\data-access\data-services.factory.js" />
+    <Content Include="app\modules\about-us\view.html" />
+    <Content Include="app\modules\adverts\view.html" />
+    <Content Include="app\modules\feedback\view.html" />
+    <Content Include="app\modules\map\view.html" />
+    <Content Include="app\modules\our-works\view.html" />
+    <Content Include="app\modules\photography\view.html" />
+    <Content Include="app\modules\services\view.html" />
+    <Content Include="app\modules\slider\view.html" />
+    <Content Include="app\modules\souvenirs\view.html" />
+    <Content Include="app\modules\stends\view.html" />
+    <Content Include="app\modules\tipographies\view.html" />
     <Content Include="app\pages\home\controller.js" />
     <Content Include="app\pages\home\view.html" />
     <Content Include="app\pages\test\controller.js" />
     <Content Include="app\pages\test\view.html" />
     <Content Include="app\routing.js" />
+    <Content Include="app\run.js" />
     <Content Include="content\css\animate.css" />
     <Content Include="content\css\animate.min.css" />
     <Content Include="content\css\bootstrap-theme.css" />
@@ -98,7 +115,9 @@
     <Content Include="content\css\reset.css" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\img\close.png" />
     <Content Include="content\img\header.jpg" />
+    <Content Include="content\img\header2.jpg" />
     <Content Include="content\img\portfolio\1.jpg" />
     <Content Include="content\img\portfolio\2.jpg" />
     <Content Include="content\img\portfolio\3.jpg" />
@@ -910,6 +929,7 @@
     <Content Include="content\less\main.less" />
     <Content Include="content\less\mixins.less" />
     <Content Include="content\less\variables.less" />
+    <Content Include="content\less\dialogs.less" />
     <None Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1.js" />
     <Content Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1.min.js" />
@@ -1762,20 +1782,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\components\" />
-    <Folder Include="app\modules\about-us\" />
-    <Folder Include="app\modules\adverts\" />
-    <Folder Include="app\modules\feedback\" />
-    <Folder Include="app\modules\map\" />
-    <Folder Include="app\modules\our-works\" />
-    <Folder Include="app\modules\photography\" />
-    <Folder Include="app\modules\services\" />
-    <Folder Include="app\modules\slider\" />
-    <Folder Include="app\modules\souvenirs\" />
-    <Folder Include="app\modules\stends\" />
-    <Folder Include="app\modules\tipographies\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\DependencyInjections\NInject\NInjectResolver.csproj">
       <Project>{7c71dbda-1644-4ccc-8562-0b42393ffb89}</Project>

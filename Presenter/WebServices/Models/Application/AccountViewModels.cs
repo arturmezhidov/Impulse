@@ -41,6 +41,9 @@ namespace Impulse.Presenter.WebServices.Models.Application
 	public class ConfirmLoginViewModel
 	{
 		public bool IsAuthorize { get; set; }
+
 		public bool IsAdmin { get; set; }
+
+		public bool IsSuperAdmin { get; set; }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿@import "variables.less";
 @import "mixins.less";
+@import "dialogs.less";
 
 // Global Components
 html,
@@ -16,6 +17,7 @@ hr {
     border-color: @theme-primary;
     border-width: 3px;
     max-width: 50px;
+	
 }
 
 hr.light {
@@ -94,7 +96,9 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 700;
-                font-size: 13px;
+                font-size: 11px;
+				padding-left: 10px;
+				padding-right: 10px;
                 color: @theme-dark;
                 &:hover {
                     color: @theme-primary;

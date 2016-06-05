@@ -20,6 +20,7 @@
 	[
 		'ngRoute',
 		'ngAnimate',
+		'ngMessages',
 		'dataAccess',
 		'components',
 		'adverts',

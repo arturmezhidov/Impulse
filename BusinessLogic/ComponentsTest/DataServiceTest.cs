@@ -9,13 +9,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ComponentsTest
 {
 	[TestClass]
-	public class UnitOfWorkTest
-	{
+	public class UnitOfWorkTest {
 		public const string ConnectionString = "BLLTestConnectionString";
 		public const int AdvertsCategoriesCount = 100;
 		public const int AdvertsCount = 500;
 		public const string UpdateKey = " - updated";
-
 		[TestMethod]
 		public void CreateCategories()
 		{
@@ -92,7 +90,6 @@ namespace ComponentsTest
 				}
 			}
 		}
-
 		[TestMethod]
 		public void UpdateCategories()
 		{
@@ -141,7 +138,6 @@ namespace ComponentsTest
 				}
 			}
 		}
-
 		[TestMethod]
 		public void RemoveCategories()
 		{

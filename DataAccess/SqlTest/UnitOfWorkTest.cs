@@ -9,13 +9,11 @@ using Impulse.DataAccess.Sql.UnitOfWorks;
 namespace SqlTest
 {
 	[TestClass]
-	public class UnitOfWorkTest
-	{
+	public class UnitOfWorkTest {
 		public const string ConnectionString = "DALTestConnectionString";
 		public const int AdvertsCategoriesCount = 100;
 		public const int AdvertsCount = 500;
 		public const string UpdateKey = " - updated";
-
 		[TestMethod]
 		public void AddCategories()
 		{
@@ -91,7 +89,6 @@ namespace SqlTest
 				}
 			}
 		}
-
 		[TestMethod]
 		public void UpdateCategories()
 		{
@@ -162,7 +159,6 @@ namespace SqlTest
 					}
 				}
 		}
-
 		[TestMethod]
 		public void RemoveCategories()
 		{

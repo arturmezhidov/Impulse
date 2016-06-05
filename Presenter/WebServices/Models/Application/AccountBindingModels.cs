@@ -30,9 +30,22 @@ namespace Impulse.Presenter.WebServices.Models.Application
 
 	public class RegisterBindingModel
 	{
-		[Required]
-		[Display(Name = "Адрес электронной почты")]
+		[Required(ErrorMessage = "Поле обязательно для заполнения")]
+		[MaxLength(128, ErrorMessage = "Длина поля не может превышать 128 символов")]
+		public string FirstName { get; set; }
+
+		[Required(ErrorMessage = "Поле обязательно для заполнения")]
+		[MaxLength(128, ErrorMessage = "Длина поля не может превышать 128 символов")]
+		public string LastName { get; set; }
+
+		[Required(ErrorMessage = "Поле обязательно для заполнения")]
+		[MaxLength(128, ErrorMessage = "Длина поля не может превышать 128 символов")]
 		public string Email { get; set; }
+
+		[Required(ErrorMessage = "Поле обязательно для заполнения")]
+		[MinLength(7, ErrorMessage = "Длина поля не может быть меньше 7 символов")]
+		[MaxLength(15, ErrorMessage = "Длина поля не может превышать 15 символов")]
+		public string Phone { get; set; }
 
 		[Required]
 		[StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
@@ -45,10 +58,6 @@ namespace Impulse.Presenter.WebServices.Models.Application
 		[Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
 		public string ConfirmPassword { get; set; }
 
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public string Login { get; set; }
-		public string Phone { get; set; }
 		public int GroupId { get; set; }
 	}
 

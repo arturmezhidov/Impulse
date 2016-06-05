@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Impulse.Common.Models;
 using Impulse.Presenter.WebServices.Models;
 using Impulse.Presenter.WebServices.Models.Application;
 using Impulse.Presenter.WebServices.Providers;
@@ -338,6 +339,22 @@ namespace Impulse.Presenter.WebServices.Controllers.Application
 			}
 
 			return Ok();
+		}
+
+		// POST api/Account/ConfirmLogin
+		[Route("ConfirmLogin")]
+		[AllowAnonymous]
+		[HttpGet]
+		public IHttpActionResult ConfirmLogin()
+		{
+			ConfirmLoginViewModel model = new ConfirmLoginViewModel
+			{
+				IsAuthorize = User.Identity.IsAuthenticated,
+				IsAdmin = User.IsInRole(SystemRoles.Admin.ToString()),
+				IsSuperAdmin = User.IsInRole(SystemRoles.SuperAdmin.ToString())
+			};
+			
+			return Ok(model);
 		}
 
 		// POST api/Account/RegisterExternal
