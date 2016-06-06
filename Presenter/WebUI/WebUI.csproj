@@ -92,6 +92,12 @@
     <Content Include="app\modules\photography\view.html" />
     <Content Include="app\modules\services\view.html" />
     <Content Include="app\modules\slider\view.html" />
+    <Content Include="app\modules\souvenirs\orders.html" />
+    <Content Include="app\modules\souvenirs\souvenirs-edit.html" />
+    <Content Include="app\modules\souvenirs\categories-view.html" />
+    <Content Include="app\modules\souvenirs\categories-edit.html" />
+    <Content Include="app\modules\souvenirs\souvenirs-view.html" />
+    <Content Include="app\modules\souvenirs\view-controller.js" />
     <Content Include="app\modules\souvenirs\view.html" />
     <Content Include="app\modules\stends\view.html" />
     <Content Include="app\modules\tipographies\view.html" />

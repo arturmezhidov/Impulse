@@ -21,6 +21,7 @@
 		'ngRoute',
 		'ngAnimate',
 		'ngMessages',
+		'ngTable',
 		'dataAccess',
 		'components',
 		'adverts',
