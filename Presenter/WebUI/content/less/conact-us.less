@@ -1,0 +1,250 @@
+﻿@import 'variables.less';
+
+.contact-us {
+	width: 100%;
+	min-height: 600px;
+	margin: 0;
+	padding: 50px 20px;
+	background: url('/content/img/bg-contact-us.jpg') no-repeat center center;
+	background-size: cover;
+	color: #FFF;
+	text-shadow: #AAAAAA 0 0 1px;
+
+	.section-heading {
+		font-size: 48px;
+		color: #FFF;
+		text-shadow: #AAAAAA 0 0 1px;
+	}
+
+	.contact-forms {
+		margin-top: 40px;
+
+		.btn.send {
+			border-radius: 0;
+			background: none;
+			color: #FFF;
+			border: 2px solid #FFF;
+			font-size: 18px;
+			margin-left: 15px;
+			margin-top: 36px;
+
+			&:hover {
+				background: #FFF;
+				color: #000;
+			}
+		}
+	}
+
+	.contact-item {
+		display: table;
+		margin-bottom: 40px;
+
+		.icon-block {
+			display: table-cell;
+			vertical-align: middle;
+			width: 90px;
+
+			.fa {
+				font-size: 80px;
+			}
+		}
+
+		.text-block {
+			display: table-cell;
+			vertical-align: middle;
+
+			.name {
+				margin: 0;
+				border-bottom: 2px solid;
+				font-size: 16px;
+			}
+
+			.text {
+				margin: 0;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.errors {
+		margin-top:20px;
+	}
+	.ng-table th.sortable .sort-indicator:after,
+	.ng-table th.sortable .sort-indicator:before {
+		border-color: #FFF transparent;
+	}
+
+	.table {
+		margin-top: 40px;
+
+		input.input-filter {
+			background: none;
+			color: white;
+		}
+
+		button.approve {
+			background: limegreen;
+			opacity: 1;
+		}
+	}
+
+	.btn-messages, .btn-form {
+		position: absolute;
+		right: 100px;
+		cursor: pointer;
+
+		.fa {
+			font-size: 55px;
+			display: block;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		span {
+			font-size: 12px;
+		}
+
+		&:hover {
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.input {
+		position: relative;
+		z-index: 1;
+		display: inline-block;
+		margin: 1em;
+		width: calc(100% - 2em);
+		vertical-align: top;
+	}
+
+	.input__field {
+		position: relative;
+		display: block;
+		float: right;
+		padding: 0.8em;
+		width: 60%;
+		border: none;
+		border-radius: 0;
+		color: #FFF;
+		color: #aaa;
+		font-size: 22px;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		-webkit-appearance: none; /* for box shadows to show on iOS */
+		text-shadow: #AAAAAA 0 0 1px;
+	}
+
+	.input__field:focus {
+		outline: none;
+	}
+
+	.input__label {
+		display: inline-block;
+		float: right;
+		padding: 0 1em;
+		width: 40%;
+		color: #FFF;
+		font-weight: bold;
+		font-size: 70.25%;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.input__label-content {
+		position: relative;
+		display: block;
+		padding: 1.6em 0;
+		width: 100%;
+	}
+
+	.graphic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		fill: none;
+	}
+
+	.icon {
+		color: #ddd;
+		font-size: 150%;
+	}
+	/* Madoka */
+	.input--madoka {
+		margin: 1.1em;
+		margin-top: 30px;
+	}
+
+	.input__field--madoka {
+		width: 100%;
+		background: transparent;
+		color: #FFF;
+	}
+
+	.input__label--madoka {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		color: #FFF;
+		text-align: left;
+		cursor: text;
+	}
+
+	.input__label-content--madoka {
+		-webkit-transform-origin: 0% 50%;
+		transform-origin: 0% 50%;
+		-webkit-transition: -webkit-transform 0.3s;
+		transition: transform 0.3s;
+		font-size: 16px;
+	}
+
+	.graphic--madoka {
+		-webkit-transform: scale3d(1, -1, 1);
+		transform: scale3d(1, -1, 1);
+		-webkit-transition: stroke-dashoffset 0.3s;
+		transition: stroke-dashoffset 0.3s;
+		pointer-events: none;
+		stroke: #FFF;
+		stroke-width: 4px;
+		stroke-dasharray: 962;
+		stroke-dashoffset: 558;
+	}
+
+	.textarea {
+		textarea {
+			height: 150px;
+		}
+
+		.graphic--madoka {
+			stroke-width: 2px;
+		}
+
+		.input__label-content {
+			margin-top: 85px;
+		}
+	}
+
+	.input__field--madoka:focus + .input__label--madoka,
+	.input--filled .input__label--madoka {
+		cursor: default;
+		pointer-events: none;
+	}
+
+	.input__field--madoka:focus + .input__label--madoka .graphic--madoka,
+	.input--filled .graphic--madoka {
+		stroke-dashoffset: 0;
+	}
+
+	.input__field--madoka:focus + .input__label--madoka .input__label-content--madoka,
+	.input--filled .input__label-content--madoka {
+		-webkit-transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
+		transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
+	}
+}

@@ -1,4 +1,5 @@
-﻿using Impulse.BusinessLogic.BusinessContracts;
+﻿using System.Web.Http;
+using Impulse.BusinessLogic.BusinessContracts;
 using Impulse.Common.Components;
 using Impulse.Common.Models.Entities;
 using Impulse.Presenter.WebServices.Models.Souvenirs;
@@ -20,7 +21,7 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 			var result = base.ToViewModel(model);
 			var items = Mapper.MappCollection<Souvenir, SouvenirViewModel>(model.Souvenirs);
 
-			result.Souvenirs.AddRange(items);
+			//result.Souvenirs.AddRange(items);
 
 			return result;
 		}

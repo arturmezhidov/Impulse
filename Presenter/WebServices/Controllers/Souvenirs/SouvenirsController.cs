@@ -8,6 +8,11 @@ namespace Impulse.Presenter.WebServices.Controllers.Souvenirs
 	{
 		protected ISouvenirService BusinessService;
 
+		protected override string FileDirectory
+		{
+			get { return base.FileDirectory + "Souvenirs/"; }
+		}
+
 		public SouvenirsController(ISouvenirService service)
 			: base(service)
 		{

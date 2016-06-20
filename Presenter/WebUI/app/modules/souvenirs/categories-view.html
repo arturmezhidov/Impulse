@@ -1,30 +1,8 @@
-﻿<div class="container">
-
-	<!--<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-		<option value="-1" selected>Choose your favorite animal</option>
-		<option value="1" class="icon-monkey">Monkey</option>
-		<option value="2" class="icon-bear">Bear</option>
-		<option value="3" class="icon-squirrel">Squirrel</option>
-		<option value="4" class="icon-elephant">Elephant</option>
-	</select>
-
-	<script type="text/javascript">
-
-			$( function() {
-
-				$( '#cd-dropdown' ).dropdown( {
-					gutter : 5
-				} );
-
-			});
-
-	</script>-->
-
-
+﻿<div class="container souvenirs-categories-list">
 
 	<ul class="ch-grid">
 		<li ng-repeat="category in categories">
-			<div class="ch-item" style="background-image: url(/images/souvenirs/categories/{{category.Icon}})">
+			<div class="ch-item" ng-click="selectCategory(category)" style="background-image: url(/images/souvenirs/categories/{{category.Icon}})">
 				<div class="ch-info-wrap">
 					<div class="ch-info">
 						<div class="ch-info-front" style="background-image: url(/images/souvenirs/categories/{{category.Icon}}); background-size: contain;"></div>

@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Impulse.Presenter.WebServices.Formatters;
 using Microsoft.Owin.Security.OAuth;
 
 namespace Impulse.Presenter.WebServices
@@ -19,6 +20,8 @@ namespace Impulse.Presenter.WebServices
 				routeTemplate: "api/{controller}/{id}",
 				defaults: new { id = RouteParameter.Optional }
 			);
+
+			config.Formatters.Add(new FileModelFormatter());
 		}
 	}
 }

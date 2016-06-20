@@ -1,0 +1,173 @@
+﻿<section class="contact-us" ng-controller="contactusController">
+
+	<span class="btn-messages" ng-click="openMessages()" ng-hide="contactUsState == 'messages'" ng-if="user.isAdmin">
+		<i class="fa fa-envelope-o" aria-hidden="true"></i>
+		<span>Новых сообщений {{newMessagesCount()}}</span>
+	</span>
+
+	<span class="btn-form" ng-click="openForm()" ng-hide="contactUsState == 'form'" ng-if="user.isAdmin">
+		<i class="fa fa-wpforms" aria-hidden="true"></i>
+		<span>Вернуться к форме</span>
+	</span>
+
+	<div class="container">
+
+		<div ng-switch="contactUsState">
+			<div ng-switch-when="form" data-ng-init="initControls()">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 text-center">
+						<h2 class="section-heading">Как с нами связаться</h2>
+						<hr class="primary">
+					</div>
+				</div>
+				<div class="row contact-forms">
+					<div class="col-md-6">
+						<div class="contact-item">
+							<div class="icon-block">
+								<i class="fa fa-facebook" aria-hidden="true"></i>
+							</div>
+							<div class="text-block">
+								<p class="name">Facebook</p>
+								<p class="text">www.facebook.com</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="icon-block">
+								<i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+							</div>
+							<div class="text-block">
+								<p class="name">Odnoklassniki</p>
+								<p class="text">www.odnoklassniki.com</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="icon-block">
+								<i class="fa fa-instagram" aria-hidden="true"></i>
+							</div>
+							<div class="text-block">
+								<p class="name">Instagram</p>
+								<p class="text">impulse095</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="icon-block">
+								<i class="fa fa-whatsapp" aria-hidden="true"></i>
+							</div>
+							<div class="text-block">
+								<p class="name">Whatsapp</p>
+								<p class="text">8928 888 14 10</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="icon-block">
+								<i class="fa fa-yahoo" aria-hidden="true"></i>
+							</div>
+							<div class="text-block">
+								<p class="name">Yandex</p>
+								<p class="text">impulse095@yandex.ru</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6" id="feedbackForm">
+						<h2 class="text-center">Форма обратной связи</h2>
+						<form name="feedbackForm" novalidate>
+							<span class="input input--madoka">
+								<input class="input__field input__field--madoka" type="text" id="input-31" name="name" ng-model="$parent.name" required maxlength=128 />
+								<label class="input__label input__label--madoka" for="input-31">
+									<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+										<path d="m0,0l404,0l0,77l-404,0l0,-77z" />
+									</svg>
+									<span class="input__label-content input__label-content--madoka">Имя</span>
+								</label>
+							</span>
+							<div ng-messages="feedbackForm.name.$error" class="errors" ng-show="submiting">
+								<span class="messages" ng-message="required">Поле обязательно для заполнения</span>
+								<span class="messages" ng-message="maxlength">Длина поля не может превышать 128 символов</span>
+							</div>
+							<span class="input input--madoka">
+								<input class="input__field input__field--madoka" type="text" id="input-32" name="contacts" ng-model="$parent.contacts" required minlength=5 maxlength=128 />
+								<label class="input__label input__label--madoka" for="input-32">
+									<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+										<path d="m0,0l404,0l0,77l-404,0l0,-77z" />
+									</svg>
+									<span class="input__label-content input__label-content--madoka">Почта или номер телефона</span>
+								</label>
+							</span>
+							<div ng-messages="feedbackForm.contacts.$error" class="errors" ng-show="submiting">
+								<span class="messages" ng-message="required">Поле обязательно для заполнения</span>
+								<span class="messages" ng-message="minlength">Длина поля не может быть меньше 5 символов</span>
+								<span class="messages" ng-message="maxlength">Длина поля не может превышать 128 символов</span>
+							</div>
+							<span class="input input--madoka textarea">
+								<textarea class="input__field input__field--madoka" id="input-33" name="feedbackMessage" ng-model="$parent.feedbackMessage" required minlength=10 maxlength=2048></textarea>
+								<label class="input__label input__label--madoka" for="input-33">
+									<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+										<path d="m0,0l404,0l0,77l-404,0l0,-77z" />
+									</svg>
+									<span class="input__label-content input__label-content--madoka">Сообщение</span>
+								</label>
+							</span>
+							<div ng-messages="feedbackForm.feedbackMessage.$error" class="errors" ng-show="submiting">
+								<span class="messages" ng-message="required">Поле обязательно для заполнения</span>
+								<span class="messages" ng-message="minlength">Длина поля не может быть меньше 10 символов</span>
+								<span class="messages" ng-message="maxlength">Длина поля не может превышать 2048 символов</span>
+							</div>
+							<span>
+								<button class="btn btn-primary send" ng-click="send(feedbackForm)"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Отправить</button>
+							</span>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div ng-switch-when="messages">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 text-center">
+						<h2 class="section-heading">Сообщения</h2>
+						<hr class="primary">
+					</div>
+				</div>
+				<table ng-table="tableParams" show-filter="true" class="table table-condensed table-bordered">
+					<colgroup>
+						<col width="150px" />
+						<col width="150px" />
+						<col width="" />
+						<col width="140px" />
+						<col width="140px" />
+						<col width="80px" />
+					</colgroup>
+					<tr ng-repeat="row in $data" ng-form="rowForm">
+
+						<td title="'Имя'" filter="{ Name: 'text'}" sortable="'Name'" ng-form="cellName">
+							<span>{{row.Name}}</span>
+						</td>
+
+						<td title="'Контакты'" filter="{ Contacts: 'text'}" sortable="'Contacts'" ng-form="cellName">
+							<span>{{row.Contacts}}</span>
+						</td>
+
+
+						<td title="'Сообщение'" filter="{ Message: 'text'}" sortable="'Message'" ng-form="cellName">
+							<span>{{row.Message}}</span>
+						</td>
+
+						<td title="'Дата'" filter="{ CreatedDate: 'text'}" sortable="'CreatedDate'" ng-form="cellName">
+							<span>{{row.CreatedDate | date:'yyyy-MM-dd hh:mm:ss'}}</span>
+						</td>
+
+						<td title="'Принят'" filter="{ ApprovedDate: 'text'}" sortable="'ApprovedDate'" ng-form="cellName">
+							<span ng-show="row.IsApprove">{{row.ApprovedDate | date:'yyyy-MM-dd hh:mm:ss'}}</span>
+						</td>
+
+						<td>
+							<button class="btn btn-primary btn-sm" ng-class="{'approve': row.IsApprove}" ng-click="approve(row)" ng-disabled="row.IsApprove"><span class="glyphicon glyphicon-ok"></span></button>
+							<button class="btn btn-danger btn-sm" ng-click="remove(row)"><span class="glyphicon glyphicon-trash"></span></button>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+
+</section>

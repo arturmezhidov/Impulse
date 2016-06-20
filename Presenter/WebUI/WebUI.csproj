@@ -78,6 +78,11 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\components\compareTo.js" />
+    <Content Include="app\components\dialogs\alert\alert.html" />
+    <Content Include="app\components\dialogs\alert\alert.js" />
+    <Content Include="app\components\extensions.js" />
+    <Content Include="app\components\gmap\gmap.js" />
+    <Content Include="app\components\gmap\view.html" />
     <Content Include="app\components\user\login.controller.js" />
     <Content Include="app\components\user\register.controller.js" />
     <Content Include="app\components\user\userService.js" />
@@ -86,12 +91,21 @@
     <Content Include="app\data-access\data-services.factory.js" />
     <Content Include="app\modules\about-us\view.html" />
     <Content Include="app\modules\adverts\view.html" />
-    <Content Include="app\modules\feedback\view.html" />
+    <Content Include="app\modules\contact-us\view-controller.js" />
+    <Content Include="app\modules\contact-us\view.html" />
     <Content Include="app\modules\map\view.html" />
+    <Content Include="app\modules\our-works\folders-view.controller.js" />
+    <Content Include="app\modules\our-works\folders-view.html" />
+    <Content Include="app\modules\our-works\items-edit.html" />
+    <Content Include="app\modules\our-works\items-edit.controller.js" />
+    <Content Include="app\modules\our-works\folders-edit.controller.js" />
+    <Content Include="app\modules\our-works\folders-edit.html" />
+    <Content Include="app\modules\our-works\view.controller.js" />
     <Content Include="app\modules\our-works\view.html" />
     <Content Include="app\modules\photography\view.html" />
     <Content Include="app\modules\services\view.html" />
     <Content Include="app\modules\slider\view.html" />
+    <Content Include="app\modules\souvenirs\categories-edit.controller.js" />
     <Content Include="app\modules\souvenirs\orders.html" />
     <Content Include="app\modules\souvenirs\souvenirs-edit.html" />
     <Content Include="app\modules\souvenirs\categories-view.html" />
@@ -100,6 +114,7 @@
     <Content Include="app\modules\souvenirs\view-controller.js" />
     <Content Include="app\modules\souvenirs\view.html" />
     <Content Include="app\modules\stends\view.html" />
+    <Content Include="app\modules\tipographies\view.controller.js" />
     <Content Include="app\modules\tipographies\view.html" />
     <Content Include="app\pages\home\controller.js" />
     <Content Include="app\pages\home\view.html" />
@@ -121,9 +136,19 @@
     <Content Include="content\css\reset.css" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\fonts\icomoon.svg" />
+    <Content Include="content\img\about-us\1.png" />
+    <Content Include="content\img\about-us\2.png" />
+    <Content Include="content\img\about-us\3.png" />
+    <Content Include="content\img\about-us\4.png" />
+    <Content Include="content\img\about-us\5.png" />
+    <Content Include="content\img\about-us\6.png" />
+    <Content Include="content\img\about-us\7.png" />
+    <Content Include="content\img\about-us\8.png" />
+    <Content Include="content\img\about-us\9.png" />
     <Content Include="content\img\close.png" />
     <Content Include="content\img\header.jpg" />
-    <Content Include="content\img\header2.jpg" />
+    <Content Include="content\img\bg-contact-us.jpg" />
     <Content Include="content\img\portfolio\1.jpg" />
     <Content Include="content\img\portfolio\2.jpg" />
     <Content Include="content\img\portfolio\3.jpg" />
@@ -131,6 +156,24 @@
     <Content Include="content\img\portfolio\5.jpg" />
     <Content Include="content\img\portfolio\6.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="images\souvenirs\categories\brelki.png" />
+    <Content Include="images\souvenirs\categories\chehlytel.png" />
+    <Content Include="images\souvenirs\categories\footbolka.png" />
+    <Content Include="images\souvenirs\categories\kamni.png" />
+    <Content Include="images\souvenirs\categories\kristaly.png" />
+    <Content Include="images\souvenirs\categories\kruzhka.png" />
+    <Content Include="images\souvenirs\categories\podushka.png" />
+    <Content Include="images\souvenirs\categories\tarelka.png" />
+    <Content Include="images\souvenirs\items\bel.jpg" />
+    <Content Include="images\souvenirs\items\red.jpg" />
+    <Content Include="images\souvenirs\items\ser.JPG" />
+    <Content Include="images\souvenirs\items\zol.JPG" />
+    <Content Include="images\tipography\1.jpg" />
+    <Content Include="images\tipography\2.jpg" />
+    <Content Include="images\tipography\3.jpg" />
+    <Content Include="images\tipography\4.jpg" />
+    <Content Include="images\tipography\5.jpg" />
+    <Content Include="images\tipography\6.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\cbpAnimatedHeader.js" />
@@ -139,6 +182,7 @@
     <Content Include="js\jquery.easing.min.js" />
     <Content Include="js\jquery.fittext.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.stapel.js" />
     <Content Include="js\wow.min.js" />
     <Content Include="packages\angularjs.1.5.3\content\Scripts\angular-animate.js" />
     <Content Include="packages\angularjs.1.5.3\content\Scripts\angular-animate.min.js" />
@@ -936,6 +980,16 @@
     <Content Include="content\less\mixins.less" />
     <Content Include="content\less\variables.less" />
     <Content Include="content\less\dialogs.less" />
+    <Content Include="content\less\souvenirs.less" />
+    <Content Include="content\less\dropdown.less" />
+    <Content Include="content\fonts\icomoon.eot" />
+    <Content Include="content\fonts\icomoon.ttf" />
+    <Content Include="content\fonts\icomoon.woff" />
+    <Content Include="content\less\tab.less" />
+    <Content Include="content\less\conact-us.less" />
+    <Content Include="content\less\map.less" />
+    <Content Include="content\less\about-us.less" />
+    <Content Include="content\less\our-works.less" />
     <None Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1.js" />
     <Content Include="packages\jQuery.1.9.1\Content\Scripts\jquery-1.9.1.min.js" />
@@ -953,6 +1007,7 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery.dropdown.js" />
     <Content Include="Scripts\ng-file-upload-all.js" />
     <Content Include="Scripts\ng-file-upload-all.min.js" />
     <Content Include="Scripts\ng-file-upload-shim.js" />
@@ -1788,7 +1843,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="app\components\dropdown\" />
+    <Folder Include="images\our-works\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DependencyInjections\NInject\NInjectResolver.csproj">
       <Project>{7c71dbda-1644-4ccc-8562-0b42393ffb89}</Project>

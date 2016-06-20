@@ -67,7 +67,8 @@
 			}
 		}
 		function save(row) {
-			dataContext.souvenirsCategories.update(row, function (response) {
+			row.Icon = row.file.name;
+			dataContext.souvenirsCategories.upload(row.file, row, function (response) {
 				row.isEditing = false;
 				row.isAdding = false;
 				angular.extend(row, response.data);

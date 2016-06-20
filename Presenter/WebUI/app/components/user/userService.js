@@ -14,15 +14,15 @@
 			isAuthorize: false,
 			isAdmin: false,
 			isSuperAdmin: false,
-			login: function() {
+			login: function () {
 				$rootScope.registering = false;
 				$rootScope.loging = true;
 			},
-			register: function() {
+			register: function () {
 				$rootScope.registering = true;
 				$rootScope.loging = false;
 			},
-			logOut: function() {
+			logOut: function () {
 				logout();
 			}
 		}
@@ -31,6 +31,8 @@
 		this.login = login;
 		this.logout = logout;
 		this.confirmLogin = confirmLogin;
+		this.token = token;
+		this.tokenType = tokenType;
  
 		function register(user) {
 			return $http({

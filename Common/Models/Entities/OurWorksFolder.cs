@@ -9,10 +9,10 @@ namespace Impulse.Common.Models.Entities
 		[MaxLength(1024)]
 		public string Name { get; set; }
 
-		[MaxLength(2048)]
+		//[MaxLength(2048)]
 		public string Description { get; set; }
 
-		[Required]
+		//[Required]
 		[MaxLength(1024)]
 		public string Icon { get; set; }
 

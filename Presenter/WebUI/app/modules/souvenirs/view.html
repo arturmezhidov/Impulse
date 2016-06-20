@@ -16,6 +16,22 @@
 		<span ng-click="orders()" ng-class="{'active-tab': page == 'orders'}">Список заказов</span>
 	</div>
 
+	<div ng-show="getSelected().length" class="orders-panel" ng-click="showOrders = !showOrders" ng-class="{'show-orders': showOrders }">
+		<i class="fa fa-angle-double-down" aria-hidden="true" ng-show="!showOrders"></i>
+		<i class="fa fa-angle-double-up" aria-hidden="true" ng-show="showOrders"></i>
+		<span>Выбранная продукция</span>
+	</div>
+	<div ng-show="getSelected().length && showOrders" class="orders-list" ng-class="{'show-orders': showOrders }">
+		<div ng-repeat="category in getSelected()">
+			<p class="category">{{category.Name}}</p>
+			<div ng-repeat="souvenir in category.Souvenirs" ng-show="souvenir.Count">
+				<p class="item">{{souvenir.Name}} ({{souvenir.Count}})</p>
+			</div>
+		</div>
+		<button class="btn-order" ng-click="order()">Заказать</button>
+		<button class="btn-order clear" ng-click="cearOrder()">Очистить</button>
+	</div>
+
 	<div ng-switch="page">
 		<div ng-switch-when="categoriesView">
 			<ng-include src="'app/modules/souvenirs/categories-view.html'"></ng-include>

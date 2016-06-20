@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts;
 using Impulse.Common.Components;
@@ -33,27 +34,27 @@ namespace Impulse.Presenter.WebServices.Controllers
 			return Ok(response);
 		}
 
-		[HttpPost]
-		[ModelCheck]
-		public override IHttpActionResult Create(TViewModel vm)
-		{
-			var model = ToModel(vm);
-			var result = DataService.Create(model);
-			var response = ToViewModel(result);
+		//[HttpPost]
+		//[ModelCheck]
+		//public override IHttpActionResult Create(TViewModel vm)
+		//{
+		//	var model = ToModel(vm);
+		//	var result = DataService.Create(model);
+		//	var response = ToViewModel(result);
 
-			return Ok(response);
-		}
+		//	return Ok(response);
+		//}
 
-		[HttpPut]
-		[ModelCheck]
-		public override IHttpActionResult Update(TViewModel vm)
-		{
-			var model = ToModel(vm);
-			var result = DataService.Update(model);
-			var response = ToDetailsModel(result);
+		//[HttpPut]
+		//[ModelCheck]
+		//public override async Task<IHttpActionResult> Update(TViewModel vm)
+		//{
+		//	var model = ToModel(vm);
+		//	var result = DataService.Update(model);
+		//	var response = ToDetailsModel(result);
 
-			return Ok(response);
-		}
+		//	return Ok(response);
+		//}
 
 		protected virtual TModel ToModel(TDetailsModel details)
 		{

@@ -1,8 +1,27 @@
-﻿ <aside class="bg-dark our-works">
-	<div class="container text-center">
-		<div class="call-to-action">
-			<h2>Free Download at Start Bootstrap!</h2>
-			<a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
-		</div>
-	</div>
-</aside>
+﻿ <section class="our-works" ng-controller="ourWorksController">
+	 <div class="container text-center">
+		 <div class="call-to-action">
+			 <h2>Наши работы</h2>
+			 <hr class="primary">
+		 </div>
+	 </div>
+
+	 <div class="tab-controls tab-primary" ng-show="user.isAdmin">
+		<span ng-click="foldersView()" ng-class="{'active-tab': page == 'foldersView'}">Главная страница</span>
+		 <span ng-click="foldersEdit()" ng-class="{'active-tab': page == 'foldersEdit'}">Настройки папок</span>
+		 <span ng-click="itemsEdit()" ng-class="{'active-tab': page == 'itemsEdit'}">Настройки элементов</span>
+	 </div>
+
+ 	<div ng-switch="page">
+	 	<div ng-switch-when="foldersView">
+	 		<ng-include src="'app/modules/our-works/folders-view.html'"></ng-include>
+	 	</div>
+	 	<div ng-switch-when="foldersEdit">
+			<ng-include src="'app/modules/our-works/folders-edit.html'"></ng-include>
+	 	</div>
+	 	<div ng-switch-when="itemsEdit">
+			<ng-include src="'app/modules/our-works/items-edit.html'"></ng-include>
+	 	</div>
+ 	</div>
+
+</section>

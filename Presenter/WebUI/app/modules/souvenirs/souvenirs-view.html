@@ -1,2 +1,41 @@
-﻿<h1>Souvenirs view</h1>
+﻿<div class="container souvenirs-list">
 
+	<i class="fa fa-arrow-circle-o-left nav-fa" aria-hidden="true" ng-click="categoriesView()"></i>
+
+	<!--<select id="cd-dropdown" name="cd-dropdown" class="cd-select" ng-model="selectedCategory">
+
+		<option ng-repeat="category in categories" value="category">{{category.Name}}</option>
+
+		
+	</select>
+
+	<script type="text/javascript">
+
+		$('#cd-dropdown').dropdown({
+			gutter: 5
+		});
+
+	</script>-->
+
+
+	<ul class="ch-grid">
+		<li ng-repeat="souvenir in selectedCategory.Souvenirs">
+			<div class="ch-item" style="background-image: url(/images/souvenirs/items/{{souvenir.Image}})">
+				<div class="ch-info">
+					<h3>{{souvenir.Name}}</h3>
+					<p>Подробнее</p>
+				</div>
+			</div>
+			<div class="orders-controls">
+				<button class="btn btn-default" ng-click="souvenir.Count = souvenir.Count - 1;" ng-disabled="!souvenir.Count || souvenir.Count <= 0">-</button>
+				<input type="text" ng-model="souvenir.Count" placeholder="0" readonly ng-class="{'selected': souvenir.Count && souvenir.Count > 0}" />
+				<button class="btn btn-primary" ng-click="souvenir.Count = souvenir.Count + 1;">+</button>
+			</div>
+			<div class="description">
+				<p>{{souvenir.Description}}</p>
+			</div>
+		</li>
+	</ul>
+
+
+</div>

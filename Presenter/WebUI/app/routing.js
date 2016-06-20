@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular.module('app')
-		.config(['$routeProvider', function ($routeProvider) {
+		.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 			$routeProvider
 				.when('/', {
 					templateUrl: 'app/pages/home/view.html',
@@ -18,6 +18,9 @@
 				.otherwise({
 					redirectTo: '/'
 				});
-		}]);
 
+			//$locationProvider.html5Mode(true);
+
+		}]);
+		
 })();

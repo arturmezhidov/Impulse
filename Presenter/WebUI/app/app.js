@@ -5,8 +5,6 @@
 	angular.module('dataAccess', ['ngFileUpload']);
 	angular.module('components', []);
 	angular.module('adverts', []);
-	angular.module('feedback', []);
-	angular.module('map', []);
 	angular.module('ourWorks', []);
 	angular.module('photography', []);
 	angular.module('services', []);
@@ -25,8 +23,6 @@
 		'dataAccess',
 		'components',
 		'adverts',
-		'feedback',
-		'map',
 		'ourWorks',
 		'photography',
 		'services',

@@ -1,8 +1,16 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using Impulse.BusinessLogic.BusinessContracts;
 using Impulse.Common.Components;
 using Impulse.Presenter.WebServices.Filters;
+using Impulse.Presenter.WebServices.Providers;
+using Newtonsoft.Json;
 
 namespace Impulse.Presenter.WebServices.Controllers
 {
@@ -11,6 +19,7 @@ namespace Impulse.Presenter.WebServices.Controllers
 		where TViewModel : class, new()
 	{
 		protected readonly IDataService<TModel> DataService;
+		protected virtual string FileDirectory { get { return "~/Images/"; } }
 
 		protected BaseApiController(IDataService<TModel> dataService)
 		{
@@ -37,9 +46,13 @@ namespace Impulse.Presenter.WebServices.Controllers
 		}
 
 		[HttpPost]
-		[ModelCheck]
 		public virtual IHttpActionResult Create(TViewModel vm)
 		{
+			if (vm == null)
+			{
+				return BadRequest(ModelState);
+			}
+
 			var model = ToModel(vm);
 			var result = DataService.Create(model);
 			var response = ToViewModel(result);
@@ -48,9 +61,13 @@ namespace Impulse.Presenter.WebServices.Controllers
 		}
 
 		[HttpPut]
-		[ModelCheck]
 		public virtual IHttpActionResult Update(TViewModel vm)
 		{
+			if (vm == null)
+			{
+				return BadRequest(ModelState);
+			}
+
 			var model = ToModel(vm);
 			var result = DataService.Update(model);
 			var response = ToViewModel(result);

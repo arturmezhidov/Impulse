@@ -1,0 +1,51 @@
+﻿<div class="container" ng-controller="ourWorksFolderEditController">
+
+	<div class="table-manage-panel">
+		<button class="btn btn-default" ng-click="add()">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+	</div>
+
+	<table ng-table="tableParams" show-filter="true" class="table table-condensed table-bordered table-striped">
+
+		<colgroup>
+			<col width="100px"/>
+			<col width=""/>
+			<col width="80px" />
+		</colgroup>
+
+		<tr ng-repeat="row in $data" ng-form="rowForm">
+
+			<td title="'Id'" data-title="'Id'" filter="{ Id: 'number'}" sortable="'Id'">{{row.Id}}</td>
+
+			<td title="'Название'" filter="{ Name: 'text'}" sortable="'Name'" ng-form="cellName" ng-class="cellName.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Name}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellName.$invalid && cellName.$dirty ? 'has-error' : ''">
+					<input type="text" name="Name" ng-model="row.Name" class="editable-input form-control input-sm" required/>
+				</div>
+			</td>
+
+			<!--<td title="'Описание'" filter="{ Description: 'text'}" sortable="'Description'" ng-form="cellDescription" ng-class="cellDescription.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Description}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellDescription.$invalid && cellDescription.$dirty ? 'has-error' : ''">
+					<input type="text" name="Description" ng-model="row.Description" class="editable-input form-control input-sm" required/>
+				</div>
+			</td>-->
+
+			<!--<td title="'Иконки'" filter="{ Icon: 'text'}" sortable="'Icon'" ng-form="cellIcon" ng-class="cellIcon.$dirty ? 'bg-warning' : ''">
+				<span ng-if="!row.isEditing">{{row.Icon}}</span>
+				<div ng-if="row.isEditing" class="controls" ng-class="cellIcon.$invalid && cellIcon.$dirty ? 'has-error' : ''">
+					<button class="btn btn-default btn-input-file" type="button" ngf-select ng-model="row.file" ngf-multiple="false">{{row.file.name || row.Icon}}</button>
+				</div>
+			</td>-->
+
+			<td>
+				<button class="btn btn-primary btn-sm" ng-click="save(row)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="cancel(row)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+				<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button class="btn btn-danger btn-sm" ng-click="remove(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		</tr>
+	</table>
+
+</div>
